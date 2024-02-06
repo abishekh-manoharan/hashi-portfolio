@@ -1,5 +1,15 @@
+import { Dispatch, SetStateAction, useEffect } from "react";
 
-function Contact() {
+interface contactProps {
+    setLocation: Dispatch<SetStateAction<string>>;
+}
+
+function Contact(props: contactProps) {
+    useEffect(() => {
+        props.setLocation('Contact')
+    }, [props]);
+
+    
     return (
         <div>
             Contact

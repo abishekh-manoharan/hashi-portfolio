@@ -1,8 +1,17 @@
+import { Dispatch, SetStateAction, useEffect } from "react";
 
-function About() {
+interface aboutProps {
+    setLocation: Dispatch<SetStateAction<string>>;
+}
+
+function About(props: aboutProps) {
+    useEffect(() => {
+        props.setLocation('About')
+    }, [props]);
+
     return (
         <div>
-            About            
+            About
         </div>
     );
 }
