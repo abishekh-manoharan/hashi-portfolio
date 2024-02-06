@@ -9,7 +9,7 @@ function Home() {
             <div className="home-content">
 
                 <div className="name">Hashveenah Manoharan</div>
-                <div className="title">Arborist, Artist</div>
+                <div className="title">Arborist, Artist.</div>
                 <div className="home-nav">
                     <div className="home-nav-link"><Link to='about'>ABOUT</Link></div>
                     <div className="home-nav-link"><Link to='projects'>PROJECTS</Link></div>
