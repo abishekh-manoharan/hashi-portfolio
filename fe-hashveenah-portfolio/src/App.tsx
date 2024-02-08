@@ -6,8 +6,11 @@ import Project from "./components/Projects/Project"
 import Contact from "./components/Contact"
 import Header from "./components/Header"
 import { useState } from "react"
+import { register } from 'swiper/element/bundle';
 
 function App() {
+  register();
+  
   const [location, setLocation] = useState('home');
 
   return (

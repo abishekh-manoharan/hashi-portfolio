@@ -15,11 +15,15 @@ a:visited {
 }
 
 /* HEADER */
+/* .header {
+    position: fixed;
+} */
+
 .header {
     position: relative;
     margin: 20px;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         'name menu'
         'title menu'
     ;
@@ -31,6 +35,7 @@ a:visited {
     font-size: 5vw;
     font-weight: bolder;
 }
+
 .header-page-title {
     grid-area: title;
     font-style: italic;
@@ -52,13 +57,13 @@ a:visited {
     width: 100vw;
     height: 25vh;
     font-size: 2.8vw;
-    
-    display: flex; 
+
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    
+
     z-index: 1;
 
     transition: transform .5s;
@@ -69,12 +74,12 @@ a:visited {
 }
 
 /* HOME PAGE */
-.home-nav a:visited{
+.home-nav a:visited {
     text-decoration: none;
     color: white;
 }
 
-.home-content{
+.home-content {
     position: absolute;
     z-index: 2;
 
@@ -84,14 +89,16 @@ a:visited {
     justify-content: center;
     gap: 2vh;
 
-    color:white;
+    color: white;
 
     height: 98vh;
 }
+
 #home-background-video {
     position: fixed;
     z-index: 1;
 }
+
 .name {
     font-weight: bolder;
     font-size: 9vw;
@@ -111,15 +118,42 @@ a:visited {
 }
 
 
+/* PROJECTS PAGE */
+.projects-list  {
+    position: relative;
+    z-index: 0;
+}
+
+/* projects swiper */
+.swiper-image {
+    /* Set the maximum width and height of the image to fit inside the container */
+    /* max-width: 100%;
+    max-height: 100%; */
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+swiper-slide {
+    /* Set the maximum width and height of the parent container */
+    width: 100vw;
+    height: 40vh;
+}
+
+swiper-container {
+    max-height: 200px;
+    margin-bottom: 20vh;
+}
+
 
 @media screen and (orientation: portrait) {
     html {
         height: 101%;
-        overflow: hidden;
     }
 
     #home-background-video {
-        height: 102vh;
+        height: 202vh;
+        overflow: hidden;
     }
 }
 
