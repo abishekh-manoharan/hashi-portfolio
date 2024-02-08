@@ -12,11 +12,13 @@ function Header(props: headerProps) {
 
     return (
         <>
-            <HeaderMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-            <img className="header-menu-logo" src="./images/menu.svg" onClick={() => setMenuOpen(!menuOpen)}/>
-            <div className="header">
-                <div className="header-name">Hashveenah Manoharan</div>
-                <div className="header-page-title">{props.location}</div>
+            <div className="header-container">
+                <HeaderMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+                <div className="header-content">
+                    <img className="header-menu-logo" src="./images/menu.svg" onClick={() => { console.log('clock'); setMenuOpen(!menuOpen) }} />
+                    <div className="header-name">Hashveenah Manoharan</div>
+                    <div className="header-page-title">{props.location}</div>
+                </div>
             </div>
             <Outlet />
         </>
