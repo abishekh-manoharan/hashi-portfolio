@@ -14,15 +14,16 @@ a:visited {
     text-decoration: none;
 }
 
-
 /* HEADER */
 .header {
-    margin: 15px;
+    position: relative;
+    margin: 20px;
     display: grid;
     grid-template-areas: 
         'name menu'
         'title menu'
     ;
+    z-index: 0;
 }
 
 .header-name {
@@ -30,17 +31,42 @@ a:visited {
     font-size: 5vw;
     font-weight: bolder;
 }
-.page-title {
+.header-page-title {
     grid-area: title;
+    font-style: italic;
+    font-size: 4vw;
 }
 
+.header-menu-logo {
+    position: absolute;
+    right: 15px;
+    width: 7vw;
+    z-index: 2;
+}
+
+/* HEADER MENU */
 .header-menu {
-    grid-area: menu;
-    justify-self: end;
-    align-self: center;
+    position: absolute;
+    top: -500px;
+    background-color: rgb(189, 208, 187);
+    width: 100vw;
+    height: 25vh;
+    font-size: 2.8vw;
+    
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    z-index: 1;
+
+    transition: transform .5s;
 }
 
-
+.animation-open-menu-header {
+    transform: translateY(500px);
+}
 
 /* HOME PAGE */
 .home-nav a:visited{
