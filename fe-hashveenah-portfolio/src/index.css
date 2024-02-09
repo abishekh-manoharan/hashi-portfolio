@@ -28,7 +28,7 @@ a:visited {
 
 .header-content {
     position: relative;
-    margin: 20px;
+    margin: 10px;
     display: grid;
     grid-template-areas:
         'name menu'
@@ -139,6 +139,47 @@ a:visited {
     margin-top: 20vw;
 }
 
+.project {
+    margin-bottom: 15vw;
+}
+
+.project-info {
+    display: grid;
+    grid-template-areas: 
+    'name date'
+    'medium medium'
+    'about about';
+    margin: 4vw 10px;
+}
+
+.project-name {
+    grid-area: name;
+    font-size: 5vw;
+    align-self: center;
+    font-weight: bold;
+    color: #133d18;
+}
+
+.project-date {
+    grid-area: date;
+    justify-self: end;
+    align-self: center;
+    margin-top: 2px;
+    font-size: 3.5vw;
+}
+
+.project-medium {
+    grid-area: medium;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.573);
+}
+
+.project-about {
+    grid-area: about;
+    margin-top: 10px;
+}
+
+
 /* projects swiper */
 .swiper-image {
     object-fit: contain;
@@ -153,10 +194,10 @@ swiper-slide {
 }
 
 swiper-container {
-    width: 100vw;
+    width: 95vw;
     height: 51vh;
     max-height: 120vw;
-    margin-bottom: 10vh;
+    margin-bottom: 2vw;
 }
 
 @media screen and (orientation: portrait) {
