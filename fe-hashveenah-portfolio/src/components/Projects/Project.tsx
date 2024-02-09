@@ -18,9 +18,9 @@ function Project(props: projectProps) {
             </swiper-container>
             <div className="project-info">
                 <div className="project-name">{props.project.name}</div>
-                <div className="project-date">{props.project.date}</div>
+                {props.project.date ? <div className="project-date">{props.project.date}</div> : <></> }
                 <div className="project-medium">{props.project.medium}</div>
-                <div className="project-about">{props.project.about}</div>
+                {props.project.date ? <div className="project-about">{props.project.about}</div> : <></> }
             </div>
         </div>
     );

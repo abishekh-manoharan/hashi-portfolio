@@ -1,7 +1,7 @@
 export interface ProjectEntry {
     imgSrc: string[];
     name: string;
-    date: string;
+    date?: string;
     medium: string;
-    about: string;
+    about?: string;
 }
