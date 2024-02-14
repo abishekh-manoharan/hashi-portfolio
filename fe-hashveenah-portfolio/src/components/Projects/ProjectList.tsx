@@ -18,8 +18,8 @@ function ProjectList(props: projectProps) {
         const params = {
             injectStyles: [`
           .swiper-pagination-bullet {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             line-height: 20px;
             text-align: center;
             font-size: 12px;
@@ -51,11 +51,11 @@ function ProjectList(props: projectProps) {
 
     // sample project
     const project: ProjectEntry = {
-        imgSrc: ["http://via.placeholder.com/400x400", "http://via.placeholder.com/100x400", "http://via.placeholder.com/400x100"],
+        imgSrc: ["http://via.placeholder.com/300x300", "http://via.placeholder.com/100x400", "http://via.placeholder.com/400x100"],
         name: "work",
         date: "2022",
         medium: "oil on canvas",
-        about: "painting i did for x companypainting i did for x companypainting i did for x companypainting i did for x companypainting i did for x companypainting i did for x companypainting i did for x company"
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit ."
     }
 
     return (
@@ -65,23 +65,9 @@ function ProjectList(props: projectProps) {
             <Project project={project}/>
             <Project project={project}/>
             <Project project={project}/>
-
-                <swiper-container className="swiper-container" init={false} pagination loop>
-                    <swiper-slide>
-                        <img className="swiper-image" src="http://via.placeholder.com/400x400" />
-                    </swiper-slide >
-                    <swiper-slide>
-                        <img className="swiper-image" src="http://via.placeholder.com/100x400" />
-                    </swiper-slide >
-                    <swiper-slide>
-                        <img className="swiper-image" src="http://via.placeholder.com/400x100" />
-                    </swiper-slide >
-                </swiper-container>
-                <div className="project-info">
-
-                </div>
         </div>
     );
 }
 
 export default ProjectList;
+
