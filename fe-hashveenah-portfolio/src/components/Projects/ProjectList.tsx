@@ -9,7 +9,7 @@ interface projectProps {
 
 function ProjectList(props: projectProps) {
     useEffect(() => {
-        props.setLocation('Projects')
+        props.setLocation('Selected Works')
     }, [props]);
 
     useEffect(() => { // adding styling to the bullets

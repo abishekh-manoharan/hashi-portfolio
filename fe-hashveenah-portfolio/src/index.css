@@ -166,18 +166,19 @@ a:visited {
     justify-self: end;
     align-self: center;
     margin-top: 2px;
-    font-size: 3.5vw;
+    font-size: 3.2vw;
 }
-
 .project-medium {
     grid-area: medium;
     font-style: italic;
+    font-size: 3.2vw;
     color: rgba(0, 0, 0, 0.573);
 }
-
 .project-about {
     grid-area: about;
     margin-top: 5px;
+    font-size: 3.2vw;
+    font-weight: lighter;
 }
 
 

@@ -12,7 +12,7 @@ function Home() {
                 <div className="title">Arborist, Artist.</div>
                 <div className="home-nav">
                     <div className="home-nav-link"><Link to='about'>ABOUT</Link></div>
-                    <div className="home-nav-link"><Link to='projects'>PROJECTS</Link></div>
+                    <div className="home-nav-link"><Link to='projects'>SELECTED WORKS</Link></div>
                     <div className="home-nav-link"><Link to='contact'>CONTACT</Link></div>
                 </div>
             </div>

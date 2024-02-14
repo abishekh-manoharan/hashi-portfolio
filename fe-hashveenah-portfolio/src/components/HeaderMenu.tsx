@@ -35,7 +35,7 @@ function HeaderMenu(props: headerMenuProps) {
         <div className={`header-menu ${props.menuOpen ? 'animation-open-menu-header' : ''}`}>
             <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='/'>HOME</NavLink>
             <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='about'>ABOUT</NavLink>
-            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='projects'>PROJECTS</NavLink>
+            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='projects'>SELECTED WORKS</NavLink>
             <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='contact'>CONTACT</NavLink>
         </div>
     );
