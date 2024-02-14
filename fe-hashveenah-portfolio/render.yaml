@@ -1,6 +1,0 @@
-services:
-  - name: web
-    envVars:
-      VITE_BASE: /
-    startCommand: npm run build && npm run serve
-    healthCheckPath: /
