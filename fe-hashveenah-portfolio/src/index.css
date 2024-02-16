@@ -83,6 +83,10 @@ a:visited {
     transform: translateY(35vh);
 }
 
+.header-nav {
+    display: none;
+}
+
 /* HOME PAGE */
 .home-nav a:visited {
     text-decoration: none;
@@ -146,10 +150,10 @@ a:visited {
 
 .project-info {
     display: grid;
-    grid-template-areas: 
-    'name date'
-    'medium medium'
-    'about about';
+    grid-template-areas:
+        'name date'
+        'medium medium'
+        'about about';
     margin: 4vw 10px;
 }
 
@@ -168,12 +172,14 @@ a:visited {
     margin-top: 2px;
     font-size: 3.2vw;
 }
+
 .project-medium {
     grid-area: medium;
     font-style: italic;
     font-size: 3.2vw;
     color: rgba(0, 0, 0, 0.573);
 }
+
 .project-about {
     grid-area: about;
     margin-top: 5px;
@@ -226,8 +232,9 @@ swiper-container {
     top: 99vw;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    border: .5px rgba(59, 74, 54, 0.24) solid;;
+
+    border: .5px rgba(59, 74, 54, 0.24) solid;
+    ;
     border-radius: 20px;
 
     width: 60vw;
@@ -240,15 +247,18 @@ swiper-container {
     align-items: center;
     gap: .5vw;
 }
+
 .about-me-header-logo {
     margin-bottom: 2vw;
     width: 15vw;
 }
+
 .about-me-header-name {
     font-size: 4vw;
     font-weight: bold;
     color: #133d18;
 }
+
 .about-me-header-title {
     font-size: 3vw;
     font-weight: lighter;
@@ -261,11 +271,13 @@ swiper-container {
     flex-direction: column;
     gap: 2vw;
 }
+
 .about-me-container-title {
     font-size: 3.5vw;
     font-weight: bold;
     color: #133d18;
 }
+
 .about-me-container-content {
     font-size: 3.2vw;
     font-weight: lighter;
@@ -279,10 +291,12 @@ swiper-container {
     color: rgb(255, 255, 255);
     /* margin-top: 5px; */
 }
+
 .quote-container-quote {
     font-size: 10vw;
     text-align: center;
 }
+
 .quote-container-author {
     font-size: 5vw;
     margin-top: 19px;
@@ -297,16 +311,19 @@ swiper-container {
     flex-direction: column;
     gap: 2vw;
 }
+
 .video-container-header {
     font-size: 3.5vw;
     font-weight: bold;
     color: #133d18;
     margin: 0 5vw;
 }
+
 .video-container-video {
     width: 99vw;
     height: 300px;
 }
+
 .video-container-credit {
     font-size: 3vw;
     margin: -2vw 2vw;
@@ -333,4 +350,40 @@ swiper-container {
     #home-background-video {
         width: 100vw;
     }
+}
+
+@media screen and (min-width: 650px) and (orientation: landscape) {
+    .header-page-title {
+        display: none;
+    }
+    .header-menu-logo {
+        display: none;
+    }
+    .header-nav {
+        display: block;
+        display: flex;
+        flex-direction: column;
+    }
+    .header-container {
+        position: sticky;
+        height: 100dvh;
+        width: 50vw;
+    }
+    .headerAndOutlet {
+        display: flex;
+        flex-direction: row;
+    }
+    .header-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .outlet {
+        /* width: 100%; */
+        overflow-y: auto;
+    }
+    .projects-list,
+    .about-me {
+        width: 100%;
+    }
+
 }

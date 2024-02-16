@@ -10,7 +10,7 @@ function About(props: aboutProps) {
     }, [props]);
 
     return (
-        <div>
+        <div className="about-me">
             <div className="profilePic-container">
                 <img className="profilePic" src="./images/profile.jpeg" />
                 <div className="about-me-header">
