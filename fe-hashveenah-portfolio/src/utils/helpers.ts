@@ -1,3 +1,4 @@
+// styping for swiperJS bullets and arrows
 export const setPaginationStyling = () => {
 
     const swiperEl = document.querySelectorAll('swiper-container');
@@ -23,12 +24,18 @@ export const setPaginationStyling = () => {
     }
 
     .swiper-button-next {
-        color: #fff;
-        background: #216329;
+        height: 5vh;
+        color: #3c814880;
     }
-    .swiper-button-prev{
-        color: #fff;
-        background: #216329;
+    .swiper-button-prev {
+        height: 5vh;
+        color: #3c814880;
+    }
+    .swiper-button-prev:hover {
+        color: #3c8148c2;
+    }
+    .swiper-button-next:hover {
+        color: #3c8148c2;
     }
     `],
         pagination: {

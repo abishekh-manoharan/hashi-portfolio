@@ -10,8 +10,8 @@ function ProjectDetail() {
         return e.id === id;
     })
 
-    useEffect(() => { 
-        // adding styling to the bullets
+    useEffect(() => {
+        // adding styling to the bullets and arrows
         setPaginationStyling();
     }, [])
 
@@ -21,13 +21,19 @@ function ProjectDetail() {
             <swiper-container init={false} navigation initial-slide={index} pagination loop space-between="30" >
                 {
                     project ? // show project images only if project exists
-                    project.imgSrc.map((src, i) =>
-                        <swiper-slide key={src + i}>
-                            <img className="swiper-image" src={src} />
-                        </swiper-slide >
-                    ) : <>Project Not Found!</>
+                        project.imgSrc.map((src, i) =>
+                            <swiper-slide key={src + i}>
+                                <img className="swiper-image" src={src} />
+                            </swiper-slide >
+                        ) : <>Project Not Found!</>
                 }
             </swiper-container>
+            <div className="project-desktop-detail-header">
+                <span className="project-name">{project?.name} </span>
+                <span className="project-medium">{project?.medium} </span>
+                <span className="project-date">{project?.date}</span>
+            </div>
+            <div className="project-about">{project?.about}</div>
         </div>
     );
 }
