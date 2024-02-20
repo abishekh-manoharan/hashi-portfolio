@@ -9,7 +9,7 @@ function Project(props: projectProps) {
     return (
         <div className="project-container">
             <div className="project">
-                <swiper-container className="swiper-container" init={false} pagination initialSlide={2} loop space-between="30">
+                <swiper-container className="swiper-container" init={false} pagination loop space-between="30">
                     {
                         props.project.imgSrc.map((src, i) =>
                             <swiper-slide key={src+i}>

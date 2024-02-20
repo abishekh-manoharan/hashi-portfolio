@@ -10,7 +10,7 @@ import { register } from 'swiper/element/bundle';
 
 function App() {
   register();
-  
+
   const [location, setLocation] = useState('home');
 
   return (

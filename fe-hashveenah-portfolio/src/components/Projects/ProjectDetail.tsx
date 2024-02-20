@@ -1,27 +1,26 @@
 import { useParams } from "react-router-dom";
 import data from '../../../data';
 import { useEffect } from "react";
+import { setPaginationStyling } from "../../utils/helpers";
 
 function ProjectDetail() {
-    const { id, index } = useParams()
+    const { id, index } = useParams() // id: id of the project. index: index of the image that was clicked in the array
 
     const project = data.find((e) => { // finding the necessary project using the URL id
         return e.id === id;
     })
 
-    useEffect(()=>{        
-        const swiperEl = document.querySelector('swiper-container');
-        console.log(swiperEl);
-        
-        swiperEl!.setAttribute("initialSlide", "2");
-        swiperEl!.initialize();
-    }, []);
-    
+    useEffect(() => { 
+        // adding styling to the bullets
+        setPaginationStyling();
+    }, [])
+
+
     return (
         <div>
-            <swiper-container initial-slide={index} className="project-desktop-detail">
+            <swiper-container init={false} navigation initial-slide={index} pagination loop space-between="30" className="project-desktop-detail">
                 {
-                    project ? 
+                    project ? // show project images only if project exists
                     project.imgSrc.map((src, i) =>
                         <swiper-slide key={src + i}>
                             <img className="swiper-image" src={src} />
