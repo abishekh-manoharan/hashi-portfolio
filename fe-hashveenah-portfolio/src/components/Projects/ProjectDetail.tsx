@@ -17,8 +17,8 @@ function ProjectDetail() {
 
 
     return (
-        <div>
-            <swiper-container init={false} navigation initial-slide={index} pagination loop space-between="30" className="project-desktop-detail">
+        <div className="project-desktop-detail">
+            <swiper-container init={false} navigation initial-slide={index} pagination loop space-between="30" >
                 {
                     project ? // show project images only if project exists
                     project.imgSrc.map((src, i) =>

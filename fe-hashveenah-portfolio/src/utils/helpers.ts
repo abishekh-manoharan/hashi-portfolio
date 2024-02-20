@@ -21,6 +21,15 @@ export const setPaginationStyling = () => {
     color: #fff;
     background: #216329;
     }
+
+    .swiper-button-next {
+        color: #fff;
+        background: #216329;
+    }
+    .swiper-button-prev{
+        color: #fff;
+        background: #216329;
+    }
     `],
         pagination: {
             clickable: true,

@@ -431,14 +431,16 @@ swiper-container {
     .project {
         display: none;
     }
-
+    .project-container {
+        width: 100%;
+    }
     .project-desktop {
         display: block;
+        width: 100%;
     }
-
     .project-desktop-image {
-        height: 18vw;
-        width: 18vw;
+        height: 15svw;
+        width: 15svw;
         min-width: 150px;
         object-fit: cover;
     }
@@ -447,19 +449,24 @@ swiper-container {
         flex-wrap: wrap;
         gap: 5px;
     }
-
     .project-info {
         width: 70vw;
     }
     .project-info-desktop {
-        width: 72.5vw;
+        width: 100%;
         margin: 15px 0px 5px;
     }
-
     .project-name,
     .project-date,
     .project-medium {
         font-size: .9em;
+    }
+
+    .project-desktop-detail {
+        /* max-width: 50%; */
+    }
+    swiper-container {
+        width: 100%;
     }
 
 
