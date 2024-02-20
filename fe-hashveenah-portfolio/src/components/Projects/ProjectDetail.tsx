@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import data from '../../../data';
+import { useEffect } from "react";
 
 function ProjectDetail() {
     const { id, index } = useParams()
@@ -8,11 +9,17 @@ function ProjectDetail() {
         return e.id === id;
     })
 
-    console.log(project!.imgSrc[0])
-
+    useEffect(()=>{        
+        const swiperEl = document.querySelector('swiper-container');
+        console.log(swiperEl);
+        
+        swiperEl!.setAttribute("initialSlide", "2");
+        swiperEl!.initialize();
+    }, []);
+    
     return (
         <div>
-            <swiper-container>
+            <swiper-container initial-slide={index} className="project-desktop-detail">
                 {
                     project ? 
                     project.imgSrc.map((src, i) =>
