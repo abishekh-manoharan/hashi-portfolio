@@ -29,8 +29,8 @@ function ProjectDetail() {
                 }
             </swiper-container>
             <div className="project-desktop-detail-header">
-                <span className="project-name">{project?.name} </span>
-                <span className="project-medium">{project?.medium} </span>
+                <span className="project-name">{project?.name}, </span>
+                <span className="project-medium">{project?.medium}, </span>
                 <span className="project-date">{project?.date}</span>
             </div>
             <div className="project-about">{project?.about}</div>
