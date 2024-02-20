@@ -20,7 +20,7 @@ function App() {
         <Route element=<Header location={location}/> >
           <Route path="/about" element=<About setLocation={setLocation}/> />
           <Route path="/projects" element=<ProjectList setLocation={setLocation}/> />
-          <Route path="/project/:id" element=<ProjectDetail /> />
+          <Route path="/project/:id/:index" element=<ProjectDetail /> />
           <Route path="/contact" element=<Contact setLocation={setLocation}/> />
         </Route>
       </Routes >

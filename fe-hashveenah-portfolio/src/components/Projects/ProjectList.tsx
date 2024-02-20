@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import Project from "./Project";
-import { ProjectEntry } from "../../types";
+import data from '../../../data';
 
 interface projectProps {
     setLocation: Dispatch<SetStateAction<string>>;
@@ -48,23 +48,11 @@ function ProjectList(props: projectProps) {
         
     }, [])
 
-
-    // sample project
-    const project: ProjectEntry = {
-        imgSrc: ["http://via.placeholder.com/300x300", "http://via.placeholder.com/100x400", "http://via.placeholder.com/400x100"],
-        name: "work",
-        date: "2022",
-        medium: "oil on canvas",
-        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit ."
-    }
-
     return (
         <div className="projects-list">
             <br />
-            <Project project={project}/>
-            <Project project={project}/>
-            <Project project={project}/>
-            <Project project={project}/>
+            <Project project={data[0]}/>
+            <Project project={data[1]}/>
         </div>
     );
 }
