@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import data from '../../data';
+import { Link } from "react-router-dom";
 
 interface aboutProps {
     setLocation: Dispatch<SetStateAction<string>>;
@@ -52,9 +53,10 @@ function About(props: aboutProps) {
                 <div className="about-me-container-title about-me-font-color">
                     My Art
                 </div>
-                <div className="about-me-container-content about-me-font-color">
+                <div className="about-me-container-content about-me-font-color about-me-art-content" >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
                 </div>
+                <Link className="about-me-art-link" to="/projects">View Selected Works</Link>
                 <hr />
             </div>
             {/* <div className="video-container">

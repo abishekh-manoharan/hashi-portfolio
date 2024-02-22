@@ -270,6 +270,21 @@ swiper-container {
     width: 100%;
     object-fit: cover;
 }
+
+.about-me-art a {
+    display: block;
+    text-align: center;
+    font-size: 3.5vw;
+    width: 40vw;
+    margin: 2vw auto 6vw;
+    color: #b47b84c7;
+}
+.about-me-art a:hover {
+    color: #b47b847d;
+}
+.about-me-art-content {
+    margin-bottom: 2vw;
+}
 /* .about-me-header-name {
     font-size: 4vw;
     font-weight: bold;
