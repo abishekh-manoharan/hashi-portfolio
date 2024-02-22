@@ -11,22 +11,32 @@ function About(props: aboutProps) {
 
     return (
         <div className="about-me">
-            <div className="profilePic-container">
-                <img className="profilePic" src="./images/profile.jpeg" />
-                {/* <div className="about-me-header">
-                    <div className="about-me-header-name">Hashveenah Manoharan</div>
-                    <div className="about-me-header-title">Arborist, Artist</div>
-                </div> */}
-                <div className="about-me-container">
-                    <div className="about-me-container-title">
-                        Hashveenah Manoharan
-                    </div>
-                    <div className="about-me-container-content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
-                    </div>
+            <img className="profilePic" src="./images/profile.jpg" />
+            <div className="about-me-about about-me-container">
+                <hr/>
+                <div className="about-me-container-title about-me-font-color">
+                    About Me
                 </div>
+                <div className="about-me-container-content about-me-font-color">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
+                </div>
+                <hr/>
             </div>
-            <div className="video-container">
+
+            <div className="about-me-art-display profilePic">
+                <img className="about-me-art-display-pic" src="https://via.placeholder.com/300x100" alt="" />
+            </div>
+            <div className="about-me-art about-me-container">
+                <hr/>
+                <div className="about-me-container-title about-me-font-color">
+                    My Art
+                </div>
+                <div className="about-me-container-content about-me-font-color">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
+                </div>
+                <hr/>
+            </div>
+            {/* <div className="video-container">
                 <div className="video-container-header"> An Interview with Hashveenah Manoharan </div>
                 <div className="video-container-credit">Directed by Matthew Viveen </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
@@ -35,7 +45,7 @@ function About(props: aboutProps) {
                 <div className="quote-container-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</div>
                 <div className="quote-container-author"> - Author -</div>
             </div>
-            <div className="links-container"><br /><br /><br /><br /></div>
+            <div className="links-container"><br /><br /><br /><br /></div> */}
         </div>
     );
 }
