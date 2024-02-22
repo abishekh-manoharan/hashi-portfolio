@@ -2,7 +2,7 @@ import { ProjectEntry } from './src/types';
 
 const data: ProjectEntry[] = [{
     "id": "1",
-    "imgSrc": ["http://via.placeholder.com/800x100", "http://via.placeholder.com/100x800", "http://via.placeholder.com/800x800", "/images/snail1.jpeg", "/images/mango.jpeg", "/images/mango.jpeg", "/images/mango.jpeg", "/images/mango.jpeg", "/images/snail1.jpeg"],
+    "imgSrc": ["http://via.placeholder.com/800x100", "http://via.placeholder.com/100x800", "http://via.placeholder.com/800x800", "/images/snail1.jpeg", "/images/mango.jpeg", "/images/moose.jpg", "/images/mango.jpeg", "/images/mango.jpeg", "/images/snail1.jpeg"],
     "name": "work",
     "date": "2023",
     "medium": "oil on canvas",
