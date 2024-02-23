@@ -299,11 +299,26 @@ swiper-container {
 
 
 .quote-container {
-    padding: 25px 25px;
     background-color: #ffe7e7c4;
     /* background-image: linear-gradient(#196d2012, #196d2059); */
     color: rgb(255, 255, 255);
     /* margin-top: 5px; */
+}
+.quote-container-child {
+    /* width: 85vw; */
+    margin: auto;
+    display: flex;  
+    flex-direction: column;
+    border: solid;
+}
+.quote-container-quotationmark {
+    width: 20vw;
+}
+.quote-container-quotationmark-open {
+    
+}
+.quote-container-quotationmark-close {
+    align-self: flex-end;
 }
 
 .quote-container-quote {

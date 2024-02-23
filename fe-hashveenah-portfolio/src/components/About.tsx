@@ -7,13 +7,14 @@ interface aboutProps {
 }
 
 function About(props: aboutProps) {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const artPics = [data[0].imgSrc[3], data[0].imgSrc[4], data[0].imgSrc[5]];
     const [artPicsLocation, setArtPicsLocation] = useState(0);
 
 
     // Updating art display photo for slideshow
     setTimeout(() => {
-        if (artPicsLocation != artPics.length - 1) { 
+        if (artPicsLocation != artPics.length - 1) {
             setArtPicsLocation(artPicsLocation + 1);
         } else {
             setArtPicsLocation(0);
@@ -59,14 +60,19 @@ function About(props: aboutProps) {
                 <Link className="about-me-art-link" to="/projects">View Selected Works</Link>
                 <hr />
             </div>
+            <div className="quote-container">
+                <div className="quote-container-child">
+                    <img className="quote-container-quotationmark quote-container-quotationmark-open" src="/images/quotation-mark.png" alt="" />
+                    <div className="quote-container-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</div>
+                    <div className="quote-container-author"> - Author -</div>
+                    <img className="quote-container-quotationmark quote-container-quotationmark-close" src="/images/quotation-mark.png" alt="" />
+                </div>
+            </div>
+
             {/* <div className="video-container">
                 <div className="video-container-header"> An Interview with Hashveenah Manoharan </div>
                 <div className="video-container-credit">Directed by Matthew Viveen </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            </div>
-            <div className="quote-container">
-                <div className="quote-container-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</div>
-                <div className="quote-container-author"> - Author -</div>
             </div>
             <div className="links-container"><br /><br /><br /><br /></div> */}
         </div>
