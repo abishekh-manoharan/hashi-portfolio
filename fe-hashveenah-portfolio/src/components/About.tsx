@@ -63,8 +63,8 @@ function About(props: aboutProps) {
             <div className="quote-container">
                 <div className="quote-container-child">
                     <img className="quote-container-quotationmark quote-container-quotationmark-open" src="/images/quotation-mark.png" alt="" />
-                    <div className="quote-container-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</div>
-                    <div className="quote-container-author"> - Author -</div>
+                    <div className="quote-container-quote about-me-font-color about-me-art-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                    <div className="quote-container-author about-me-font-color about-me-art-content">Author</div>
                     <img className="quote-container-quotationmark quote-container-quotationmark-close" src="/images/quotation-mark.png" alt="" />
                 </div>
             </div>

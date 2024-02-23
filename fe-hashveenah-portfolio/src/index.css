@@ -227,13 +227,13 @@ swiper-container {
 }
 
 .profilePic {
-    width: 100vw;
+    width: 100dvw;
     height: 50dvh;
     object-fit: cover;
 }
 
 .about-me-container {
-    padding: 7vw;
+    /* padding: 7vw; */
 }
 .about-me-container-title {
     font-size: 4.5vw;
@@ -248,6 +248,7 @@ swiper-container {
     text-align: center;
     line-height: 5vw;
     margin-bottom: 6vw;
+    padding: 5vw;
 }
 .about-me-container hr {
     width:50%;
@@ -300,38 +301,52 @@ swiper-container {
 
 .quote-container {
     background-color: #ffe7e7c4;
-    /* background-image: linear-gradient(#196d2012, #196d2059); */
     color: rgb(255, 255, 255);
-    /* margin-top: 5px; */
+    padding: 3vw;
 }
 .quote-container-child {
-    /* width: 85vw; */
-    margin: auto;
     display: flex;  
     flex-direction: column;
-    border: solid;
+    border: solid .5px;
 }
+
 .quote-container-quotationmark {
     width: 20vw;
+    opacity: 80%;
 }
 .quote-container-quotationmark-open {
-    
+    position: relative;
+    bottom: 5dvw;
+    right: 2dvw;
+    margin-bottom: -2dvw;
 }
 .quote-container-quotationmark-close {
+    position: relative;
+    top: 5dvw;
+    left: 2dvw;
     align-self: flex-end;
+    transform: scaleY(-1);
+    transform: scaleX(-1);
+    margin-top: -4vw;
 }
 
 .quote-container-quote {
-    font-size: 10vw;
+    font-size: 5dvw;
     text-align: center;
+    padding: 3vw;
+    font-weight: lighter;
+    line-height: 5vw;
 }
 
 .quote-container-author {
-    font-size: 5vw;
-    margin-top: 19px;
+    position: relative;
+    right: 5vw;
+    align-self: flex-end;
+    font-style: italic;
+    font-size: 3.5dvw;
     text-align: center;
+    font-weight: lighter;
 }
-
 
 .video-container {
     padding: 20px 0;
