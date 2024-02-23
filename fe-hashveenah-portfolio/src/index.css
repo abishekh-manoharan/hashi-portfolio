@@ -233,11 +233,10 @@ swiper-container {
 }
 
 .about-me-container {
-    /* padding: 7vw; */
+    padding: 7vw;
 }
 .about-me-container-title {
     font-size: 4.5vw;
-    font-style: italic;
     text-align: center;
     margin-bottom: 2vw;
     margin-top: 6vw;
@@ -248,7 +247,6 @@ swiper-container {
     text-align: center;
     line-height: 5vw;
     margin-bottom: 6vw;
-    padding: 5vw;
 }
 .about-me-container hr {
     width:50%;
@@ -300,9 +298,9 @@ swiper-container {
 
 
 .quote-container {
-    background-color: #ffe7e7c4;
+    background-color: #f8e3e2a7;
     color: rgb(255, 255, 255);
-    padding: 3vw;
+    padding: 7vw 4vw;
 }
 .quote-container-child {
     display: flex;  
@@ -311,8 +309,8 @@ swiper-container {
 }
 
 .quote-container-quotationmark {
-    width: 20vw;
-    opacity: 80%;
+    width: 18vw;
+    opacity: 70%;
 }
 .quote-container-quotationmark-open {
     position: relative;
@@ -331,11 +329,14 @@ swiper-container {
 }
 
 .quote-container-quote {
-    font-size: 5dvw;
+    font-size: 4dvw;
     text-align: center;
     padding: 3vw;
     font-weight: lighter;
     line-height: 5vw;
+
+    position: relative;
+    top: 2dvw;
 }
 
 .quote-container-author {
@@ -343,36 +344,31 @@ swiper-container {
     right: 5vw;
     align-self: flex-end;
     font-style: italic;
-    font-size: 3.5dvw;
+    font-size: 3dvw;
     text-align: center;
     font-weight: lighter;
 }
 
 .video-container {
     padding: 20px 0;
-    background-color: #196d2012;
+    background-color: #e4e4d0b6;
     display: flex;
     flex-direction: column;
     gap: 2vw;
 }
 
 .video-container-header {
-    font-size: 3.5vw;
-    font-weight: bold;
-    color: #133d18;
-    margin: 0 5vw;
+    margin-top: 4vw;
 }
-
+.video-container-credit {
+    line-height: 0;
+    margin-bottom: 4vw;
+}
 .video-container-video {
     width: 99vw;
     height: 300px;
 }
 
-.video-container-credit {
-    font-size: 3vw;
-    margin: -2vw 5vw;
-    font-style: italic;
-}
 
 
 

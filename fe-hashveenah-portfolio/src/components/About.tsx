@@ -63,18 +63,20 @@ function About(props: aboutProps) {
             <div className="quote-container">
                 <div className="quote-container-child">
                     <img className="quote-container-quotationmark quote-container-quotationmark-open" src="/images/quotation-mark.png" alt="" />
-                    <div className="quote-container-quote about-me-font-color about-me-art-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                    <div className="quote-container-quote about-me-font-color about-me-art-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                     <div className="quote-container-author about-me-font-color about-me-art-content">Author</div>
                     <img className="quote-container-quotationmark quote-container-quotationmark-close" src="/images/quotation-mark.png" alt="" />
                 </div>
             </div>
 
-            {/* <div className="video-container">
-                <div className="video-container-header"> An Interview with Hashveenah Manoharan </div>
-                <div className="video-container-credit">Directed by Matthew Viveen </div>
+            <div className="video-container about-me-container">
+                <hr />
+                <div className="about-me-container-title about-me-font-color video-container-header "> An Interview with Hashveenah Manoharan </div>
+                <div className="about-me-container-content about-me-font-color video-container-credit">Directed by Matthew Viveen </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <hr />
             </div>
-            <div className="links-container"><br /><br /><br /><br /></div> */}
+            {/* <div className="links-container"><br /><br /><br /><br /></div> */}
         </div>
     );
 }
