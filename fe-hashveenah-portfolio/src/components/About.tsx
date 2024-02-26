@@ -47,7 +47,7 @@ function About(props: aboutProps) {
 
             <div className="about-me-art-display profilePic">
                 <img className="about-me-art-display-pic" src="https://via.placeholder.com/300x100" alt="" />
-            </div>
+            </div> 
 
             <div className="about-me-art about-me-container">
                 <hr />
@@ -75,8 +75,8 @@ function About(props: aboutProps) {
                 <div className="about-me-container-content about-me-font-color video-container-credit">Directed by Matthew Viveen </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 <hr />
-            </div>
-            {/* <div className="links-container"><br /><br /><br /><br /></div> */}
+            </div> 
+            {/* {/* <div className="links-container"><br /><br /><br /><br /></div> */}
         </div>
     );
 }
