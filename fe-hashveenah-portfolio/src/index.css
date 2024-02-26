@@ -59,6 +59,7 @@ a:visited {
     z-index: 2;
 }
 
+
 /* HEADER MENU */
 .header-menu {
     position: absolute;
@@ -86,6 +87,11 @@ a:visited {
 
 .header-nav {
     display: none;
+}
+
+.header-footer {
+    display: none;
+    margin-top: auto;
 }
 
 /* HOME PAGE */
@@ -461,10 +467,13 @@ swiper-container {
         flex-direction: column;
         gap: 1.5em;
         font-size: .7em;
-        padding: 1em;
         width: 15em;
+        height: 97dvh;
     }
-
+    .header-footer {
+        display: block;
+        text-align: center;
+    }
     .outlet {
         /* width: 100%; */
         overflow-y: auto;
@@ -652,9 +661,12 @@ swiper-container {
         margin-bottom: 0;
     }
     .about-me-container-content{
-        margin-bottom: 1vw;
+        margin-bottom: 6vw;
     }
     .video-container-header {
         margin-top: 3vh;
+    }
+    .about-me-container-content.video-container-credit {
+        margin-bottom: 0;
     }
 }
