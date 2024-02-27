@@ -12,23 +12,25 @@ function About(props: aboutProps) {
     const [artPicsLocation, setArtPicsLocation] = useState(0);
 
 
-    // Updating art display photo for slideshow
-    setTimeout(() => {
-        setArtPicsLocation((artPicsLocation + 1) % artPics.length);
-    }, 5000);
-    const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-
-    // remove the class and update the source after a delay
-    artPic.src = artPics[artPicsLocation];
-    // setTimeout(() => {        
+    useEffect( () => {
+        // Updating art display photo for slideshow
         setTimeout(() => {
-            artPic.classList.remove("image-animation");
-            // Add the class after a delay to trigger the animation
+            setArtPicsLocation((artPicsLocation + 1) % artPics.length);
+        }, 5000);
+        const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+    
+        // remove the class and update the source after a delay
+        artPic.src = artPics[artPicsLocation];
+        // setTimeout(() => {        
             setTimeout(() => {
-                artPic.classList.add("image-animation");
+                artPic.classList.remove("image-animation");
+                // Add the class after a delay to trigger the animation
+                setTimeout(() => {
+                    artPic.classList.add("image-animation");
+                }, 50);
             }, 50);
-        }, 50);
-    // }, 100);
+        // }, 100);
+    }, [artPics, artPicsLocation])
 
     // Updating location
     useEffect(() => {
