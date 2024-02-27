@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Test() {
     const [st, setSt] = useState(0);
     const [st2, setSt2] = useState(0);
-    console.log('test1')
     useEffect(() => {
         console.log('useEffect empty running')
     });
     useEffect(() => {
+        console.log('test1')
+        console.log('test2')
         console.log('useEffect [] running');
     }, []);
     useEffect(() => {
@@ -27,7 +28,6 @@ function Test() {
         setSt2(st2 + 1)
     }
 
-    console.log('test2')
     
     return (
         <>
