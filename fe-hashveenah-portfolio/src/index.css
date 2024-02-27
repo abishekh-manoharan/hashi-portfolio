@@ -293,7 +293,7 @@ swiper-container {
 }
 
 .image-animation {
-    animation: imagePan 5s;
+    animation: imagePan 7s;
     animation-timing-function: linear;
 }
 @keyframes imagePan {
@@ -301,7 +301,7 @@ swiper-container {
         transform: scale(1);
     }
     100% {
-        transform: scale(1.11);
+        transform: scale(1.21);
     }
 }
 

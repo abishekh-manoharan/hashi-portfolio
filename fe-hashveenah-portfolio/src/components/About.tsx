@@ -76,11 +76,11 @@ function About(props: aboutProps) {
             </div>
 
             <div className="video-container about-me-container">
-                <hr />
+                <hr className="about-me-hr-top"/>
                 <div className="about-me-container-title about-me-font-color video-container-header "> An Interview with Hashveenah Manoharan </div>
-                <div className="about-me-container-content about-me-font-color video-container-credit">Directed by Matthew Viveen </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                <hr />
+                <div className="about-me-container-content about-me-font-color video-container-credit">Directed by Matthew Viveen </div>
+                <hr className="about-me-hr-bottom"/>
             </div>
             {/* {/* <div className="links-container"><br /><br /><br /><br /></div> */}
         </div>
