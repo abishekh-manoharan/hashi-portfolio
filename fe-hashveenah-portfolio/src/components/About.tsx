@@ -13,7 +13,7 @@ function About(props: aboutProps) {
 
     console.log('component script');
     
-    setTimeout(() => {
+    const to = setTimeout(() => {
         console.log('set art timeout set');
         setArtPicsLocation((artPicsLocation + 1) % artPics.length);
     }, 5000);
@@ -34,9 +34,9 @@ function About(props: aboutProps) {
             }, 50);
         }, 100);
 
-        // Updating art display photo for slideshow
-
-        // }, 100);
+        return (() => {
+            clearTimeout(to)
+        })
     }, [artPicsLocation])
 
     // Updating location
