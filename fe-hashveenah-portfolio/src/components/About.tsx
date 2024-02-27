@@ -26,8 +26,8 @@ function About(props: aboutProps) {
         // Add the class after a delay to trigger the animation
         setTimeout(() => {
             artPic.classList.add("image-animation");
-        }, 50);
-    }, 50);
+        }, 100);
+    }, 100);
     // useEffect(() => {
 
     // }, [artPics, artPicsLocation]);
