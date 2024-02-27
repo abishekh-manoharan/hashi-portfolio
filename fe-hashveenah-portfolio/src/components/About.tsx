@@ -12,23 +12,25 @@ function About(props: aboutProps) {
     const [artPicsLocation, setArtPicsLocation] = useState(0);
 
 
-    useEffect( () => {
+    useEffect(() => {
+
+        const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+
+        // setTimeout(() => {        
+        setTimeout(() => {
+            // remove the class and update the source after a delay
+            artPic.classList.remove("image-animation");
+            artPic.src = artPics[artPicsLocation];
+            // Add the class after a delay to trigger the animation
+            setTimeout(() => {
+                artPic.classList.add("image-animation");
+            }, 50);
+        }, 50);
+
         // Updating art display photo for slideshow
         setTimeout(() => {
             setArtPicsLocation((artPicsLocation + 1) % artPics.length);
         }, 5000);
-        const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-    
-        // remove the class and update the source after a delay
-        artPic.src = artPics[artPicsLocation];
-        // setTimeout(() => {        
-            setTimeout(() => {
-                artPic.classList.remove("image-animation");
-                // Add the class after a delay to trigger the animation
-                setTimeout(() => {
-                    artPic.classList.add("image-animation");
-                }, 50);
-            }, 50);
         // }, 100);
     }, [artPics, artPicsLocation])
 
@@ -76,11 +78,11 @@ function About(props: aboutProps) {
             </div>
 
             <div className="video-container about-me-container">
-                <hr className="about-me-hr-top"/>
+                <hr className="about-me-hr-top" />
                 <div className="about-me-container-title about-me-font-color video-container-header "> An Interview with Hashveenah Manoharan </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 <div className="about-me-container-content about-me-font-color video-container-credit">Directed by Matthew Viveen </div>
-                <hr className="about-me-hr-bottom"/>
+                <hr className="about-me-hr-bottom" />
             </div>
             {/* {/* <div className="links-container"><br /><br /><br /><br /></div> */}
         </div>
