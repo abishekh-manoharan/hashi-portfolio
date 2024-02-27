@@ -279,23 +279,29 @@ swiper-container {
     background-color: #EAECCC;
 }
 
-.about-me-art-display {}
+.about-me-art-display {
+    overflow: hidden;
+}
 
 .about-me-art-display-pic {
     height: 100%;
     width: 100%;
+    max-height: 100%;
+    max-width: 100%;
     object-fit: cover;
+    overflow: hidden;
 }
 
 .image-animation {
-    animation: imagePan 3s linear;
+    animation: imagePan 5s;
+    animation-timing-function: linear;
 }
 @keyframes imagePan {
     0% {
-        object-position: left;
+        transform: scale(1);
     }
     100% {
-        object-position: right;
+        transform: scale(1.11);
     }
 }
 

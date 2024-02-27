@@ -15,7 +15,7 @@ function About(props: aboutProps) {
     // Updating art display photo for slideshow
     setTimeout(() => {
         setArtPicsLocation((artPicsLocation + 1) % artPics.length);
-    }, 3000);
+    }, 5000);
     useEffect(() => {
         const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
 
