@@ -8,6 +8,7 @@ import Header from "./components/Header"
 import { useState } from "react"
 import { register } from 'swiper/element/bundle';
 import ScrollReset from "./components/ScrollToTop"
+import Test from "./components/Test"
 
 function App() {
   register();
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+      <Test/>
       <ScrollReset /> {/* ensuring scroll is reset to top position on route change */}
       <Routes>
         <Route path="/" element=<Home /> />

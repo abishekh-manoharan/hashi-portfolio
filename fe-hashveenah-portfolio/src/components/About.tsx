@@ -21,13 +21,13 @@ function About(props: aboutProps) {
     const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
     
     useEffect(() => {    
-        console.log('useeffect triggered');
+        console.log('useeffect: artPicsLocation triggered');
         
         setTimeout(() => {
             // remove the class and update the source after a delay
             artPic.classList.remove("image-animation");
-            
             artPic.src = artPics[artPicsLocation];
+            console.log('NEW IMAGE');
             // Add the class after a delay to trigger the animation
             setTimeout(() => {
                 artPic.classList.add("image-animation");
@@ -35,6 +35,7 @@ function About(props: aboutProps) {
         }, 100);
 
         return (() => {
+            console.log('clear timeout')
             clearTimeout(to)
         })
     }, [artPicsLocation])
@@ -95,3 +96,4 @@ function About(props: aboutProps) {
 }
 
 export default About;
+
