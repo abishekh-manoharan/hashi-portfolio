@@ -11,16 +11,23 @@ function About(props: aboutProps) {
     const artPics = [data[0].imgSrc[3], data[0].imgSrc[4], data[0].imgSrc[5]];
     const [artPicsLocation, setArtPicsLocation] = useState(0);
 
+    console.log('component script');
+    
+    setTimeout(() => {
+        console.log('set art timeout set');
+        setArtPicsLocation((artPicsLocation + 1) % artPics.length);
+    }, 5000);
 
-    useEffect(() => {
-
-        const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-
-        // setTimeout(() => {        
+    const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+    
+    useEffect(() => {    
+        console.log('useeffect triggered');
+        
         setTimeout(() => {
             // remove the class and update the source after a delay
-            artPic.src = artPics[artPicsLocation];
             artPic.classList.remove("image-animation");
+            
+            artPic.src = artPics[artPicsLocation];
             // Add the class after a delay to trigger the animation
             setTimeout(() => {
                 artPic.classList.add("image-animation");
@@ -28,11 +35,9 @@ function About(props: aboutProps) {
         }, 100);
 
         // Updating art display photo for slideshow
-        setTimeout(() => {
-            setArtPicsLocation((artPicsLocation + 1) % artPics.length);
-        }, 5000);
+
         // }, 100);
-    }, [artPics, artPicsLocation])
+    }, [artPicsLocation])
 
     // Updating location
     useEffect(() => {
