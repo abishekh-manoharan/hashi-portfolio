@@ -19,13 +19,13 @@ function About(props: aboutProps) {
         // setTimeout(() => {        
         setTimeout(() => {
             // remove the class and update the source after a delay
-            artPic.classList.remove("image-animation");
             artPic.src = artPics[artPicsLocation];
+            artPic.classList.remove("image-animation");
             // Add the class after a delay to trigger the animation
             setTimeout(() => {
                 artPic.classList.add("image-animation");
             }, 50);
-        }, 50);
+        }, 100);
 
         // Updating art display photo for slideshow
         setTimeout(() => {
