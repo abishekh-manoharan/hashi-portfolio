@@ -89,11 +89,6 @@ a:visited {
     display: none;
 }
 
-.header-footer {
-    display: none;
-    margin-top: auto;
-}
-
 /* HOME PAGE */
 .home-nav a:visited {
     text-decoration: none;
@@ -239,6 +234,7 @@ swiper-container {
 }
 
 .about-me-container {
+    position: relative;
     padding: 7vw;
     font-size: 1vw;
     line-height: 5vw;
@@ -252,7 +248,7 @@ swiper-container {
 }
 
 .about-me-container-content {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: lighter;
     text-align: center;
 
@@ -260,8 +256,19 @@ swiper-container {
 }
 
 .about-me-container hr {
+    position: absolute;
     width: 50%;
     margin: 0 auto;
+}
+.about-me-container hr.about-me-hr-top {
+    top: 5%;
+    right: 0;
+    transform: translateX(-50%);
+}
+.about-me-container hr.about-me-hr-bottom {
+    bottom: 5%;
+    right: 0;
+    transform: translateX(-50%);
 }
 
 .about-me-about {
@@ -395,6 +402,7 @@ swiper-container {
 
 
 
+
 @media screen and (orientation: portrait) {
     html {
         height: 101%;
@@ -470,10 +478,12 @@ swiper-container {
         width: 15em;
         height: 97dvh;
     }
+
     .header-footer {
         display: block;
         text-align: center;
     }
+
     .outlet {
         /* width: 100%; */
         overflow-y: auto;
@@ -580,43 +590,47 @@ swiper-container {
     .outlet {
         overflow: hidden;
     }
-    
+
     .about-me {
         margin: 1vw;
         display: flex;
         flex-wrap: wrap;
         gap: 1vw;
     }
-    .about-me-container  {
+
+    .about-me-container {
         font-size: .45vw;
         display: flex;
         justify-content: center;
         line-height: 2.2vw;
         flex-direction: column;
-        padding:0px;
+        padding: 0px;
     }
+
     .about-me-container-content {
         padding: 0 3vw;
     }
-    
+
     .profilePic {
         width: 48%;
         height: 97dvh;
     }
-    
+
     .about-me-about.about-me-container {
         width: 48%;
         height: 97dvh;
     }
-    
+
     .about-me-art-display.profilePic {
         width: 60%;
         height: 100dvh;
     }
+
     .about-me-art.about-me-container {
         width: 36%;
         height: 100dvh;
     }
+
     .about-me-art a {
         font-size: 4.5em;
         width: 100%;
@@ -628,44 +642,56 @@ swiper-container {
         height: 50dvh;
         padding: 5%;
     }
-    .quote-container-child{
+
+    .quote-container-child {
         justify-content: center;
         width: 100%;
         height: 100%;
     }
+
     .quote-container-quote {
         font-size: 1.5em;
         line-height: 1.5em;
     }
+
     .quote-container-quotationmark {
         /* height: 16%;
         width: 10%; */
     }
+
     .quote-container-quotationmark-close {
         /* top: 5dvh; */
     }
+
     .quote-container-quotationmark-open {
         /* bottom: 5dvh; */
     }
+
     .video-container {
         width: 87.2%;
-        height: 80dvh;;
+        height: 80dvh;
+        ;
         padding: 5%;
     }
+
     .video-container-video {
         height: 120%;
         width: auto;
         margin-bottom: 4vh;
     }
+
     .about-me-container-title.video-container-header {
         margin-bottom: 0;
     }
-    .about-me-container-content{
+
+    .about-me-container-content {
         margin-bottom: 6vw;
     }
+
     .video-container-header {
         margin-top: 3vh;
     }
+
     .about-me-container-content.video-container-credit {
         margin-bottom: 0;
     }

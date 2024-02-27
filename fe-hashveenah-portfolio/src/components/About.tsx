@@ -35,14 +35,14 @@ function About(props: aboutProps) {
         <div className="about-me">
             <img className="profilePic" src="./images/profile.jpg" />
             <div className="about-me-about about-me-container">
-                <hr />
+                <hr className="about-me-hr-top"/>
                 <div className="about-me-container-title about-me-font-color">
                     About Me
                 </div>
                 <div className="about-me-container-content about-me-font-color">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
                 </div>
-                <hr />
+                <hr className="about-me-hr-bottom"/>
             </div>
 
             <div className="about-me-art-display profilePic">
@@ -50,7 +50,7 @@ function About(props: aboutProps) {
             </div> 
 
             <div className="about-me-art about-me-container">
-                <hr />
+                <hr className="about-me-hr-top"/>
                 <div className="about-me-container-title about-me-font-color">
                     My Art
                 </div>
@@ -58,7 +58,7 @@ function About(props: aboutProps) {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
                 </div>
                 <Link className="about-me-art-link" to="/projects">View Selected Works</Link>
-                <hr />
+                <hr className="about-me-hr-bottom"/>
             </div>
             <div className="quote-container">
                 <div className="quote-container-child">

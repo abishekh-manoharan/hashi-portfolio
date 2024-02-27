@@ -24,14 +24,17 @@ function Header(props: headerProps) {
                             <NavLink className="header-NavLink" to='projects'>SELECTED WORKS</NavLink>
                             <NavLink className="header-NavLink" to='contact'>CONTACT</NavLink>
                         </div>
-                        <div className="header-footer">
+                        {/* <div className="header-footer">
                             Copyright xyz
-                        </div>
+                        </div> */}
                 </div>
             </div>
             <div className="outlet">
                 <Outlet />
             </div>
+            {/* <div className="footer header-footer">
+                FOOTER
+            </div> */}
         </div>);
 }
 export default Header;
