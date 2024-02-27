@@ -287,6 +287,18 @@ swiper-container {
     object-fit: cover;
 }
 
+.image-animation {
+    animation: imagePan 3s linear;
+}
+@keyframes imagePan {
+    0% {
+        object-position: left;
+    }
+    100% {
+        object-position: right;
+    }
+}
+
 .about-me-art a {
     display: block;
     text-align: center;
@@ -303,6 +315,8 @@ swiper-container {
 .about-me-art-content {
     margin-bottom: 2vw;
 }
+
+
 
 /* .about-me-header-name {
     font-size: 4vw;

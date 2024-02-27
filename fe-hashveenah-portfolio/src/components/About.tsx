@@ -14,15 +14,21 @@ function About(props: aboutProps) {
 
     // Updating art display photo for slideshow
     setTimeout(() => {
-        if (artPicsLocation != artPics.length - 1) {
-            setArtPicsLocation(artPicsLocation + 1);
-        } else {
-            setArtPicsLocation(0);
-        }
+        setArtPicsLocation((artPicsLocation + 1) % artPics.length);
     }, 3000);
     useEffect(() => {
         const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-        artPic.src = artPics[artPicsLocation];
+
+        setTimeout(() => {
+            artPic.classList.remove("image-animation");
+
+            artPic.src = artPics[artPicsLocation];
+            // Add the class after a short delay to trigger the animation
+            setTimeout(() => {
+                artPic.classList.add("image-animation");
+            }, 50);
+        }, 50);
+
     }, [artPics, artPicsLocation]);
 
 
@@ -35,22 +41,22 @@ function About(props: aboutProps) {
         <div className="about-me">
             <img className="profilePic" src="./images/profile.jpg" />
             <div className="about-me-about about-me-container">
-                <hr className="about-me-hr-top"/>
+                <hr className="about-me-hr-top" />
                 <div className="about-me-container-title about-me-font-color">
                     About Me
                 </div>
                 <div className="about-me-container-content about-me-font-color">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
                 </div>
-                <hr className="about-me-hr-bottom"/>
+                <hr className="about-me-hr-bottom" />
             </div>
 
             <div className="about-me-art-display profilePic">
-                <img className="about-me-art-display-pic" src="https://via.placeholder.com/300x100" alt="" />
-            </div> 
+                <img className="about-me-art-display-pic image-animation" src="https://via.placeholder.com/300x100" alt="" />
+            </div>
 
             <div className="about-me-art about-me-container">
-                <hr className="about-me-hr-top"/>
+                <hr className="about-me-hr-top" />
                 <div className="about-me-container-title about-me-font-color">
                     My Art
                 </div>
@@ -58,7 +64,7 @@ function About(props: aboutProps) {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
                 </div>
                 <Link className="about-me-art-link" to="/projects">View Selected Works</Link>
-                <hr className="about-me-hr-bottom"/>
+                <hr className="about-me-hr-bottom" />
             </div>
             <div className="quote-container">
                 <div className="quote-container-child">
@@ -75,7 +81,7 @@ function About(props: aboutProps) {
                 <div className="about-me-container-content about-me-font-color video-container-credit">Directed by Matthew Viveen </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 <hr />
-            </div> 
+            </div>
             {/* {/* <div className="links-container"><br /><br /><br /><br /></div> */}
         </div>
     );
