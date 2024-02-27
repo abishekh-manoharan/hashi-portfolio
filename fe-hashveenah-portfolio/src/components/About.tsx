@@ -19,19 +19,16 @@ function About(props: aboutProps) {
     const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
 
     // remove the class and update the source after a delay
-    setTimeout(() => {
-        
-        artPic.src = artPics[artPicsLocation];
-        artPic.classList.remove("image-animation");
-        // Add the class after a delay to trigger the animation
+    artPic.src = artPics[artPicsLocation];
+    // setTimeout(() => {        
         setTimeout(() => {
-            artPic.classList.add("image-animation");
-        }, 10);
-    }, 100);
-    // useEffect(() => {
-
-    // }, [artPics, artPicsLocation]);
-
+            artPic.classList.remove("image-animation");
+            // Add the class after a delay to trigger the animation
+            setTimeout(() => {
+                artPic.classList.add("image-animation");
+            }, 50);
+        }, 50);
+    // }, 100);
 
     // Updating location
     useEffect(() => {
