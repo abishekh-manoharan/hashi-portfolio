@@ -292,17 +292,17 @@ swiper-container {
     overflow: hidden;
 }
 
-.image-animation {
+/* .image-animation {
     animation: imagePan 7s linear;
 }
 @keyframes imagePan {
     0% {
-        transform: scale(1);
+        transform: scale(1.12);
     }
     100% {
-        transform: scale(1.21);
+        transform: scale(1);
     }
-}
+} */
 
 .about-me-art a {
     display: block;
