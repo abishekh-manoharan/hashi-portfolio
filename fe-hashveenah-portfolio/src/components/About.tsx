@@ -81,7 +81,7 @@ function About(props: aboutProps) {
             </div>
 
             <div className="about-me-art-display profilePic">
-                <img className="about-me-art-display-pic image-animation" src="https://via.placeholder.com/300x100" alt="" />
+                <img className="about-me-art-display-pic" src="https://via.placeholder.com/300x100" alt="" />
             </div>
 
             <div className="about-me-art about-me-container">
