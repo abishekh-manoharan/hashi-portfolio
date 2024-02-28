@@ -26,10 +26,8 @@ function About(props: aboutProps) {
         const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
         setTimeout(() => {
             artPic.src = artPics[artPicsLocation];
-            setTimeout(() => {
-                artPic.classList.remove("image-animation")
-                setTimeout(() => artPic.classList.add("image-animation"), 100);
-            }, 100);
+            artPic.classList.remove("image-animation")
+            setTimeout(() => artPic.classList.add("image-animation"), 500);
         }, 100);
     }, [artPicsLocation])
 

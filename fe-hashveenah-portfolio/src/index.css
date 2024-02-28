@@ -293,11 +293,11 @@ swiper-container {
 }
 
 .image-animation {
-    animation: imagePan 7s forwards;
+    animation: imagePan 7s;
 }
 @keyframes imagePan {
     0% {
-        transform: scale(1);
+        /* transform: scale(1); */
     }
     100% {
         transform: scale(1.21);
