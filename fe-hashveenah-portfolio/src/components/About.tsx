@@ -24,11 +24,11 @@ function About(props: aboutProps) {
     useEffect(() => {
         console.log('useEffect for update of artPicsLocation running');
         const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+        artPic.src = artPics[artPicsLocation];
         setTimeout(() => {
-            artPic.src = artPics[artPicsLocation];
             artPic.classList.remove("image-animation")
             setTimeout(() => artPic.classList.add("image-animation"), 500);
-        }, 100);
+        }, 200);
     }, [artPicsLocation])
 
 
