@@ -445,7 +445,6 @@ swiper-container.thumbSwiper  {
 }
 
 .footer {
-    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -460,8 +459,8 @@ swiper-container.thumbSwiper  {
     display: none;
 }
 
-.footer-mobile {
-    display: block;
+.footer-mobile .footer {
+    height: 10vh;
 }
 
 
@@ -495,7 +494,7 @@ swiper-container.thumbSwiper  {
     .footer-desktop {
         display: block;
         position: absolute;
-        bottom: -20px;
+        bottom: 1vh;
         right: 50%;
         transform: translateX(50%);
     }
@@ -527,7 +526,7 @@ swiper-container.thumbSwiper  {
 
     .header-container {
         position: sticky;
-        height: 100dvh;
+        height: 90dvh;
         width: 20dvw;
         min-width: 180px;
     }

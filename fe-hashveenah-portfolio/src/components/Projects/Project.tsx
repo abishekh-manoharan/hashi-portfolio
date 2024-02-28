@@ -3,13 +3,15 @@ import { ProjectEntry } from "../../types";
 
 interface projectProps {
     project: ProjectEntry;
+    index: number;
+    length: number;
 }
 
 function Project(props: projectProps) {
     return (
         <div className="project-container">
             <div className="project">
-                <swiper-container className="swiper-container" thumbs-swiper={`.mySwiper${props.project.id}`} loop space-between="30">
+                <swiper-container class="swiper-container" thumbs-swiper={`.mySwiper${props.project.id}`} loop space-between="30">
                     {
                         props.project.imgSrc.map((src, i) =>
                             <swiper-slide key={src + i}>
@@ -18,7 +20,7 @@ function Project(props: projectProps) {
                         )
                     }
                 </swiper-container>
-                <swiper-container class={`mySwiper${props.project.id} thumbSwiper`} loop="true" space-between="10" slides-per-view="4" free-mode="true" watch-slides-progress="true" >
+                <swiper-container class={`mySwiper${props.project.id} thumbSwiper`} loop space-between="10" slides-per-view="4" free-mode="true" watch-slides-progress="true" >
                     {
                         props.project.imgSrc.map((src, i) =>
                             <swiper-slide key={src + i}>
@@ -33,7 +35,10 @@ function Project(props: projectProps) {
                     <div className="project-medium">{props.project.medium}</div>
                     {props.project.about ? <div className="project-about">{props.project.about}</div> : <></>}
                 </div>
-                <hr/>
+                {
+                    /*  only display hr when not on last project */
+                    props.index != props.length - 1 ? <hr /> : <></>
+                }
             </div>
             <div className="project-desktop">
                 <div className="project-info project-info-desktop">
