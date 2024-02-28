@@ -11,6 +11,7 @@ function Project(props: projectProps) {
     return (
         <div className="project-container">
             <div className="project">
+                {/* @ts-expect-error the use of "class" is necessary here as the Swiper library's Element components don't work with className*/}
                 <swiper-container class="swiper-container" thumbs-swiper={`.mySwiper${props.project.id}`} loop space-between="30">
                     {
                         props.project.imgSrc.map((src, i) =>
@@ -20,6 +21,7 @@ function Project(props: projectProps) {
                         )
                     }
                 </swiper-container>
+                {/* @ts-expect-error the use of "class" is necessary here as the Swiper library's Element components don't work with className*/}
                 <swiper-container class={`mySwiper${props.project.id} thumbSwiper`} loop space-between="10" slides-per-view="4" free-mode="true" watch-slides-progress="true" >
                     {
                         props.project.imgSrc.map((src, i) =>
