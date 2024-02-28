@@ -416,7 +416,22 @@ swiper-container {
     height: 300px;
 }
 
-
+.footer {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.footer-content {
+    margin: auto;
+}
+.footer-desktop {
+    display: none;
+}
+.footer-mobile {
+    display: block;
+}
 
 
 
@@ -442,7 +457,16 @@ swiper-container {
 
 /* Desktop view */
 @media screen and (min-width: 650px) and (orientation: landscape) {
-
+    .footer-mobile {
+        display: none;
+    }
+    .footer-desktop{
+        display: block;
+        position:absolute;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+    }
     /* HEADER */
     .header-page-title {
         display: none;
