@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 function Test() {
     const [st, setSt] = useState(0);
     const [st2, setSt2] = useState(0);
+
+    console.log('script');
+
     useEffect(() => {
         console.log('useEffect empty running')
     });

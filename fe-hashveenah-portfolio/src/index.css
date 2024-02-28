@@ -293,8 +293,7 @@ swiper-container {
 }
 
 .image-animation {
-    animation: imagePan 7s;
-    animation-timing-function: linear;
+    animation: imagePan 7s forwards;
 }
 @keyframes imagePan {
     0% {

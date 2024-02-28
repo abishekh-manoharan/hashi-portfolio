@@ -11,34 +11,56 @@ function About(props: aboutProps) {
     const artPics = [data[0].imgSrc[3], data[0].imgSrc[4], data[0].imgSrc[5]];
     const [artPicsLocation, setArtPicsLocation] = useState(0);
 
-    console.log('component script');
-    
-    const to = setTimeout(() => {
-        console.log('set art timeout set');
-        setArtPicsLocation((artPicsLocation + 1) % artPics.length);
-    }, 5000);
+    useEffect(() => {
+        console.log('useEffect for setting the timeout running');
 
-    const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-    
-    useEffect(() => {    
-        console.log('useeffect: artPicsLocation triggered');
-        
+        const to = setTimeout(() => {
+            setArtPicsLocation((artPicsLocation + 1) % artPics.length);
+        }, 5000);
+
+        return () => { clearTimeout(to) }
+    })
+
+    useEffect(() => {
+        console.log('useEffect for update of artPicsLocation running');
+        const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+        artPic.classList.remove("image-animation");
+        artPic.src = artPics[artPicsLocation];
         setTimeout(() => {
-            // remove the class and update the source after a delay
-            artPic.classList.remove("image-animation");
-            artPic.src = artPics[artPicsLocation];
-            console.log('NEW IMAGE');
-            // Add the class after a delay to trigger the animation
-            setTimeout(() => {
-                artPic.classList.add("image-animation");
-            }, 50);
-        }, 100);
+        artPic.classList.add("image-animation");
+        }, 50);
 
-        return (() => {
-            console.log('clear timeout')
-            clearTimeout(to)
-        })
     }, [artPicsLocation])
+
+
+
+
+    // const to = setTimeout(() => {
+    //     console.log('set art timeout set');
+    //     setArtPicsLocation((artPicsLocation + 1) % artPics.length);
+    // }, 5000);
+
+    // const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+
+    // useEffect(() => {    
+    //     console.log('useeffect: artPicsLocation triggered');
+
+    //     setTimeout(() => {
+    //         // remove the class and update the source after a delay
+    //         artPic.classList.remove("image-animation");
+    //         artPic.src = artPics[artPicsLocation];
+    //         console.log('NEW IMAGE');
+    //         // Add the class after a delay to trigger the animation
+    //         setTimeout(() => {
+    //             artPic.classList.add("image-animation");
+    //         }, 50);
+    //     }, 100);
+
+    //     return (() => {
+    //         console.log('clear timeout')
+    //         clearTimeout(to)
+    //     })
+    // }, [artPicsLocation])
 
     // Updating location
     useEffect(() => {
