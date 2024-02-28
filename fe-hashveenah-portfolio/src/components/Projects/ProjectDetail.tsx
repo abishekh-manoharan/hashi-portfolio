@@ -34,6 +34,7 @@ function ProjectDetail() {
                 <span className="project-date">{project?.date}</span>
             </div>
             <div className="project-about">{project?.about}</div>
+
         </div>
     );
 }

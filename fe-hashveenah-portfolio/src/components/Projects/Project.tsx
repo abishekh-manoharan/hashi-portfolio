@@ -9,11 +9,20 @@ function Project(props: projectProps) {
     return (
         <div className="project-container">
             <div className="project">
-                <swiper-container className="swiper-container" init={false} pagination loop space-between="30">
+                <swiper-container className="swiper-container" thumbs-swiper={`.mySwiper${props.project.id}`} loop space-between="30">
                     {
                         props.project.imgSrc.map((src, i) =>
-                            <swiper-slide key={src+i}>
+                            <swiper-slide key={src + i}>
                                 <img className="swiper-image" src={src} />
+                            </swiper-slide >
+                        )
+                    }
+                </swiper-container>
+                <swiper-container class={`mySwiper${props.project.id} thumbSwiper`} loop="true" space-between="10" slides-per-view="4" free-mode="true" watch-slides-progress="true" >
+                    {
+                        props.project.imgSrc.map((src, i) =>
+                            <swiper-slide key={src + i}>
+                                <img src={src} />
                             </swiper-slide >
                         )
                     }
@@ -22,8 +31,9 @@ function Project(props: projectProps) {
                     <div className="project-name">{props.project.name}</div>
                     {props.project.date ? <div className="project-date">{props.project.date}</div> : <></>}
                     <div className="project-medium">{props.project.medium}</div>
-                    {props.project.date ? <div className="project-about">{props.project.about}</div> : <></>}
+                    {props.project.about ? <div className="project-about">{props.project.about}</div> : <></>}
                 </div>
+                <hr/>
             </div>
             <div className="project-desktop">
                 <div className="project-info project-info-desktop">

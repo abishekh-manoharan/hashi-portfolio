@@ -13,9 +13,9 @@ function ProjectList(props: projectProps) {
         props.setLocation('Selected Works')
     }, [props]);
 
-    useEffect(() => { // adding styling to the bullets
-        setPaginationStyling();
-    }, [])
+    // useEffect(() => { // adding styling to the bullets
+    //     // setPaginationStyling();
+    // }, [])
 
     return (
         <div className="projects-list">
