@@ -22,13 +22,17 @@ function About(props: aboutProps) {
     })
 
     useEffect(() => {
-        console.log('useEffect for update of artPicsLocation running');
-        const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-        artPic.src = artPics[artPicsLocation];
-        setTimeout(() => {
-            artPic.classList.remove("image-animation")
-            setTimeout(() => artPic.classList.add("image-animation"), 500);
-        }, 200);
+        const to = setTimeout(() => {
+            console.log('useEffect for update of artPicsLocation running');
+            const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+            artPic.src = artPics[artPicsLocation];
+            setTimeout(() => {
+                artPic.classList.remove("image-animation")
+                setTimeout(() => artPic.classList.add("image-animation"), 500);
+            }, 200);
+        }, 5000);
+
+        return () => { clearTimeout(to) }
     }, [artPicsLocation])
 
 
