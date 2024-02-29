@@ -8,7 +8,7 @@ interface aboutProps {
 
 function About(props: aboutProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const artPics = [data[0].imgSrc[3], data[0].imgSrc[4], data[0].imgSrc[5]];
+    const artPics = [data[0].imgSrc[3], data[1].imgSrc[1], data[0].imgSrc[2]];
     const [artPicsLocation, setArtPicsLocation] = useState(0);
 
     useEffect(() => {
@@ -18,7 +18,9 @@ function About(props: aboutProps) {
         artPic.src = artPics[artPicsLocation];
         const to = setTimeout(() => {
             setArtPicsLocation((artPicsLocation + 1) % artPics.length);
-        }, 4000);
+            console.log('location')
+            console.log((artPicsLocation + 1) % artPics.length)
+        }, 3500);
 
         return () => { clearTimeout(to) }
     })
@@ -70,7 +72,9 @@ function About(props: aboutProps) {
 
     return (
         <div className="about-me">
-            <img className="profilePic" src="./images/profile.jpg" />
+            <div className="profile-pic-container">
+                <img className="profilePic" src="./images/profile.jpg" />
+            </div>
             <div className="about-me-about about-me-container">
                 <hr className="about-me-hr-top" />
                 <div className="about-me-container-title about-me-font-color">
@@ -107,11 +111,11 @@ function About(props: aboutProps) {
             </div> */}
 
             <div className="video-container about-me-container">
-                <hr className="about-me-hr-top" />
+                {/* <hr className="about-me-hr-top" /> */}
                 <div className="about-me-container-title about-me-font-color video-container-header "> An Interview with Hashveenah Manoharan </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 <div className="about-me-container-content about-me-font-color video-container-credit">Directed by Matthew Viveen </div>
-                <hr className="about-me-hr-bottom" />
+                {/* <hr className="about-me-hr-bottom" /> */}
             </div>
             {/* {/* <div className="links-container"><br /><br /><br /><br /></div> */}
         </div>
