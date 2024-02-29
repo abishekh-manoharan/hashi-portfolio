@@ -14,22 +14,24 @@ function About(props: aboutProps) {
     useEffect(() => {
         console.log('useEffect for setting the timeout running');
 
+        const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+        artPic.src = artPics[artPicsLocation];
         const to = setTimeout(() => {
             setArtPicsLocation((artPicsLocation + 1) % artPics.length);
-        }, 5000);
+        }, 4000);
 
         return () => { clearTimeout(to) }
     })
 
-    useEffect(() => {
-        console.log('useEffect for update of artPicsLocation running');
-        const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-        //artPic.classList.remove("image-animation")
-        // setTimeout(() => {
-            artPic.src = artPics[artPicsLocation];
-        //     //  setTimeout(() => artPic.classList.add("image-animation"), 500);
-        // }, 200);
-    }, [artPicsLocation])
+    // useEffect(() => {
+    //     console.log('useEffect for update of artPicsLocation running');
+    //     const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
+    //     //artPic.classList.remove("image-animation")
+    //     setTimeout(() => {
+    //         artPic.src = artPics[artPicsLocation];
+    //         //  setTimeout(() => artPic.classList.add("image-animation"), 500);
+    //     }, 200);
+    // }, [artPicsLocation])
 
 
 
@@ -95,14 +97,14 @@ function About(props: aboutProps) {
                 <Link className="about-me-art-link" to="/projects">View Selected Works</Link>
                 <hr className="about-me-hr-bottom" />
             </div>
-            <div className="quote-container">
+            {/* <div className="quote-container">
                 <div className="quote-container-child">
                     <img className="quote-container-quotationmark quote-container-quotationmark-open" src="/images/quotation-mark.png" alt="" />
                     <div className="quote-container-quote about-me-font-color about-me-art-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                     <div className="quote-container-author about-me-font-color about-me-art-content">Author</div>
                     <img className="quote-container-quotationmark quote-container-quotationmark-close" src="/images/quotation-mark.png" alt="" />
                 </div>
-            </div>
+            </div> */}
 
             <div className="video-container about-me-container">
                 <hr className="about-me-hr-top" />

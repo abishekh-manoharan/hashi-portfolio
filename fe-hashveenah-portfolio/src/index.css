@@ -1,6 +1,6 @@
 * {
     font-family: Helvetica, sans-serif;
-    color: #B47B84;
+    color: #5E6E5E;
 }
 
 body {
@@ -66,9 +66,9 @@ a:visited {
     top: -35vh;
     background-color: #fbe4e4;
     width: 100vw;
-    height: 25vh;
-    font-size: 2.8vw;
-    padding-top: 30px;
+    height: 35vh;
+    font-size: 2vh;
+    /* padding-top: 30px; */
 
     display: flex;
     flex-direction: column;
@@ -79,6 +79,10 @@ a:visited {
     z-index: 1;
 
     transition: transform .5s;
+}
+
+.header-menu-NavLink:nth-child(1) {
+    margin-top: 5vh;
 }
 
 .animation-open-menu-header {
@@ -208,7 +212,7 @@ a:visited {
 swiper-slide {
     width: 100%;
     height: 100%;
-    max-height: 50vh;
+    max-height: 60vh;
 }
 
 swiper-container {
@@ -510,6 +514,8 @@ swiper-container.thumbSwiper  {
 
     .header-name {
         font-size: 1.5rem;
+        width: 12vw;
+        max-width: 12vw;
     }
 
     .header-nav {
@@ -517,6 +523,7 @@ swiper-container.thumbSwiper  {
         display: flex;
         flex-direction: column;
         gap: .5em;
+        font-size: 1.2em;
     }
 
     .header-NavLink:hover {
@@ -527,7 +534,7 @@ swiper-container.thumbSwiper  {
     .header-container {
         position: sticky;
         height: 90dvh;
-        width: 20dvw;
+        width: auto;
         min-width: 180px;
     }
 
@@ -550,7 +557,6 @@ swiper-container.thumbSwiper  {
         flex-direction: column;
         gap: 1.5em;
         font-size: .7em;
-        width: 15em;
         height: 97dvh;
     }
 
@@ -560,7 +566,7 @@ swiper-container.thumbSwiper  {
     }
 
     .outlet {
-        /* width: 100%; */
+        width: 100%;
         overflow-y: auto;
         margin: 0 auto;
     }
@@ -575,7 +581,7 @@ swiper-container.thumbSwiper  {
         align-items: center;
         justify-content: center;
         gap: 5px;
-        margin-top: 0px;
+        margin-top: -30px;
 
     }
 
@@ -626,14 +632,30 @@ swiper-container.thumbSwiper  {
     }
 
     .project-desktop-detail {
+        position: relative;
         height: 95dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin: 10px;
+        z-index: 0;
     }
+    .project-desktop-detail-back-btn{
+       position: absolute; 
+       top: 2vh;
+       right: 2vh;
 
+       height: 30px;
+       width: 30px;
+
+       background: rgba(0, 0, 0, 0);
+       border: none;
+       /* padding: 10px 7px; */
+
+       /* border-radius: 10%; */
+       z-index: 1;
+    }
     swiper-container {
         width: 100%;
         height: 100%;

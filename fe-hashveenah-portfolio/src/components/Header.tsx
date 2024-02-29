@@ -11,19 +11,25 @@ interface headerProps {
 function Header(props: headerProps) {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const navLinkActiveStyle = { 
+        color: "#B47B84",
+        borderLeft: "solid",
+        paddingLeft: "5px"
+    };
+
     return (
         <div className="headerAndOutlet">
             <div className="header-container">
                 <HeaderMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
                 <div className="header-content">
                     <img className="header-menu-logo" src="./images/menu.svg" onClick={() => { console.log('clock'); setMenuOpen(!menuOpen) }} />
-                    <div className="header-name">Hashveenah Manoharan</div>
+                    <div className="header-name"><NavLink to='/'>Hashveenah Manoharan</NavLink></div>
                     <div className="header-page-title">{props.location}</div>
                     <div className="header-nav">
-                        <NavLink className="header-NavLink" to='/'>HOME</NavLink>
-                        <NavLink className="header-NavLink" to='about'>ABOUT</NavLink>
-                        <NavLink className="header-NavLink" to='projects'>SELECTED WORKS</NavLink>
-                        <NavLink className="header-NavLink" to='contact'>CONTACT</NavLink>
+                        {/* <NavLink className="header-NavLink" to='/'>HOME</NavLink> */}
+                        <NavLink className="header-NavLink" to='about' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>About</NavLink>
+                        <NavLink className="header-NavLink" to='projects' style={({isActive})=> isActive ? navLinkActiveStyle : {}}>Selected Works</NavLink>
+                        <NavLink className="header-NavLink" to='contact' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Contact</NavLink>
                     </div>
                     <div className="footer-desktop">
                         <Footer />
