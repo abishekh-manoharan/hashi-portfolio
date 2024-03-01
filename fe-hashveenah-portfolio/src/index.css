@@ -16,7 +16,9 @@ a:visited {
 }
 
 
-
+.outlet {
+    margin-top: 11vh;
+}
 
 
 /* HEADER */
@@ -41,15 +43,18 @@ a:visited {
 
 .header-name {
     grid-area: name;
-    font-size: 5vw;
-    font-weight: bolder;
+    /* font-size: 3.5vh; */
+    font-size: 3vh;
+    font-weight: 300;
 }
 
 .header-page-title {
     grid-area: title;
     font-style: italic;
-    font-size: 4vw;
+    font-size: 2vh;
+    font-weight: 300;
     color: #143d19;
+    margin: .5vh 0;
 }
 
 .header-menu-logo {
@@ -67,9 +72,10 @@ a:visited {
     top: -35vh;
     background-color: #ffffff;
     width: 100vw;
-    height: 35vh;
+    /* height: 40vh; */
     font-size: 2vh;
-    /* padding-top: 30px; */
+    padding-top: 7vh;
+    padding-bottom: 5vh;
 
     display: flex;
     flex-direction: column;
@@ -166,13 +172,14 @@ a:visited {
         'medium medium'
         'about about';
     margin: 5vh 3vw 5vh;
+    font-weight: 200;
 }
 
 .project-name {
     grid-area: name;
     font-size: 5vw;
     align-self: center;
-    font-weight: bold;
+    font-weight: 400;
     color: #133d18;
 }
 
@@ -195,6 +202,7 @@ a:visited {
     grid-area: about;
     margin-top: 5px;
     font-size: 3.2vw;
+    line-height: 1.2em;
     font-weight: lighter;
 }
 
@@ -284,6 +292,7 @@ swiper-container.thumbSwiper {
     text-align: center;
     margin-bottom: 2vw;
     margin-top: 6vw;
+    font-weight: 300;
 }
 
 .about-me-container-content {
@@ -531,7 +540,7 @@ swiper-container.thumbSwiper {
         font-size: 1.4rem;
         width: 12vw;
         max-width: 12vw;
-        font-weight: 500;
+
     }
 
     .header-nav {
@@ -540,6 +549,7 @@ swiper-container.thumbSwiper {
         flex-direction: column;
         gap: 0.7em;
         font-size: 1.2em;
+        font-weight: 300;
     }
 
     .header-NavLink:hover {
