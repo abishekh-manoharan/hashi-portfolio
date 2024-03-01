@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import Home from "./components/Home"
+// import Home from "./components/Home"
 import About from "./components/About"
 import ProjectList from "./components/Projects/ProjectList"
 import ProjectDetail from "./components/Projects/ProjectDetail"
@@ -20,9 +20,9 @@ function App() {
       {/* <Test/>  REMOVE FROM FINAL */}
       <ScrollReset /> {/* ensuring scroll is reset to top position on route change */}
       <Routes>
-        <Route path="/" element=<Home /> />
+        {/* <Route path="/" element=<Home /> /> */}
         <Route element=<Header location={location}/> >
-          <Route path="/about" element=<About setLocation={setLocation}/> />
+          <Route path="/" element=<About setLocation={setLocation}/> />
           <Route path="/projects" element=<ProjectList setLocation={setLocation}/> />
           <Route path="/project/:id/:index" element=<ProjectDetail /> />
           <Route path="/contact" element=<Contact setLocation={setLocation}/> />
