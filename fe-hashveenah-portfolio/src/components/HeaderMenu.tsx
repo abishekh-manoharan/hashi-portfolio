@@ -30,13 +30,18 @@ function HeaderMenu(props: headerMenuProps) {
         }
     }, [setMenuOpen]);
 
-
+    const navLinkActiveStyle = { 
+        color: "#B47B84",
+        // borderLeft: "solid",
+        // paddingLeft: "5px"
+    };
+ 
     return (
         <div className={`header-menu ${props.menuOpen ? 'animation-open-menu-header' : ''}`}>
-            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='/'>HOME</NavLink>
-            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='about'>ABOUT</NavLink>
-            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='projects'>SELECTED WORKS</NavLink>
-            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='contact'>CONTACT</NavLink>
+            {/* <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} to='/'>HOME</NavLink> */}
+            <NavLink className="header-menu-NavLink" style={({isActive})=>isActive ? navLinkActiveStyle : {}} onClick={() => props.setMenuOpen(!props.menuOpen)} to='/'>Home</NavLink>
+            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} style={({isActive})=>isActive ? navLinkActiveStyle : {}} to='projects'>Selected Works</NavLink>
+            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} style={({isActive})=>isActive ? navLinkActiveStyle : {}} to='contact'>Contact</NavLink>
         </div>
     );
 }
