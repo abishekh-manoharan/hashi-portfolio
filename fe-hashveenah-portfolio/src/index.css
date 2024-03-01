@@ -1,6 +1,6 @@
 * {
     font-family: Helvetica, sans-serif;
-    color: #5E6E5E;
+    color: #000000;
 }
 
 body {
@@ -256,7 +256,7 @@ swiper-container.thumbSwiper {
 }
 
 .about-me-font-color {
-    color: #5E6E5E;
+    /* color: #5E6E5E; */
 }
 
 .profilePic {
@@ -609,7 +609,7 @@ swiper-container.thumbSwiper {
 
     .project-container {
         width: 100%;
-        margin-bottom: 20px;;
+        margin-top: 2vh;
     }
 
     .project-desktop {
@@ -640,8 +640,11 @@ swiper-container.thumbSwiper {
     }
 
     .project-info-desktop {
-        width: 100%;
-        margin: 15px 0px 5px;
+        width: 98%;
+        margin: 13px 0px;
+        padding: 7px 10px;
+        background: rgba(234, 236, 204, 0.32);
+        border-bottom: solid 1px rgba(234, 236, 204);
     }
 
     .project-name,
@@ -701,6 +704,7 @@ swiper-container.thumbSwiper {
 
     .project-date {
         font-size: smaller;
+        grid-area: medium;
     }
 
 
@@ -759,6 +763,10 @@ swiper-container.thumbSwiper {
     .about-me-art-display {
         width: 100dvw;
         background-color: #133d18;
+    }
+
+    .about-me-art-display-pic {
+        margin: 0;
     }
 
     .about-me-art.about-me-container {
