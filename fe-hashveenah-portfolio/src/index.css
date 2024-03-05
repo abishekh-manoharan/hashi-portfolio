@@ -43,6 +43,8 @@ hr {
     ;
     z-index: 1;
     background-color: #ffffffd9;
+
+    transition: bottom .3s;
 }
 
 .header-name {

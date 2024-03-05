@@ -1,3 +1,5 @@
+// Component for the mobile menu that opens up with an animation on click of the menu button
+
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
