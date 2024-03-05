@@ -8,7 +8,7 @@ function NavHideOnScroll() {
 
         if (window.innerWidth <= 650) { // only apply header hide on mobile-view
             if (window.scrollY > scrollLocation.current && window.scrollY > 100) { // apply header hide on scroll down and if scrolled 100px down minimum
-                header!.style.bottom = '70px';
+                header!.style.bottom = '100px';
             } else {  // show header when scrolling up
                 header!.style.bottom = '0px';
             }
