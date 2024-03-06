@@ -72,7 +72,6 @@ function About(props: aboutProps) {
 
     return (
         <div className="about-me">
-            v.1
             <div className="profile-pic-container">
                 <img className="profilePic" src="./images/profile.jpg" />
             </div>
