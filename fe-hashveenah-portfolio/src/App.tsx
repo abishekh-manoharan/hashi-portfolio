@@ -15,15 +15,16 @@ function App() {
   register();
 
   const [location, setLocation] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
       {/* <Test/>  REMOVE FROM FINAL */}
       <ScrollReset /> {/* ensuring scroll is reset to top position on route change */}
-      <NavHideOnScroll /> {/* ensuring nav is hidden on scroll down on mobile view */}
+      <NavHideOnScroll menuOpen={menuOpen} setMenuOpen={setMenuOpen}/> {/* ensuring nav is hidden on scroll down on mobile view */}
       <Routes>
         {/* <Route path="/" element=<Home /> /> */}
-        <Route element=<Header location={location}/> >
+        <Route element=<Header location={location} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/> >
           <Route path="/" element=<About setLocation={setLocation}/> />
           <Route path="/projects" element=<ProjectList setLocation={setLocation}/> />
           <Route path="/project/:id/:index" element=<ProjectDetail /> />

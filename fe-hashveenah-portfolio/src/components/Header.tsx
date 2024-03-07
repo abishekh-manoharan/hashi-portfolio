@@ -1,15 +1,17 @@
 import { NavLink, Outlet } from "react-router-dom";
 import HeaderMenu from "./HeaderMenu";
-import { useState } from "react";
+// import { useState } from "react";
 import Footer from "./Footer";
 // import { useEffect, useState } from "react";
 
 interface headerProps {
+    menuOpen: boolean;
+    setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
     location: string;
 }
 
 function Header(props: headerProps) {
-    const [menuOpen, setMenuOpen] = useState(false);
+    // const [menuOpen, setMenuOpen] = useState(false);
 
     const navLinkActiveStyle = { 
         color: "#B47B84",
@@ -20,9 +22,9 @@ function Header(props: headerProps) {
     return (
         <div className="headerAndOutlet">
             <div className="header-container">
-                <HeaderMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+                <HeaderMenu menuOpen={props.menuOpen} setMenuOpen={props.setMenuOpen} />
                 <div className="header-content">
-                    <img className="header-menu-logo" src="./images/menu.svg" onClick={() => { console.log('clock'); setMenuOpen(!menuOpen) }} />
+                    <img className="header-menu-logo" src="./images/menu.svg" onClick={() => { props.setMenuOpen(!props.menuOpen) }} />
                     <div className="header-name"><NavLink to='/'>Hashveenah Manoharan</NavLink></div>
                     <div className="header-page-title">{props.location}</div>
                     <div className="header-nav">
