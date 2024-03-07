@@ -270,10 +270,6 @@ swiper-container.thumbSwiper {
     margin-top: 18vw;
 }
 
-.about-me-font-color {
-    /* color: #5E6E5E; */
-}
-
 .profilePic {
     position: relative;
     width: 94dvw;
@@ -815,19 +811,6 @@ swiper-container.thumbSwiper {
     .quote-container-quote {
         font-size: 1.5em;
         line-height: 1.5em;
-    }
-
-    .quote-container-quotationmark {
-        /* height: 16%;
-        width: 10%; */
-    }
-
-    .quote-container-quotationmark-close {
-        /* top: 5dvh; */
-    }
-
-    .quote-container-quotationmark-open {
-        /* bottom: 5dvh; */
     }
 
     .video-container {
