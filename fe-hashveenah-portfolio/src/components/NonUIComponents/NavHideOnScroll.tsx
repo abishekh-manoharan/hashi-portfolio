@@ -28,6 +28,7 @@ function NavHideOnScroll(props: navHideOnScrollProps) {
     useEffect(() => {
         window.addEventListener('scroll', scrollHandler)        
         return () => window.removeEventListener('scroll', scrollHandler)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (<></>);
