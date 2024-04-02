@@ -1,9 +1,9 @@
-import mongoose from 'mongoose';
 import passport from 'passport';
-import passportLocal, { IVerifyOptions } from 'passport-local';
+import passportLocal from 'passport-local';
+import { IVerifyOptions } from 'passport-local';
 import { verifyPassword } from './authUtils';
 import User from '../models/user';
-import { doneType, userType } from '../types'
+import { doneType, userType } from '../types';
 
 
 const LocalStrategy = passportLocal.Strategy;

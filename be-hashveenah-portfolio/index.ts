@@ -1,8 +1,6 @@
 import mongoose from 'mongoose';
 import express from 'express';
-require('dotenv').config(); 
-require('./utils/mongooseConfig'); // connecting to mongodb
-
+import './utils/config'
 const app = express();
 
 app.use(express.json());
