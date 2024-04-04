@@ -8,3 +8,13 @@ export type doneType = (error: any, user?: Express.User | false, options?: IVeri
 export interface userType extends Express.User{
     id?: string;
 }
+
+// type for work
+export interface ProjectEntry {
+    id: string;
+    imgSrc: string[];
+    name: string;
+    date?: string;
+    medium: string;
+    about?: string;
+}
