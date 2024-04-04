@@ -1,4 +1,4 @@
-const crypto = require('node:crypto');
+import crypto from 'node:crypto';
 
 // hashes the given password and compares is to the stored hashed value. returns true if matching, false otherwise.
 const verifyPassword = (password: string, hash: string, salt: string): Boolean => {

@@ -5,7 +5,7 @@ import { verifyPassword } from './authUtils';
 import User from '../models/user';
 import { doneType, userType } from '../types';
 
-
+console.log('./auth/passport running')
 const LocalStrategy = passportLocal.Strategy;
 
 const customFields = {
