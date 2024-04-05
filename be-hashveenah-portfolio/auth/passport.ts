@@ -1,6 +1,5 @@
 import passport from 'passport';
 import passportLocal from 'passport-local';
-import { IVerifyOptions } from 'passport-local';
 import { verifyPassword } from './authUtils';
 import User from '../models/user';
 import { doneType, userType } from '../types';
@@ -23,7 +22,7 @@ const validationFunction = (username: string, password: string, done: doneType) 
             passwordVerification ? done(null, user) : done(null, false); // if verified, return done with user. otherwise done with false
         })
     }
-    catch (err: any) {
+    catch (err) {
         done(err)
     }
 }

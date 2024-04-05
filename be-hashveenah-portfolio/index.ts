@@ -1,15 +1,17 @@
-import mongoose from 'mongoose';
 import express from 'express';
 import sessions from 'express-session';
 import mongoStore from 'connect-mongo';
 import passport from 'passport';
+import EntryRouter from './routes/entry';
+import cors from 'cors';
+
 import './utils/config'
 // import { session } from 'passport';
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors());
 
 //setting up session
 const store = mongoStore.create({
@@ -36,6 +38,7 @@ app.use(passport.session());
 app.use(passport.initialize());
 
 // routes
+app.use('/entry', EntryRouter);
 app.get('/', (req,res) => {
     res.send('hello world!')
 })

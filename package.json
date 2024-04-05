@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@types/express-session": "^1.18.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }

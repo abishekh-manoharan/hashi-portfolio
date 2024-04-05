@@ -7,7 +7,7 @@ const entrySchema = new mongoose.Schema({
     date: String,
     medium: String,
     about: String,
-})
+});
 
 const Entry = mongoose.model('ProjectEntry', entrySchema);
 
