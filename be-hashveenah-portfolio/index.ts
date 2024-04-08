@@ -3,6 +3,7 @@ import sessions from 'express-session';
 import mongoStore from 'connect-mongo';
 import passport from 'passport';
 import EntryRouter from './routes/entry';
+import AuthRouter from './routes/auth';
 import cors from 'cors';
 
 import './utils/config'
@@ -39,6 +40,7 @@ app.use(passport.initialize());
 
 // routes
 app.use('/entry', EntryRouter);
+app.use('/auth', AuthRouter);
 app.get('/', (req,res) => {
     res.send('hello world!')
 })

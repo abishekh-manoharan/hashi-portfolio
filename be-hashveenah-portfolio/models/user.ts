@@ -1,13 +1,21 @@
 import mongoose from "mongoose";
 
-const schema = new mongoose.Schema({
-    id: { type: String},
-    username: String,
+const userSchema = new mongoose.Schema({
+    id: { type: String },
+    username: { type: String, require: true },
     hash: String,
     salt: String,
 })
 
-const User = mongoose.model('User', schema);
+userSchema.set('toJSON', {
+    transform: (document, returnedObject) => {
+        returnedObject.id = returnedObject._id.toString()
+        delete returnedObject._id
+        delete returnedObject.__v
+    }
+})
+
+const User = mongoose.model('User', userSchema);
 
 export default User;
 

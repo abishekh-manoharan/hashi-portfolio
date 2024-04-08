@@ -1,16 +1,32 @@
 import express from 'express';
 import passport from 'passport';
+import { generateUser } from '../auth/authUtils';
+import { parseNewUser } from '../utils/parsers';
 
 const AuthRouter = express.Router();
 
-AuthRouter.post('/login', passport.authenticate('local', { successRedirect: '/login-success', failureRedirect: '/login-failure'}));
-
-AuthRouter.get('/login-success', (req, res, next) => {
-  res.json('success')  
+// register a user post req
+AuthRouter.post('/register', (req, res) => {
+  console.log('register tunning')
+  const newUser = parseNewUser(req.body);
+  try {
+    generateUser(newUser.username, newUser.password);
+    res.status(200).send('user generated');
+  }
+  catch {
+    res.status(401).send('unable to save user.');
+  }
 })
 
-AuthRouter.get('/login-failure', (req, res, next) => {
-  res.json('failure')  
+// login post req
+AuthRouter.post('/login', passport.authenticate('local', { successRedirect: '/login-success', failureRedirect: '/login-failure' }));
+
+AuthRouter.get('/login-success', (req, res) => {
+  res.json('success')
 })
 
-module.exports = AuthRouter;
+AuthRouter.get('/login-failure', (req, res) => {
+  res.json('failure')
+})
+
+export default AuthRouter;

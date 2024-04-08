@@ -1,4 +1,4 @@
-import { NewProjectEntry } from "../types";
+import { NewProjectEntry, newUser } from "../types";
 
 // parse the req.body of the post request to add a new project entry
 // return body as a NewProjectEntry type if it exists and if all necessary values are present
@@ -18,4 +18,27 @@ const isNewProjectEntry = (body: unknown): body is NewProjectEntry => {
     }
 
     return 'date' in body && 'imgSrc' in body && 'name' in body && 'date' in body && 'medium' in body && 'about' in body
+}
+
+
+
+
+// parse the req.body of a post request to register a new user
+// return body as a NewUser type if it exists and if all necessary values are present
+// throws error otherwise
+export const parseNewUser = (body: unknown): newUser => {
+    if(body && isNewUser(body)) {
+        return body;
+    } else {
+        throw new Error('invalid new user. Ensure all properties exist.')
+    }
+}
+
+// ensures that all necessary properties are included in the NewUser
+const isNewUser = (body: unknown): body is newUser => {
+    if(!body || typeof(body) !== 'object') {
+        throw new Error('incorrect or missing data');
+    } 
+
+    return 'username' in body && 'password' in body;
 }

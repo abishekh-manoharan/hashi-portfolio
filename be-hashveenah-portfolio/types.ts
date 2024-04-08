@@ -22,3 +22,19 @@ export interface ProjectEntry {
 
 // type for new work
 export type NewProjectEntry = Omit<ProjectEntry, 'id'>
+
+
+
+// type for existing user
+export interface ExistingUser {
+    id: string,
+    username: string,
+    hash: string,
+    salt: string,
+}
+
+// type for new user
+export interface newUser {
+    username: string,
+    password: string
+}
