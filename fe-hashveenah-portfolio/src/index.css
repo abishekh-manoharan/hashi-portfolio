@@ -96,6 +96,7 @@ hr {
 .header-menu-NavLink {
     font-weight: 100;
 }
+
 .header-menu-NavLink:nth-child(1) {
     margin-top: 5vh;
 }
@@ -349,9 +350,10 @@ swiper-container.thumbSwiper {
     overflow: hidden;
 }
 
-.about-me-art-display.profilePic{
+.about-me-art-display.profilePic {
     width: auto;
 }
+
 /* .image-animation {
     animation: imagePan 7s linear;
 }
@@ -497,8 +499,56 @@ swiper-container.thumbSwiper {
     height: 10vh;
 }
 
+.login-form-parent {
+    height: 100%;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.login-form {
+    background-color: #c2d6b05c;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    padding: 40px;
+    width: 70%;
+    border-radius: 30px;
+}
 
+.login-form-label {
+    display: block;
+    font-size: .7rem;
+    margin-bottom: 5px;
+}
+
+.login-form-submit-btn {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 95%;
+    padding: 7px;
+    border-radius: 30px;
+    border: none;
+    background: rgb(176, 172, 235);
+    background: linear-gradient(90deg, rgb(214, 235, 172) 0%, rgba(78, 168, 75, 0.622) 100%);
+    color: rgb(32, 48, 30);
+}
+
+.login-form-header {
+    align-self: center;
+    margin-bottom: 40px;
+}
+
+.login-form-input {
+    padding: 6px;
+    padding-bottom: 8px;
+    border: none;
+    border-bottom: solid 1px;
+    background-color: #c2d6b000;
+}
 
 
 @media screen and (orientation: portrait) {
@@ -841,4 +891,3 @@ swiper-container.thumbSwiper {
         margin-bottom: 0;
     }
 }
-

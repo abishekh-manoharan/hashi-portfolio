@@ -10,15 +10,17 @@ function Login(props: loginProps) {
     }, [props]);
 
     return (
-        <div>
-            <form method='POST' action="">
-                <label htmlFor="unamee">Username</label>
-                <input type='text' name='uname' /> <br/>
+        <div className="login-form-parent">
+            <form method='POST' action="" className="login-form">
+                <h1 className="login-form-header"> Login </h1>
 
-                <label htmlFor="pw">Password</label>
-                <input type='text' name='pw' /> <br/>
+                <label className="login-form-label" htmlFor="username">Username</label>
+                <input className="login-form-input" type='text' name='username' placeholder='Enter your username'/> <br/>
+
+                <label className="login-form-label" htmlFor="password">Password</label>
+                <input className="login-form-input" type='text' name='password' placeholder='Enter your password'/> <br/>
                 
-                <input type='submit' />
+                <input className="login-form-submit-btn" type='submit' value="Login"/>
             </form>
         </div>
     );
