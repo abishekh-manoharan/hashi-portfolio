@@ -15,10 +15,10 @@ function Login(props: loginProps) {
                 <h1 className="login-form-header"> Login </h1>
 
                 <label className="login-form-label" htmlFor="username">Username</label>
-                <input className="login-form-input" type='text' name='username' placeholder='Enter your username'/> <br/>
+                <input className="login-form-input" type='text' name='username' placeholder='Enter your username' required/> <br/>
 
                 <label className="login-form-label" htmlFor="password">Password</label>
-                <input className="login-form-input" type='text' name='password' placeholder='Enter your password'/> <br/>
+                <input className="login-form-input" type='text' name='password' placeholder='Enter your password' required/> <br/>
                 
                 <input className="login-form-submit-btn" type='submit' value="Login"/>
             </form>

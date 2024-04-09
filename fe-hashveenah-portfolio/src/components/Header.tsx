@@ -32,7 +32,7 @@ function Header(props: headerProps) {
                         <NavLink className="header-NavLink" to='/' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Home</NavLink>
                         <NavLink className="header-NavLink" to='projects' style={({isActive})=> isActive ? navLinkActiveStyle : {}}>Selected Works</NavLink>
                         <NavLink className="header-NavLink" to='contact' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Contact</NavLink>
-                        <NavLink to="/login">Login</NavLink>
+                        <NavLink className="header-NavLink" to="/login" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Login</NavLink>
                     </div>
                     <div className="footer-desktop">
                         <Footer />

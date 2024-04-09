@@ -44,6 +44,7 @@ function HeaderMenu(props: headerMenuProps) {
             <NavLink className="header-menu-NavLink" style={({isActive})=>isActive ? navLinkActiveStyle : {}} onClick={() => props.setMenuOpen(!props.menuOpen)} to='/'>Home</NavLink>
             <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} style={({isActive})=>isActive ? navLinkActiveStyle : {}} to='projects'>Selected Works</NavLink>
             <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} style={({isActive})=>isActive ? navLinkActiveStyle : {}} to='contact'>Contact</NavLink>
+            <NavLink className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} style={({isActive})=>isActive ? navLinkActiveStyle : {}} to='login'>Login</NavLink>
         </div>
     );
 }
