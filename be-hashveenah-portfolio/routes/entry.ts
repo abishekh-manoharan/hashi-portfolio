@@ -6,12 +6,12 @@ const EntryRouter = express.Router();
 
 // get all entries
 EntryRouter.get('/', (_req, res) => {
-  console.log('------');
-
   Entry.find({})
     .then(result => {
+      result = result.map(res => {
+        return res.toJSON()
+      })
       res.send(result)
-      console.log();
     })
     .catch(err => res.status(400).send(err));
 })

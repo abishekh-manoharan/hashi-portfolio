@@ -9,6 +9,14 @@ const entrySchema = new mongoose.Schema({
     about: String,
 });
 
+entrySchema.set('toJSON', {
+    transform: (document, returnedObject) => {
+        returnedObject.id = returnedObject._id.toString()
+        delete returnedObject._id
+        delete returnedObject.__v
+    }
+})
+
 const Entry = mongoose.model('ProjectEntry', entrySchema);
 
 export default Entry;

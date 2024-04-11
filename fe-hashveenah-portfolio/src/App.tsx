@@ -1,14 +1,15 @@
-import { Route, Routes } from "react-router-dom"
-import About from "./components/About"
-import ProjectList from "./components/Projects/ProjectList"
-import ProjectDetail from "./components/Projects/ProjectDetail"
-import Login from "./components/Login"
-import Contact from "./components/Contact"
-import Header from "./components/Header"
-import { useState } from "react"
+import { Route, Routes } from "react-router-dom";
+import About from "./components/About";
+import ProjectList from "./components/Projects/ProjectList";
+import ProjectDetail from "./components/Projects/ProjectDetail";
+import Login from "./components/Login";
+import Contact from "./components/Contact";
+import Header from "./components/Header";
+import { useState } from "react";
 import { register } from 'swiper/element/bundle';
-import ScrollReset from "./components/NonUIComponents/ScrollToTop"
-import NavHideOnScroll from "./components/NonUIComponents/NavHideOnScroll"
+import ScrollReset from "./components/NonUIComponents/ScrollToTop";
+import NavHideOnScroll from "./components/NonUIComponents/NavHideOnScroll";
+import EntryService from './services/entry';
 
 function App() {
   register();
@@ -16,10 +17,14 @@ function App() {
   const [location, setLocation] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
 
+  EntryService.getAllEntries.then((entries)=>{
+    console.log(entries);
+  })
   return (
     <>
       <ScrollReset /> {/* ensuring scroll is reset to top position on route change */}
       <NavHideOnScroll menuOpen={menuOpen} setMenuOpen={setMenuOpen}/> {/* ensuring nav is hidden on scroll down on mobile view */}
+
       <Routes>
         {/* <Route path="/" element=<Home /> /> */}
         <Route element=<Header location={location} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/> >
