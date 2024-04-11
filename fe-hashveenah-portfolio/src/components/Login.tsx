@@ -11,7 +11,7 @@ function Login(props: loginProps) {
 
     return (
         <div className="login-form-parent">
-            <form method='POST' action="" className="login-form">
+            <form method='POST' action={import.meta.env.VITE_BE_URL+'auth/login'} className="login-form">
                 <h1 className="login-form-header"> Login </h1>
 
                 <label className="login-form-label" htmlFor="username">Username</label>

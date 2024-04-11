@@ -34,14 +34,10 @@ const localStrategy = new LocalStrategy(customFields, validationFunction);
 passport.use(localStrategy);
 
 passport.serializeUser((user: userType, done) => {
-    console.log('user.id')
-    console.log(user)
     done(null, user.id);
 });
 
 passport.deserializeUser((user_id, done) => {
-    console.log('user_id')
-    console.log(user_id)
     User.findById(user_id)
         .then((user) => {
             done(null, user)
