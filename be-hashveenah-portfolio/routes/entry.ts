@@ -17,7 +17,7 @@ EntryRouter.get('/', (_req, res) => {
 })
 
 // get specific entry
-EntryRouter.get('/:id', (req, res, _next) => {
+EntryRouter.get('/:id', (req, res) => {
   const id = req.params.id;
   Entry.findById(id).then(result => res.json(result)).catch((err) => res.status(404).send(err.message));
 })
