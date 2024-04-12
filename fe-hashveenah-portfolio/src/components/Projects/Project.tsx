@@ -53,7 +53,7 @@ function Project(props: projectProps) {
                     {
                         props.project.imgSrc.map((img, index) => {
                             return (
-                                <Link to={`/project/${props.project.id}/${index}`}>
+                                <Link to={`/project/${props.project.id}/${index}/${props.project.imgSrc.length}`}>
                                     <img src={img} className="project-desktop-image" />
                                 </Link>
                             );

@@ -30,7 +30,7 @@ function App() {
         <Route element=<Header location={location} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/> >
           <Route path="/" element=<About setLocation={setLocation}/> />
           <Route path="/projects" element=<ProjectList setLocation={setLocation}/> />
-          <Route path="/project/:id/:index" element=<ProjectDetail /> />
+          <Route path="/project/:id/:index/:length" element=<ProjectDetail /> />
           <Route path="/contact" element=<Contact setLocation={setLocation}/> />
           <Route path='/login' element=<Login setLocation={setLocation}/> />
         </Route>
