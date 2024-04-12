@@ -1,16 +1,23 @@
 import { useNavigate, useParams } from "react-router-dom";
-import data from '../../../data';
-import { useEffect } from "react";
+// import data from '../../../data';
+import { useEffect, useState } from "react";
 import { setPaginationStyling } from "../../utils/helpers";
+import EntryService from '../../services/entry';
+import { ProjectEntry } from "../../types";
 
 function ProjectDetail() {
-    const nav = useNavigate(); // initiating nav object to be used in going back to project list
-
     const { id, index } = useParams() // id: id of the project. index: index of the image that was clicked in the array
+    const nav = useNavigate(); // initiating nav object to be used in going back to project list
+    
+    const [project, setProject] = useState<ProjectEntry>({
+        id: '',
+        imgSrc: [''],
+        name: '',
+        date: '',
+        medium: '',
+        about: '',
+    });
 
-    const project = data.find((e) => { // finding the necessary project using the URL id
-        return e.id === id;
-    })
 
     useEffect(() => {
         // adding styling to the bullets and arrows
@@ -19,8 +26,15 @@ function ProjectDetail() {
         const header = document.querySelector(".header-container") as HTMLElement;
         header!.style.display = "none";
 
-        return (() => { header!.style.display = "block" });
-    }, [])
+        EntryService.getEntryById(id!).then((project) => {
+            console.log('ENTRY SERVICE')
+            console.log(project)
+            setProject(project);
+        })
+        
+        return (() => { header!.style.display = "block" }); // ensure that navigation bar is returned when the component dismounts
+
+    }, [id])
 
 
 

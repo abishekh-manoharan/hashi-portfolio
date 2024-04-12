@@ -8,6 +8,7 @@ interface projectProps {
 }
 
 function Project(props: projectProps) {
+    console.log('project '+props.project.name)
     return (
         <div className="project-container">
             <div className="project">

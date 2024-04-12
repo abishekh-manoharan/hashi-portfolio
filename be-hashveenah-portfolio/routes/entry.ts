@@ -17,9 +17,10 @@ EntryRouter.get('/', (_req, res) => {
 })
 
 // get specific entry
-// EntryRouter.get('/:id', (req, res, next) => {
-//     // TODO
-// })
+EntryRouter.get('/:id', (req, res, _next) => {
+  const id = req.params.id;
+  Entry.findById(id).then(result => res.json(result)).catch((err) => res.status(404).send(err.message));
+})
 
 // add new entry
 EntryRouter.post('/', (req, res) => {
