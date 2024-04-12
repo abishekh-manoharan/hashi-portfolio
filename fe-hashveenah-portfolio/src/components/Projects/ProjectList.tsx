@@ -16,14 +16,17 @@ function ProjectList(props: projectProps) {
     useEffect(() => {
         props.setLocation('Selected Works')
     }, [props]);
-
-    // getting project entries
-    EntryService.getAllEntries
-        .then((res) => {
-            setProjects(res)
-            console.log('projects')
-            console.log(projects)
-        })
+    
+    // updating location for header
+    useEffect(() => {
+        // getting project entries
+        EntryService.getAllEntries
+            .then((res) => {
+                setProjects(res)
+                console.log('projects')
+                console.log(projects)
+            })        
+    });
 
 
     return (
