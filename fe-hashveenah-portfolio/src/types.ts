@@ -6,3 +6,5 @@ export interface ProjectEntry {
     medium: string;
     about?: string;
 }
+
+export interface Context { auth?: boolean; setAuth?: React.Dispatch<React.SetStateAction<boolean>> }

@@ -19,7 +19,7 @@ AuthRouter.post('/register', (req, res) => {
 })
 
 // login post req
-AuthRouter.post('/login', passport.authenticate('local', { successRedirect: '/login-success', failureRedirect: '/login-failure' }));
+AuthRouter.post('/login', passport.authenticate('local', { successRedirect: '/auth/login-success', failureRedirect: '/auth/login-failure' }));
 
 AuthRouter.get('/login-success', (req, res) => {
   res.json('success')

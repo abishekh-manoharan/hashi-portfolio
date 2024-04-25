@@ -33,6 +33,7 @@ function Header(props: headerProps) {
                         <NavLink className="header-NavLink" to='projects' style={({isActive})=> isActive ? navLinkActiveStyle : {}}>Selected Works</NavLink>
                         <NavLink className="header-NavLink" to='contact' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Contact</NavLink>
                         <NavLink className="header-NavLink" to="/login" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Login</NavLink>
+                        <NavLink className="header-NavLink" to="/configuration" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Configuration</NavLink>
                     </div>
                     <div className="footer-desktop">
                         <Footer />
