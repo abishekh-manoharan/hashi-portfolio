@@ -9,7 +9,6 @@ import { useState } from "react";
 import { register } from 'swiper/element/bundle';
 import ScrollReset from "./components/NonUIComponents/ScrollToTop";
 import NavHideOnScroll from "./components/NonUIComponents/NavHideOnScroll";
-import EntryService from './services/entry';
 import Configuration from "./components/Configuration";
 import { AuthContext } from "./utils/context";
 

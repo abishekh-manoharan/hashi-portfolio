@@ -1,11 +1,13 @@
 import express from 'express';
 import Entry from '../models/entry';
 import { parseNewProjectEntry } from '../utils/parsers';
+import { isAuth } from '../utils/middleware';
 
 const EntryRouter = express.Router();
 
 // get all entries
-EntryRouter.get('/', (_req, res) => {
+EntryRouter.get('/', (req, res) => {
+  req.isAuthenticated() ? console.log('authenticated') : console.log('not authenticated');
   Entry.find({})
     .then(result => {
       result = result.map(res => {
@@ -23,7 +25,7 @@ EntryRouter.get('/:id', (req, res) => {
 })
 
 // add new entry
-EntryRouter.post('/', (req, res) => {
+EntryRouter.post('/', isAuth, (req, res) => {
   console.log(req.body)
   // ensure the format of the post request is correct
   // type the body accordingly
