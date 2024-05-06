@@ -1,9 +1,10 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import HeaderMenu from "./HeaderMenu";
 // import { useState } from "react";
 import Footer from "./Footer";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../utils/context";
+import authServices from "../services/auth";
 // import { useEffect, useState } from "react";
 
 interface headerProps {
@@ -15,6 +16,21 @@ interface headerProps {
 function Header(props: headerProps) {
     // const [menuOpen, setMenuOpen] = useState(false);
     const auth = useContext(AuthContext);
+    const nav = useNavigate();
+
+    const logoutHandler = (e: React.SyntheticEvent) => {
+        e.stopPropagation();
+        
+        authServices.logout().then(res => {
+            if(res === "success") {
+                auth.setAuth!(false);
+                nav('/');
+            }
+            else {
+                window.alert('error with logout: '+res);
+            }
+        })
+    }
 
     const navLinkActiveStyle = { 
         color: "#B47B84",
@@ -36,7 +52,7 @@ function Header(props: headerProps) {
                         <NavLink className="header-NavLink" to='projects' style={({isActive})=> isActive ? navLinkActiveStyle : {}}>Selected Works</NavLink>
                         <NavLink className="header-NavLink" to='contact' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Contact</NavLink>
                         { auth.auth ? <NavLink className="header-NavLink" to="/configuration" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Configuration</NavLink> : <></> }
-                        { auth.auth ? <a className="header-NavLink">logout</a> : <NavLink className="header-NavLink" to="/login" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Login</NavLink> }
+                        { auth.auth ? <a className="header-NavLink" onClick={logoutHandler}>Logout</a> : <NavLink className="header-NavLink" to="/login" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Login</NavLink> }
                     </div>
                     <div className="footer-desktop">
                         <Footer />

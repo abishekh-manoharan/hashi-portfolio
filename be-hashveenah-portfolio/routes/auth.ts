@@ -20,13 +20,19 @@ AuthRouter.post('/register', (req, res) => {
 
 // login post req
 AuthRouter.post('/login', passport.authenticate('local', { successRedirect: '/auth/login-success', failureRedirect: '/auth/login-failure' }));
-
 AuthRouter.get('/login-success', (req, res) => {
   res.json('success')
 })
-
 AuthRouter.get('/login-failure', (req, res) => {
   res.json('failure')
+})
+
+// log out
+AuthRouter.post('/logout', (req, res) => {
+  req.logout((err) => {
+    if(err) res.send('err: '+err.message);
+    res.send('success');
+  });
 })
 
 export default AuthRouter;
