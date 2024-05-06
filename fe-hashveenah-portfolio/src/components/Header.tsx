@@ -50,7 +50,7 @@ function Header(props: headerProps) {
                         {/* <NavLink className="header-NavLink" to='/'>HOME</NavLink> */}
                         <NavLink className="header-NavLink" to='/' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Home</NavLink>
                         <NavLink className="header-NavLink" to='projects' style={({isActive})=> isActive ? navLinkActiveStyle : {}}>Selected Works</NavLink>
-                        <NavLink className="header-NavLink" to='contact' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Contact</NavLink>
+                        { auth.auth ? <>Inbox</> : <NavLink className="header-NavLink" to='contact' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Contact</NavLink> } 
                         { auth.auth ? <NavLink className="header-NavLink" to="/configuration" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Configuration</NavLink> : <></> }
                         { auth.auth ? <a className="header-NavLink" onClick={logoutHandler}>Logout</a> : <NavLink className="header-NavLink" to="/login" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Login</NavLink> }
                     </div>
