@@ -5,6 +5,8 @@ const userSchema = new mongoose.Schema({
     username: { type: String, require: true },
     hash: String,
     salt: String,
+    about: String,
+    art: String
 })
 
 userSchema.set('toJSON', {

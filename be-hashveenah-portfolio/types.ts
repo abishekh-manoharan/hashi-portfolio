@@ -31,6 +31,8 @@ export interface ExistingUser {
     username: string,
     hash: string,
     salt: string,
+    about: string,
+    art: string
 }
 
 // type for new user
