@@ -5,12 +5,13 @@ import ProjectDetail from "./components/Projects/ProjectDetail";
 import Login from "./components/Login";
 import Contact from "./components/Contact";
 import Header from "./components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { register } from 'swiper/element/bundle';
 import ScrollReset from "./components/NonUIComponents/ScrollToTop";
 import NavHideOnScroll from "./components/NonUIComponents/NavHideOnScroll";
 import Configuration from "./components/Configuration";
 import { AuthContext } from "./utils/context";
+import AuthService from "./services/auth";
 
 function App() {
   register();
@@ -18,6 +19,12 @@ function App() {
   const [auth, setAuth] = useState(false);
   const [location, setLocation] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    AuthService.status().then((res) => {
+      setAuth(res);
+    })
+  }, []);
 
   return (
     <>

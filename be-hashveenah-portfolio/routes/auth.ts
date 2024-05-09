@@ -35,4 +35,9 @@ AuthRouter.post('/logout', (req, res) => {
   });
 })
 
+// check authentication status
+AuthRouter.get('/status', (req, res) => {
+  const status = req.isAuthenticated();
+  res.send(status);
+})
 export default AuthRouter;
