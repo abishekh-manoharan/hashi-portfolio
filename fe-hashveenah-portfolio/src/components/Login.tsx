@@ -35,11 +35,11 @@ function Login(props: loginProps) {
                 <form method='POST' className="login-form">
                     <h1 className="login-form-header"> Login </h1>
 
-                    <label className="login-form-label" htmlFor="username">Username</label>
-                    <input className="login-form-input" onChange={(e) => { setUsername(e.target.value) }} type='text' name='username' placeholder='Enter your username' required /> <br />
+                    <label className="form-label" htmlFor="username">Username</label>
+                    <input className="form-input" onChange={(e) => { setUsername(e.target.value) }} type='text' name='username' placeholder='Enter your username' required /> <br />
 
-                    <label className="login-form-label" htmlFor="password">Password</label>
-                    <input className="login-form-input" onChange={(e) => { setPassword(e.target.value) }} type='password' name='password' placeholder='Enter your password' required /> <br />
+                    <label className="form-label" htmlFor="password">Password</label>
+                    <input className="form-input" onChange={(e) => { setPassword(e.target.value) }} type='password' name='password' placeholder='Enter your password' required /> <br />
 
                     <input className="login-form-submit-btn" type='button' onClick={formSubmissionHandler} value="Login" />
                 </form>

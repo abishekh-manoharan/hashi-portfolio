@@ -518,7 +518,7 @@ swiper-container.thumbSwiper {
     border-radius: 30px;
 }
 
-.login-form-label {
+.form-label {
     display: block;
     font-size: .7rem;
     margin-bottom: 5px;
@@ -542,12 +542,40 @@ swiper-container.thumbSwiper {
     margin-bottom: 40px;
 }
 
-.login-form-input {
+.form-input {
     padding: 6px;
     padding-bottom: 8px;
     border: none;
     border-bottom: solid 1px;
-    background-color: #c2d6b000;
+    background-color: #f7f7f7;
+}
+   
+
+/* Config form */
+.config {
+    display: block;
+    background-color: rgba(203, 238, 202, 0.535);
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+.config .form-input {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 6px 2px 8px;
+}
+
+.config-collections {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.52);
+    border-radius: 10px;
+}
+
+.config-collections-image {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
 }
 
 

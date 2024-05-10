@@ -7,7 +7,6 @@ const EntryRouter = express.Router();
 
 // get all entries
 EntryRouter.get('/', (req, res) => {
-  req.isAuthenticated() ? console.log('authenticated') : console.log('not authenticated');
   Entry.find({})
     .then(result => {
       result = result.map(res => {
