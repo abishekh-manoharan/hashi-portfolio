@@ -7,4 +7,7 @@ export interface ProjectEntry {
     about?: string;
 }
 
+// type for new work
+export type NewProjectEntry = Omit<ProjectEntry, 'id'>
+
 export interface Context { auth?: boolean; setAuth?: React.Dispatch<React.SetStateAction<boolean>> }
