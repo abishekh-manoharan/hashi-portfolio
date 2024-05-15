@@ -49,7 +49,7 @@ const session = sessions({
     cookie: {      
         sameSite: false,
         httpOnly: true,
-        maxAge: 1000 * 60 * 5 // 5 min
+        maxAge: 1000 * 60 * 20 // 20 min
     }
 })
 
