@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 // styping for swiperJS bullets and arrows
 export const setPaginationStyling = () => {
 
@@ -50,5 +52,9 @@ export const setPaginationStyling = () => {
         Object.assign(container!, params)
         container!.initialize();
     });
+}
+
+export const generateUniqueKey = (): string => {
+    return uuidv4();
 }
 

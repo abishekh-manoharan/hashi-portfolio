@@ -1,11 +1,12 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { ProjectEntry } from '../../types';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { ProjectEntryWithImageKey } from '../../types';
+import { generateUniqueKey } from '../../utils/helpers';
 import Image from './Image';
 
 interface CollectionProps {
-    entry: ProjectEntry;
+    entry: ProjectEntryWithImageKey;
     i: number;
-    setEntries: Dispatch<SetStateAction<ProjectEntry[]>>;
+    setEntries: Dispatch<SetStateAction<ProjectEntryWithImageKey[]>>;
 }
 
 function Collection({ entry, i, setEntries }: CollectionProps) {
@@ -15,22 +16,39 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
     const [about, setAbout] = useState(entry.about);
     const [imgSrc, setImgSrc] = useState(entry.imgSrc);
 
+    const idRef = useRef(0); // used to create unique key for new entry additions 
+
     useEffect(() => {
-        // update the master entries list
+        // update the master entries list whenever the elements of the entries change
         setEntries(prevEntries => {
             return prevEntries.map((e, index) => {
                 return index === i ? { id: entry.id, name, date, medium, about, imgSrc } : e;
             })
         })
-    }, [name, date, medium, about, imgSrc]);
+    }, [name, date, medium, about, imgSrc]); // elements of the entries
 
     const deleteButtonClickHandler = (e: React.SyntheticEvent) => {
         e.preventDefault();
+        e.stopPropagation();
 
         setEntries(prevEntries => {
             return prevEntries.filter((e, index) => {
                 return index !== i;
             })
+        })
+    }
+    
+    const addImageButtonClickHandler = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        idRef.current += 1;
+
+        setImgSrc(prev => {
+            return prev.concat({
+                src: "",
+                key: generateUniqueKey()
+            });
         })
     }
 
@@ -50,8 +68,8 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
             <input id="config-collections-date" className="form-input" type="text" value={date} onChange={(e) => setDate(e.target.value)} style={{ marginBottom: "10px" }} />
 
             <label htmlFor="config-collections-image" className='form-label'>Images</label>
-            {imgSrc.map((src, i, srcAll) => <Image key={src} src={src} i={i} srcAll={srcAll} setImgSrc={setImgSrc} />)}
-
+            {imgSrc.map((src, i, srcAll) => <Image key={src.key} src={src} i={i} srcAll={srcAll} setImgSrc={setImgSrc} />)}
+            <button onClick={addImageButtonClickHandler}>Add new image</button>
             <br />
             <br />
             <br />
