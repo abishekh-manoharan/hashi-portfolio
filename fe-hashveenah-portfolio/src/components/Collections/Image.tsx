@@ -6,9 +6,10 @@ interface ImageProps {
     i: number;
     srcAll: imageWithKey[];
     setImgSrc: Dispatch<SetStateAction<imageWithKey[]>>;
+    id: string;
 }
 
-function Image({ i, srcAll, setImgSrc, ...props }: ImageProps) {
+function Image({ i, srcAll, setImgSrc, id, ...props }: ImageProps) {
     const [src, setSrc] = useState(props.src.src);
 
     // useEffect(() => {
@@ -20,14 +21,21 @@ function Image({ i, srcAll, setImgSrc, ...props }: ImageProps) {
         const value = e.target.value;
 
         setSrc(value); // update src state
-        const updatedSrcAll = srcAll.map((oldSrc, index) => index === i ? {src: value, key: oldSrc.key} : oldSrc); // update array of sources with changes
+        const updatedSrcAll = srcAll.map((oldSrc, index) => index === i ? { src: value, key: oldSrc.key } : oldSrc); // update array of sources with changes
+        setImgSrc(updatedSrcAll); // update master src list with changes made
+    };
+
+    const handleDeleteButtonClick = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        const updatedSrcAll = srcAll.filter((oldSrc) => {
+            return id !== oldSrc.key;
+        });// update array of sources with changes
         setImgSrc(updatedSrcAll); // update master src list with changes made
     }
-
     return (
         <div id="config-collections-image" className="config-collections-image">
             <input autoFocus className="form-input" style={{ display: "inline" }} type="text" value={src} onChange={handleSrcChange} />
-            <button>X</button>
+            <button onClick={handleDeleteButtonClick}>X</button>
             {/* <button onClick={}>Y</button> */}
         </div>
     );

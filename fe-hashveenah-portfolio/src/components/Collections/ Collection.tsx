@@ -68,7 +68,7 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
             <input id="config-collections-date" className="form-input" type="text" value={date} onChange={(e) => setDate(e.target.value)} style={{ marginBottom: "10px" }} />
 
             <label htmlFor="config-collections-image" className='form-label'>Images</label>
-            {imgSrc.map((src, i, srcAll) => <Image key={src.key} src={src} i={i} srcAll={srcAll} setImgSrc={setImgSrc} />)}
+            {imgSrc.map((src, i, srcAll) => <Image key={src.key} id={src.key} src={src} i={i} srcAll={srcAll} setImgSrc={setImgSrc} />)}
             <button onClick={addImageButtonClickHandler}>Add new image</button>
             <br />
             <br />
