@@ -56,6 +56,19 @@ function Configuration(props: configurationProps) {
         setEntries(entriesWithEmptyAddition);
     }
 
+    const submitButtonClickHandler = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        userService.patchUser({
+            about: aboutMe,
+            art: art
+        }).then((res) => {
+            console.log('patch user response:');
+            console.log(res);
+        });
+    }
+
     return (
         <>
             <>{entries.map((e) => {
@@ -78,7 +91,7 @@ function Configuration(props: configurationProps) {
                             entries.map((e, i) => <Collection key={e.id} entry={e} i={i} setEntries={setEntries} />)
                             : <>No Collections</>
                     }
-                    <button className="login-form-submit-btn">Sumit</button>
+                    <button className="login-form-submit-btn" onClick={submitButtonClickHandler}>Sumit</button>
                 </form>
                 : <>Not Authorized</>}
         </>

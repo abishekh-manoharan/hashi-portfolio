@@ -26,6 +26,7 @@ function ProjectDetail() {
     });
 
     useEffect(() => {
+        // hiding the header
         const header = document.querySelector(".header-container") as HTMLElement;
         header!.style.display = "none";
 

@@ -27,3 +27,8 @@ export interface ProjectEntryWithImageKey {
 }
 
 export interface Context { auth?: boolean; setAuth?: React.Dispatch<React.SetStateAction<boolean>> }
+
+export interface UserUpdateData {
+    about: string,
+    art: string
+}

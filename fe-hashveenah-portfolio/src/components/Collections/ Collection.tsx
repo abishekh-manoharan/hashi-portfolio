@@ -18,8 +18,8 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
 
     const idRef = useRef(0); // used to create unique key for new entry additions 
 
+    // update the master entries list whenever the elements of the entries change
     useEffect(() => {
-        // update the master entries list whenever the elements of the entries change
         setEntries(prevEntries => {
             return prevEntries.map((e, index) => {
                 return index === i ? { id: entry.id, name, date, medium, about, imgSrc } : e;
