@@ -38,4 +38,12 @@ EntryRouter.post('/', isAuth, (req, res) => {
     })
 })
 
+// update entries
+EntryRouter.patch('/patch', (req, res) => {
+  const body = req.body;
+  console.log('patch')
+  console.log(body)
+  Entry.findByIdAndUpdate({ _id: body.id }, { ...body }, { new: true }).then(result => res.send(result)).catch(e => {console.log("error in patch"+ e.message)});
+})
+
 export default EntryRouter;

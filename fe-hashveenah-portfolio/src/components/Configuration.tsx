@@ -4,7 +4,7 @@ import userService from '../services/user';
 import entryService from '../services/entry';
 import Collection from './Collections/ Collection';
 import { generateUniqueKey } from '../utils/helpers';
-import { ProjectEntryWithImageKey } from '../types';
+import { ProjectEntry, ProjectEntryWithImageKey } from '../types';
 
 interface configurationProps {
     setLocation: Dispatch<SetStateAction<string>>;
@@ -29,6 +29,7 @@ function Configuration(props: configurationProps) {
             setArt(res[0].art)
         });
         entryService.getAllEntries.then(res => {
+            // generate a new list of entries with each entry containing a src array with each src containing a unique key for mapping purposes.
             const updatedEntries: ProjectEntryWithImageKey[] = res.map((e) => {
                 const updatedImgSrc = e.imgSrc.map((img) => { return { src: img.toString(), key: generateUniqueKey() } });
                 const updatedEntry: ProjectEntryWithImageKey = { ...e, imgSrc: updatedImgSrc };
@@ -60,6 +61,8 @@ function Configuration(props: configurationProps) {
         e.preventDefault();
         e.stopPropagation();
 
+
+        // updating about and art properties of the user
         userService.patchUser({
             about: aboutMe,
             art: art
@@ -67,13 +70,24 @@ function Configuration(props: configurationProps) {
             console.log('patch user response:');
             console.log(res);
         });
+
+        // updating the entries
+        // convert entries to type with image keys not included in src array
+        const entriesWithoutImageKey: ProjectEntry[] = entries.map((e) => { return { ...e, imgSrc: e.imgSrc.map(src => src.src) } });
+
+        Promise.all(entriesWithoutImageKey.map((e) => {
+            return entryService.patchEntry(e);
+        })).then((values) => {
+            console.log('patch entries response:');
+            console.log(values);
+        })
     }
 
     return (
         <>
             <>{entries.map((e) => {
-                return <>{e.name}<br/>
-                {e.imgSrc.map((e) => <>{e.src}<br/></>)}<br /></>
+                return <>{e.name}<br />
+                    {e.imgSrc.map((e) => <>{e.key}<br /></>)}<br /></>
             })}</>
             {auth.auth ?
                 <form className="config">

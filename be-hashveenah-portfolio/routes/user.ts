@@ -1,6 +1,7 @@
 import { Router } from "express";
 import User from '../models/user';
 import { ExistingUser, userType } from "../types";
+import { isAuth } from "../utils/middleware";
 
 const UserRouter = Router();
 
@@ -10,7 +11,7 @@ UserRouter.get<userType>('/', (req,res) => {
 
 
 // route used to update the 'art' and 'about' properties of a user
-UserRouter.patch('/update', (req, res) => {
+UserRouter.patch('/update', isAuth, (req, res) => {
     const body = req.body;
     
     User.find({}).then(resp => {
