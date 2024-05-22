@@ -28,7 +28,7 @@ function Configuration(props: configurationProps) {
             setAboutMe(res[0].about);
             setArt(res[0].art)
         });
-        entryService.getAllEntries.then(res => {
+        entryService.getAllEntries().then(res => {
             // generate a new list of entries with each entry containing a src array with each src containing a unique key for mapping purposes.
             const updatedEntries: ProjectEntryWithImageKey[] = res.map((e) => {
                 const updatedImgSrc = e.imgSrc.map((img) => { return { src: img.toString(), key: generateUniqueKey() } });
@@ -85,10 +85,10 @@ function Configuration(props: configurationProps) {
 
     return (
         <>
-            <>{entries.map((e) => {
+            {/* <>{entries.map((e) => {
                 return <>{e.name}<br />
                     {e.imgSrc.map((e) => <>{e.key}<br /></>)}<br /></>
-            })}</>
+            })}</> */}
             {auth.auth ?
                 <form className="config">
                     <h3>Text</h3>

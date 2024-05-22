@@ -8,15 +8,17 @@ interface projectProps {
 }
 
 function Project(props: projectProps) {
+    console.log('project ffffff')
     console.log('project '+props.project.name)
+    console.log('project '+props.project.id)
     return (
         <div className="project-container">
             <div className="project">
                 {/* @ts-expect-error the use of "class" is necessary here as the Swiper library's Element components don't work with className*/}
                 <swiper-container class="swiper-container" thumbs-swiper={`.mySwiper${props.project.id}`} loop space-between="30">
                     {
-                        props.project.imgSrc.map((src, i) =>
-                            <swiper-slide key={src + i}>
+                        props.project.imgSrc.map((src) =>
+                            <swiper-slide key={src + props.project.id}>
                                 <img className="swiper-image" src={src} />
                             </swiper-slide >
                         )
@@ -53,8 +55,8 @@ function Project(props: projectProps) {
                     {
                         props.project.imgSrc.map((img, index) => {
                             return (
-                                <Link to={`/project/${props.project.id}/${index}/${props.project.imgSrc.length}`}>
-                                    <img src={img} className="project-desktop-image" />
+                                <Link key={img + props.project.id} to={`/project/${props.project.id}/${index}/${props.project.imgSrc.length}`}>
+                                    <img src={img} className="project-desktop-image" key={img + props.project.id}/>
                                 </Link>
                             );
                         })

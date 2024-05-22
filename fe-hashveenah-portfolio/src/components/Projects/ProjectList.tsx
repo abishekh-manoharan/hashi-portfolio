@@ -17,16 +17,15 @@ function ProjectList(props: projectProps) {
         props.setLocation('Selected Works')
     }, [props]);
     
-    // updating location for header
+    // getting project entries
     useEffect(() => {
-        // getting project entries
-        EntryService.getAllEntries
+        console.log('getting projects UE firing')
+        EntryService.getAllEntries()
             .then((res) => {
-                setProjects(res)
-                console.log('projects')
-                console.log(projects)
+                console.log(res)
+                setProjects(res as ProjectEntry[])
             })        
-    });
+    }, []);
 
 
     return (
@@ -34,7 +33,7 @@ function ProjectList(props: projectProps) {
             <br />
             {
                 projects.map((proj, i) => {
-                    return <Project project={proj} index={i} length={data.length} />
+                    return <Project key={proj.id} project={proj} index={i} length={data.length} />
                 })
             }
         </div>

@@ -7,6 +7,7 @@ const EntryRouter = express.Router();
 
 // get all entries
 EntryRouter.get('/', (req, res) => {
+  console.log('getting all entries')
   Entry.find({})
     .then(result => {
       result = result.map(res => {
@@ -39,11 +40,14 @@ EntryRouter.post('/', isAuth, (req, res) => {
 })
 
 // update entries
-EntryRouter.patch('/patch', (req, res) => {
+EntryRouter.patch('/patch', isAuth, (req, res) => {
   const body = req.body;
   console.log('patch')
-  console.log(body)
-  Entry.findByIdAndUpdate({ _id: body.id }, { ...body }, { new: true }).then(result => res.send(result)).catch(e => {console.log("error in patch"+ e.message)});
+  Entry.findByIdAndUpdate({ _id: body.id }, { ...body }, { new: true })
+    .then(result => {
+      res.send(result)
+    })
+    .catch(e => { console.log("error in patch" + e.message) });
 })
 
 export default EntryRouter;
