@@ -34,7 +34,7 @@ function Image({ i, srcAll, setImgSrc, id, ...props }: ImageProps) {
     }
     return (
         <div id="config-collections-image" className="config-collections-image">
-            <input autoFocus className="form-input" style={{ display: "inline" }} type="text" value={src} onChange={handleSrcChange} />
+            <input autoFocus className="form-input" required style={{ display: "inline" }} type="text" value={src} onChange={handleSrcChange} />
             <button onClick={handleDeleteButtonClick}>X</button>
             {/* <button onClick={}>Y</button> */}
         </div>

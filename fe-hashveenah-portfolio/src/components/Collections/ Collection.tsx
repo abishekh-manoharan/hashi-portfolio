@@ -56,16 +56,16 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
         <div className="config-collections">
             <button onClick={deleteButtonClickHandler}> Delete Entry </button>
             <label htmlFor="config-collections-name" className='form-label'>Name</label>
-            <input id="config-collections-name" className="form-input" type="text" value={name} onChange={(e) => setName(e.target.value)} style={{ marginBottom: "10px" }} />
+            <input id="config-collections-name" className="form-input" required type="text" value={name} onChange={(e) => setName(e.target.value)} style={{ marginBottom: "10px" }} />
 
             <label htmlFor="config-collections-description" className='form-label'>Description</label>
-            <textarea id="config-collections-description" className="form-input" rows={3} value={about} onChange={(e) => setAbout(e.target.value)} style={{ marginBottom: "10px" }} />
+            <textarea id="config-collections-description" required className="form-input" rows={3} value={about} onChange={(e) => setAbout(e.target.value)} style={{ marginBottom: "10px" }} />
 
             <label htmlFor="config-collections-medium" className='form-label'>Medium</label>
-            <input id="config-collections-medium" className="form-input" type="text" value={medium} onChange={(e) => setMedium(e.target.value)} style={{ marginBottom: "10px" }} />
+            <input id="config-collections-medium" className="form-input" required type="text" value={medium} onChange={(e) => setMedium(e.target.value)} style={{ marginBottom: "10px" }} />
 
             <label htmlFor="config-collections-date" className='form-label'>Date</label>
-            <input id="config-collections-date" className="form-input" type="text" value={date} onChange={(e) => setDate(e.target.value)} style={{ marginBottom: "10px" }} />
+            <input id="config-collections-date" className="form-input" required type="text" value={date} onChange={(e) => setDate(e.target.value)} style={{ marginBottom: "10px" }}/>
 
             <label htmlFor="config-collections-image" className='form-label'>Images</label>
             {imgSrc.map((src, i, srcAll) => <Image key={src.key} id={src.key} src={src} i={i} srcAll={srcAll} setImgSrc={setImgSrc} />)}

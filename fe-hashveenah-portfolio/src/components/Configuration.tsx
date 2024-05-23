@@ -61,6 +61,12 @@ function Configuration(props: configurationProps) {
         e.preventDefault();
         e.stopPropagation();
 
+        // check for validity issues (primarily for "required" functionality)
+        const form = document.querySelector(".config") as HTMLSelectElement;
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return; // break out of method if validity issues exist
+        }
 
         // updating about and art properties of the user
         userService.patchUser({
@@ -92,11 +98,11 @@ function Configuration(props: configurationProps) {
             {auth.auth ?
                 <form className="config">
                     <h3>Text</h3>
-                    <label htmlFor="config-about" className='form-label'>About Me</label>
-                    <textarea id="config-about" className="form-input" rows={5} value={aboutMe} onChange={(e) => setAboutMe(e.target.value)} />
+                    <label htmlFor="config-about" className='form-label' >About Me</label>
+                    <textarea id="config-about" className="form-input" required rows={5} value={aboutMe} onChange={(e) => setAboutMe(e.target.value)} />
                     <br /><br />
-                    <label htmlFor="config-about" className='form-label'>My Art</label>
-                    <textarea id="config-about" className="form-input" rows={5} value={art} onChange={(e) => setArt(e.target.value)} />
+                    <label htmlFor="config-about" className='form-label' >My Art</label>
+                    <textarea id="config-about" className="form-input" required rows={5} value={art} onChange={(e) => setArt(e.target.value)} />
                     <br /><br />
                     <h3>Collections</h3>
                     <button onClick={addNewCollectionButtonClickHandler}>Add New Collection</button>
@@ -105,7 +111,7 @@ function Configuration(props: configurationProps) {
                             entries.map((e, i) => <Collection key={e.id} entry={e} i={i} setEntries={setEntries} />)
                             : <>No Collections</>
                     }
-                    <button className="login-form-submit-btn" onClick={submitButtonClickHandler}>Sumit</button>
+                    <input type="submit" className="login-form-submit-btn" onClick={submitButtonClickHandler} value="Submit" />
                 </form>
                 : <>Not Authorized</>}
         </>
