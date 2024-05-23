@@ -47,7 +47,18 @@ EntryRouter.patch('/patch', isAuth, (req, res) => {
     .then(result => {
       res.send(result)
     })
-    .catch(e => { console.log("error in patch" + e.message) });
+    .catch(e => { 
+      console.log("error in patch " + e.name);
+      console.log(body);
+      if(e.name === "CastError"){
+        const newEntry = new Entry({ name: body.name, date: body.date, imgSrc: body.imgSrc, medium: body.medium, about: body.about });
+        newEntry.save().then(() => 
+          console.log('entry saved successfully')
+        ).catch(() => {
+          console.log("entry not saved")
+        });
+      }
+    });
 })
 
 export default EntryRouter;
