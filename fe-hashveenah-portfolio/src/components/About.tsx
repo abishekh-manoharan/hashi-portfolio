@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import data from '../../data';
+import userService from '../services/user';
 import { Link } from "react-router-dom";
 
 interface aboutProps {
@@ -10,60 +11,27 @@ function About(props: aboutProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const artPics = [data[0].imgSrc[3], data[1].imgSrc[1], data[0].imgSrc[2]];
     const [artPicsLocation, setArtPicsLocation] = useState(0);
+    const [aboutMe, setAboutMe] = useState('');
+    const [myArt, setMyArt] = useState('');
 
+    // use effect to update the image in slideshow
     useEffect(() => {
-        console.log('useEffect for setting the timeout running');
-
         const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
         artPic.src = artPics[artPicsLocation];
         const to = setTimeout(() => {
             setArtPicsLocation((artPicsLocation + 1) % artPics.length);
-            console.log('location')
-            console.log((artPicsLocation + 1) % artPics.length)
         }, 3500);
 
         return () => { clearTimeout(to) }
     })
 
-    // useEffect(() => {
-    //     console.log('useEffect for update of artPicsLocation running');
-    //     const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-    //     //artPic.classList.remove("image-animation")
-    //     setTimeout(() => {
-    //         artPic.src = artPics[artPicsLocation];
-    //         //  setTimeout(() => artPic.classList.add("image-animation"), 500);
-    //     }, 200);
-    // }, [artPicsLocation])
-
-
-
-
-    // const to = setTimeout(() => {
-    //     console.log('set art timeout set');
-    //     setArtPicsLocation((artPicsLocation + 1) % artPics.length);
-    // }, 5000);
-
-    // const artPic = document.querySelector(".about-me-art-display-pic") as HTMLImageElement;
-
-    // useEffect(() => {    
-    //     console.log('useeffect: artPicsLocation triggered');
-
-    //     setTimeout(() => {
-    //         // remove the class and update the source after a delay
-    //         artPic.classList.remove("image-animation");
-    //         artPic.src = artPics[artPicsLocation];
-    //         console.log('NEW IMAGE');
-    //         // Add the class after a delay to trigger the animation
-    //         setTimeout(() => {
-    //             artPic.classList.add("image-animation");
-    //         }, 50);
-    //     }, 100);
-
-    //     return (() => {
-    //         console.log('clear timeout')
-    //         clearTimeout(to)
-    //     })
-    // }, [artPicsLocation])
+    // useEffect used to set the appropriate "About Me" and "My Art" text
+    useEffect(() => {
+        userService.getUser().then(res => {
+            setAboutMe(res[0].about);
+            setMyArt(res[0].art)
+        })
+    }, [])
 
     // Updating location
     useEffect(() => {
@@ -81,7 +49,8 @@ function About(props: aboutProps) {
                     About Me
                 </div>
                 <div className="about-me-container-content about-me-font-color">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
+                    {aboutMe}
+                    {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum. */}
                 </div>
                 <hr className="about-me-hr-bottom" />
             </div>
@@ -96,7 +65,8 @@ function About(props: aboutProps) {
                     My Art
                 </div>
                 <div className="about-me-container-content about-me-font-color about-me-art-content" >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum.
+                    {myArt}
+                    {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis elit et posuere congue. Maecenas non maximus magna, id porttitor metus. Curabitur at neque et ligula volutpat feugiat. Donec sed turpis eu dolor tristique sodales. Mauris convallis semper venenatis. Nulla facilisi. Morbi et facilisis risus. Praesent rhoncus velit nisl, sagittis pellentesque lectus varius sed. Vivamus aliquam dui non odio faucibus viverra. Integer luctus ligula non dapibus fermentum. */}
                 </div>
                 <Link className="about-me-art-link" to="/projects">View Selected Works</Link>
                 <hr className="about-me-hr-bottom" />

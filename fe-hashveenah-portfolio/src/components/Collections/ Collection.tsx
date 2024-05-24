@@ -25,6 +25,7 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
                 return index === i ? { id: entry.id, name, date, medium, about, imgSrc } : e;
             })
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name, date, medium, about, imgSrc]); // elements of the entries
 
     const deleteButtonClickHandler = (e: React.SyntheticEvent) => {
@@ -32,7 +33,7 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
         e.stopPropagation();
 
         setEntries(prevEntries => {
-            return prevEntries.filter((e, index) => {
+            return prevEntries.filter((_e, index) => {
                 return index !== i;
             })
         })

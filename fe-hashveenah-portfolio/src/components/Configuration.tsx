@@ -24,7 +24,7 @@ function Configuration(props: configurationProps) {
 
     // prefilling form 
     useEffect(() => {
-        userService.getUser.then(res => {
+        userService.getUser().then(res => {
             setAboutMe(res[0].about);
             setArt(res[0].art)
         });
