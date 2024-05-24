@@ -26,7 +26,7 @@ function Collection({ entry, i, setEntries, entriesToBeDeleted }: CollectionProp
                 return e.id === i ? { id: entry.id, name, date, medium, about, imgSrc } : e;
             })
         })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name, date, medium, about, imgSrc]); // elements of the entries
 
     const deleteButtonClickHandler = (e: React.SyntheticEvent) => {
@@ -43,7 +43,7 @@ function Collection({ entry, i, setEntries, entriesToBeDeleted }: CollectionProp
             })
         })
     }
-    
+
     const addImageButtonClickHandler = (e: React.SyntheticEvent) => {
         e.preventDefault();
         e.stopPropagation();
@@ -60,22 +60,23 @@ function Collection({ entry, i, setEntries, entriesToBeDeleted }: CollectionProp
 
     return (
         <div className="config-collections">
-            <button onClick={deleteButtonClickHandler}> Delete Entry </button>
+
             <label htmlFor="config-collections-name" className='form-label'>Name</label>
-            <input id="config-collections-name" className="form-input" required type="text" value={name} onChange={(e) => setName(e.target.value)} style={{ marginBottom: "10px" }} />
+            <input id="config-collections-name" className="form-input" required type="text" value={name} onChange={(e) => setName(e.target.value)} />
 
             <label htmlFor="config-collections-description" className='form-label'>Description</label>
-            <textarea id="config-collections-description" required className="form-input" rows={3} value={about} onChange={(e) => setAbout(e.target.value)} style={{ marginBottom: "10px" }} />
+            <textarea id="config-collections-description" required className="form-input" rows={6} value={about} onChange={(e) => setAbout(e.target.value)} />
 
             <label htmlFor="config-collections-medium" className='form-label'>Medium</label>
-            <input id="config-collections-medium" className="form-input" required type="text" value={medium} onChange={(e) => setMedium(e.target.value)} style={{ marginBottom: "10px" }} />
+            <input id="config-collections-medium" className="form-input" required type="text" value={medium} onChange={(e) => setMedium(e.target.value)} />
 
             <label htmlFor="config-collections-date" className='form-label'>Date</label>
-            <input id="config-collections-date" className="form-input" required type="text" value={date} onChange={(e) => setDate(e.target.value)} style={{ marginBottom: "10px" }}/>
+            <input id="config-collections-date" className="form-input" required type="text" value={date} onChange={(e) => setDate(e.target.value)} />
 
             <label htmlFor="config-collections-image" className='form-label'>Images</label>
             {imgSrc.map((src, i, srcAll) => <Image key={src.key} id={src.key} src={src} i={i} srcAll={srcAll} setImgSrc={setImgSrc} />)}
-            <button onClick={addImageButtonClickHandler}>Add new image</button>
+            <button className="config-new-img-btn" onClick={addImageButtonClickHandler}>Add new image</button> <br /><br />
+            <button className="config-delete-entry-btn" onClick={deleteButtonClickHandler}> Delete Entry </button>
             <br />
             <br />
             <br />

@@ -549,7 +549,7 @@ swiper-container.thumbSwiper {
     border-bottom: solid 1px;
     background-color: #f7f7f7;
 }
-   
+
 
 /* Config form */
 .config {
@@ -558,26 +558,91 @@ swiper-container.thumbSwiper {
     max-width: 500px;
     margin: auto;
     padding: 20px;
+    border: solid rgba(67, 95, 76, 0.364) 1px;
+    border-radius: 10px;
+}
+
+.config-headers {
+    text-align: center;
+    font-weight: 500;
 }
 
 .config .form-input {
     width: 100%;
     background-color: #ffffff;
     padding: 6px 2px 8px;
+    margin-bottom: 20px;
 }
 
 .config-collections {
-    padding: 15px;
+    position: relative;
+    padding: 20px;
+    margin: 20px 0;
     background-color: rgba(255, 255, 255, 0.52);
+    border-radius: 10px;    
+    border: solid rgba(67, 95, 76, 0.364) 1px;
     border-radius: 10px;
 }
 
 .config-collections-image {
     display: flex;
     flex-direction: row;
-    margin-bottom: 5px;
+    margin-bottom: -15px;
 }
 
+.config-collections-image .form-input {
+    margin-right: 5px;
+}
+
+.config-delete-entry-btn {
+    display: block;
+    margin-left: auto;
+    background-color: rgba(255, 0, 0, 0.556);
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 10px;
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.config-delete-entry-btn:hover {
+    background-color: rgba(255, 0, 0, 0.635);
+}
+
+.config-collections-image-delete-btn {
+    border: none;
+    padding: 7px 12px;
+    color: white;
+    border-radius: 4px;
+    height: 30px;
+    background-color: rgba(255, 0, 0, 0.556);
+    margin-bottom: 10px;
+}
+
+.config-collections-image-delete-btn:hover {
+    background-color: rgba(255, 0, 0, 0.635);
+}
+
+.config-new-img-btn {
+    background-color: rgba(9, 141, 23, 0.556);
+    margin-top: 4px;
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 10px;
+}
+
+.config-new-img-btn:hover {
+    background-color: rgba(9, 141, 23, 0.686);
+}
+
+/* .config-add-new-collection-btn {
+    background: linear-gradient(90deg, rgb(78, 153, 110) 0%, rgba(66, 227, 61, 0.622) 100%);
+} */
 
 @media screen and (orientation: portrait) {
     html {
@@ -918,7 +983,7 @@ swiper-container.thumbSwiper {
     .about-me-container-content.video-container-credit {
         margin-bottom: 0;
     }
-    
+
     .login-form {
         width: 50%;
     }

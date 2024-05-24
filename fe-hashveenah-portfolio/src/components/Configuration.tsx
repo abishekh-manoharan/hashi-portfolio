@@ -109,20 +109,22 @@ function Configuration(props: configurationProps) {
             })}</> */}
             {auth.auth ?
                 <form className="config">
-                    <h3>Text</h3>
+                    <h3 className='config-headers'>Text</h3>
                     <label htmlFor="config-about" className='form-label' >About Me</label>
-                    <textarea id="config-about" className="form-input" required rows={5} value={aboutMe} onChange={(e) => setAboutMe(e.target.value)} />
+                    <textarea id="config-about" className="form-input" required rows={7} value={aboutMe} onChange={(e) => setAboutMe(e.target.value)} />
                     <br /><br />
                     <label htmlFor="config-about" className='form-label' >My Art</label>
-                    <textarea id="config-about" className="form-input" required rows={5} value={art} onChange={(e) => setArt(e.target.value)} />
+                    <textarea id="config-about" className="form-input" required rows={7} value={art} onChange={(e) => setArt(e.target.value)} />
                     <br /><br />
-                    <h3>Collections</h3>
-                    <button onClick={addNewCollectionButtonClickHandler}>Add New Collection</button>
+                    <hr/><br />
+                    <h3 className='config-headers'>Collections</h3>
+
                     {
                         entries.length > 0 ?
                             entries.map((e) => <Collection key={e.id} entry={e} i={e.id} setEntries={setEntries} entriesToBeDeleted={entriedToBeDeleted} />)
                             : <>No Collections</>
                     }
+                    <button className="login-form-submit-btn config-add-new-collection-btn" onClick={addNewCollectionButtonClickHandler}>Add New Collection</button>
                     <input type="submit" className="login-form-submit-btn" onClick={submitButtonClickHandler} value="Submit" />
                 </form>
                 : <>Not Authorized</>}
