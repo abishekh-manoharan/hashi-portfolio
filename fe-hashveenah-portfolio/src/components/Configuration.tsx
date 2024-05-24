@@ -14,7 +14,9 @@ function Configuration(props: configurationProps) {
     const [aboutMe, setAboutMe] = useState('about me');
     const [art, setArt] = useState('art');
     const [entries, setEntries] = useState<ProjectEntryWithImageKey[]>([]);
-    const idRef = useRef(0); // used to create unique key for new entry additions 
+    // const idRef = useRef(0); // used to create unique key for new entry additions 
+
+    const entriedToBeDeleted = useRef([]);
 
     const auth = useContext(AuthContext); // used to determine if user is authorized for cutomization page
 
@@ -42,11 +44,11 @@ function Configuration(props: configurationProps) {
     const addNewCollectionButtonClickHandler = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        idRef.current += 1; // updating idRef to get unique id for key
+        // idRef.current += 1; // updating idRef to get unique id for key
 
         const entriesWithEmptyAddition: ProjectEntryWithImageKey[] = entries.map(e => e);
         entriesWithEmptyAddition.push({
-            id: String(idRef.current),
+            id: generateUniqueKey(),
             imgSrc: [],
             name: "",
             date: "",
@@ -87,6 +89,16 @@ function Configuration(props: configurationProps) {
             console.log('patch entries response:');
             console.log(values);
         })
+
+        // deleting entries in the entriedToBeDeleted ref
+        Promise.all(
+            entriedToBeDeleted.current.map((id) => {
+                return entryService.deleteEntry(id);
+            })
+        ).then((res) => {
+            console.log('delete outcome:');
+            console.log(res);
+        })
     }
 
     return (
@@ -108,7 +120,7 @@ function Configuration(props: configurationProps) {
                     <button onClick={addNewCollectionButtonClickHandler}>Add New Collection</button>
                     {
                         entries.length > 0 ?
-                            entries.map((e, i) => <Collection key={e.id} entry={e} i={i} setEntries={setEntries} />)
+                            entries.map((e) => <Collection key={e.id} entry={e} i={e.id} setEntries={setEntries} entriesToBeDeleted={entriedToBeDeleted} />)
                             : <>No Collections</>
                     }
                     <input type="submit" className="login-form-submit-btn" onClick={submitButtonClickHandler} value="Submit" />

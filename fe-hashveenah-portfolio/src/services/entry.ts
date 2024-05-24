@@ -12,8 +12,12 @@ const getEntryById = (id: string): Promise<ProjectEntry> => axios.get(BE_URL + '
 // patch an entry 
 const patchEntry = (entry: ProjectEntry) => axios.patch(BE_URL + 'entry/patch', entry, { withCredentials: true }).then(res => res.data);
 
+// delete an entry
+const deleteEntry = (id: string) => axios.delete(BE_URL + 'entry/delete/'+ id, { withCredentials: true });
+
 export default {
     getAllEntries,
     getEntryById,
-    patchEntry
+    patchEntry, 
+    deleteEntry
 }

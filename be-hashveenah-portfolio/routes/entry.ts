@@ -47,18 +47,28 @@ EntryRouter.patch('/patch', isAuth, (req, res) => {
     .then(result => {
       res.send(result)
     })
-    .catch(e => { 
+    .catch(e => {
       console.log("error in patch " + e.name);
       console.log(body);
-      if(e.name === "CastError"){
+      if (e.name === "CastError") {
+        // case where new entry is added
         const newEntry = new Entry({ name: body.name, date: body.date, imgSrc: body.imgSrc, medium: body.medium, about: body.about });
-        newEntry.save().then(() => 
+        newEntry.save().then(() =>
           console.log('entry saved successfully')
         ).catch(() => {
           console.log("entry not saved")
         });
       }
     });
+})
+
+// delete entry
+EntryRouter.delete('/delete/:id', isAuth, (req, res) => {
+  // const body = req.body;
+  const id = req.params.id;
+
+  Entry.findByIdAndDelete({ _id: id })
+    .then(result => result ? res.send('deletion successful') : res.send('error in deletion'))
 })
 
 export default EntryRouter;

@@ -1,28 +1,29 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { ProjectEntryWithImageKey } from '../../types';
 import { generateUniqueKey } from '../../utils/helpers';
 import Image from './Image';
 
 interface CollectionProps {
     entry: ProjectEntryWithImageKey;
-    i: number;
+    i: string;
     setEntries: Dispatch<SetStateAction<ProjectEntryWithImageKey[]>>;
+    entriesToBeDeleted: React.MutableRefObject<string[]>;
 }
 
-function Collection({ entry, i, setEntries }: CollectionProps) {
+function Collection({ entry, i, setEntries, entriesToBeDeleted }: CollectionProps) {
     const [name, setName] = useState(entry.name);
     const [date, setDate] = useState(entry.date);
     const [medium, setMedium] = useState(entry.medium);
     const [about, setAbout] = useState(entry.about);
     const [imgSrc, setImgSrc] = useState(entry.imgSrc);
 
-    const idRef = useRef(0); // used to create unique key for new entry additions 
+    // const idRef = useRef(0); // used to create unique key for new entry additions 
 
     // update the master entries list whenever the elements of the entries change
     useEffect(() => {
         setEntries(prevEntries => {
-            return prevEntries.map((e, index) => {
-                return index === i ? { id: entry.id, name, date, medium, about, imgSrc } : e;
+            return prevEntries.map((e) => {
+                return e.id === i ? { id: entry.id, name, date, medium, about, imgSrc } : e;
             })
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,9 +33,13 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
         e.preventDefault();
         e.stopPropagation();
 
+        // adding the id of the current collection into the ref that holds ids of collections that are to be deleted
+        entriesToBeDeleted.current.push(i);
+
+        // remove the deleted entry from the master list
         setEntries(prevEntries => {
-            return prevEntries.filter((_e, index) => {
-                return index !== i;
+            return prevEntries.filter((e) => {
+                return e.id !== i;
             })
         })
     }
@@ -43,7 +48,7 @@ function Collection({ entry, i, setEntries }: CollectionProps) {
         e.preventDefault();
         e.stopPropagation();
 
-        idRef.current += 1;
+        // idRef.current += 1;
 
         setImgSrc(prev => {
             return prev.concat({
