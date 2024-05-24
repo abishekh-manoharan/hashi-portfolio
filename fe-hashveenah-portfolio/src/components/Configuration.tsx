@@ -107,10 +107,6 @@ function Configuration(props: configurationProps) {
 
     return (
         <>
-            <>{entries.map((e) => {
-                return <>{e.name}<br />
-                    {e.imgSrc.map((e) => <>{e.key}<br /></>)}<br /></>
-            })}</>
             {auth.auth ?
                 <form className="config">
                     <h3 className='config-headers'>Text</h3>
