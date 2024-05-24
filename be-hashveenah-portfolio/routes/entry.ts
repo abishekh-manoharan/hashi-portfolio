@@ -43,22 +43,27 @@ EntryRouter.post('/', isAuth, (req, res) => {
 EntryRouter.patch('/patch', isAuth, (req, res) => {
   const body = req.body;
   console.log('patch')
+  // console.log(body);
+
   Entry.findByIdAndUpdate({ _id: body.id }, { ...body }, { new: true })
     .then(result => {
       res.send(result)
     })
     .catch(e => {
       console.log("error in patch " + e.name);
-      console.log(body);
-      if (e.name === "CastError") {
-        // case where new entry is added
-        const newEntry = new Entry({ name: body.name, date: body.date, imgSrc: body.imgSrc, medium: body.medium, about: body.about });
-        newEntry.save().then(() =>
-          console.log('entry saved successfully')
-        ).catch(() => {
-          console.log("entry not saved")
-        });
+    });
+
+  Entry.findById(body.id)
+    .then(res => {
+      if (!res) {
+        const newEntry = new Entry({ _id: body.id, name: body.name, date: body.date, imgSrc: body.imgSrc, medium: body.medium, about: body.about });
+        newEntry.save();
       }
+      console.log('entry saved successfully')
+    })
+    .catch((e) => {
+      console.log("entry not saved")
+      console.log("entry not saved" + e.message)
     });
 })
 
@@ -69,6 +74,7 @@ EntryRouter.delete('/delete/:id', isAuth, (req, res) => {
 
   Entry.findByIdAndDelete({ _id: id })
     .then(result => result ? res.send('deletion successful') : res.send('error in deletion'))
+    .catch(e => console.log(e.message))
 })
 
 export default EntryRouter;

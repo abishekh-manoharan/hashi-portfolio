@@ -5,6 +5,7 @@ import entryService from '../services/entry';
 import Collection from './Collections/ Collection';
 import { generateUniqueKey } from '../utils/helpers';
 import { ProjectEntry, ProjectEntryWithImageKey } from '../types';
+import mongoose from 'mongoose';
 
 interface configurationProps {
     setLocation: Dispatch<SetStateAction<string>>;
@@ -39,6 +40,8 @@ function Configuration(props: configurationProps) {
             })
             setEntries(updatedEntries);
         })
+
+        setTimeout(() => { window.scrollTo(0, 0) }, 1000);
     }, []);
 
     const addNewCollectionButtonClickHandler = (e: React.SyntheticEvent) => {
@@ -48,7 +51,7 @@ function Configuration(props: configurationProps) {
 
         const entriesWithEmptyAddition: ProjectEntryWithImageKey[] = entries.map(e => e);
         entriesWithEmptyAddition.push({
-            id: generateUniqueKey(),
+            id: String(new mongoose.Types.ObjectId()),
             imgSrc: [],
             name: "",
             date: "",
@@ -82,7 +85,8 @@ function Configuration(props: configurationProps) {
         // updating the entries
         // convert entries to type with image keys not included in src array
         const entriesWithoutImageKey: ProjectEntry[] = entries.map((e) => { return { ...e, imgSrc: e.imgSrc.map(src => src.src) } });
-
+        console.log('entries without image key')
+        console.log(entriesWithoutImageKey)
         Promise.all(entriesWithoutImageKey.map((e) => {
             return entryService.patchEntry(e);
         })).then((values) => {
@@ -103,10 +107,10 @@ function Configuration(props: configurationProps) {
 
     return (
         <>
-            {/* <>{entries.map((e) => {
+            <>{entries.map((e) => {
                 return <>{e.name}<br />
                     {e.imgSrc.map((e) => <>{e.key}<br /></>)}<br /></>
-            })}</> */}
+            })}</>
             {auth.auth ?
                 <form className="config">
                     <h3 className='config-headers'>Text</h3>
