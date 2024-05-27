@@ -681,7 +681,7 @@ swiper-container.thumbSwiper {
 .contact-info-background {
     height: 100%;
     width: 100vw;
-    object-fit: fill;
+    object-fit: cover;
     position: absolute;
     z-index: 0;
 }
