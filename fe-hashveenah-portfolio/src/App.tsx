@@ -12,6 +12,7 @@ import NavHideOnScroll from "./components/NonUIComponents/NavHideOnScroll";
 import Configuration from "./components/Configuration";
 import { AuthContext } from "./utils/context";
 import AuthService from "./services/auth";
+import Inbox from "./components/Inbox";
 
 function App() {
   register();
@@ -39,6 +40,7 @@ function App() {
             <Route path="/project/:id/:index/:length" element=<ProjectDetail /> />
             <Route path="/contact" element=<Contact setLocation={setLocation} /> />
             <Route path='/login' element=<Login setLocation={setLocation} /> />
+            <Route path='/inbox' element=<Inbox setLocation={setLocation} /> />
             <Route path='/configuration' element=<Configuration setLocation={setLocation} /> />
           </Route>
         </Routes >
