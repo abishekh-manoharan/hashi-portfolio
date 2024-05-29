@@ -13,6 +13,7 @@ import passportLocal from 'passport-local';
 import { validationFunction, customFields } from './auth/authUtils';
 import User from './models/user';
 import { userType } from './types';
+import { errorHandler } from './utils/middleware';
 
 
 const app = express();
@@ -31,11 +32,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
     cors({
-      origin: 'http://localhost:5173',
-      methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "PATCH", "DELETE"],
-      credentials: true,
+        origin: 'http://localhost:5173',
+        methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "PATCH", "DELETE"],
+        credentials: true,
     })
-  );
+);
 //setting up session
 const store = mongoStore.create({
     mongoUrl: process.env.MONGO_URL,
@@ -47,7 +48,7 @@ const session = sessions({
     resave: false,
     saveUninitialized: false,
     store: store,
-    cookie: {      
+    cookie: {
         sameSite: false,
         httpOnly: true,
         maxAge: 1000 * 60 * 20 // 20 min
@@ -87,6 +88,7 @@ app.get('/', (req, res) => {
     res.send('hello world!')
 })
 
+app.use(errorHandler)
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 

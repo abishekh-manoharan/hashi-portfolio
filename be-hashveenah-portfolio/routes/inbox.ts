@@ -11,7 +11,7 @@ InboxRouter.get('/', (_req, res) => {
 })
 
 // add a new message
-InboxRouter.post('/', (req, res) => {
+InboxRouter.post('/', (req, res, next) => {
     try {
         const message = parseMessage(req.body);
 
@@ -23,12 +23,23 @@ InboxRouter.post('/', (req, res) => {
             })
     } catch (e) {
         if(e instanceof Error) {
-            res.status(500).send('error: ' + e.message);
-        } else {
-            res.status(500).send('unknown error occured')
+            next(e)
         }
     }
-
 })
+
+// delete a single message
+InboxRouter.delete('/:id', (req, res, next) => {
+    const id = req.params.id;
+
+    Inbox.findByIdAndDelete({id: id})
+        .then((result) => {
+            res.send(result);
+        }).catch((e) => {
+            if(e instanceof Error) {
+                next(e);
+            }
+        })
+});
 
 export default InboxRouter;
