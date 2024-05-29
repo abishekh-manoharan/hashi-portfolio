@@ -1,4 +1,5 @@
 import { parseMessage } from '../utils/parsers';
+import { isAuth } from '../utils/middleware';
 import Inbox from '../models/inbox';
 import express from 'express';
 import mongoose from 'mongoose';
@@ -6,8 +7,7 @@ import mongoose from 'mongoose';
 const InboxRouter = express.Router();
 
 // gets all messages
-InboxRouter.get('/', (_req, res) => {
-    console.log('getting all inbox entries')
+InboxRouter.get('/', isAuth, (_req, res) => {
     Inbox.find({}).then(result => res.send(result));
 })
 
@@ -30,7 +30,7 @@ InboxRouter.post('/', (req, res, next) => {
 })
 
 // delete a single message based on id
-InboxRouter.delete('/:id', (req, res, next) => {
+InboxRouter.delete('/:id', isAuth, (req, res, next) => {
     const id = new mongoose.Types.ObjectId(req.params.id);
 
     Inbox.findByIdAndDelete({_id: id})
@@ -44,7 +44,7 @@ InboxRouter.delete('/:id', (req, res, next) => {
 });
 
 // delete all messages
-InboxRouter.delete('/', (req, res, next) => {
+InboxRouter.delete('/', isAuth, (req, res, next) => {
     Inbox.deleteMany({})
         .then(result => res.send(result))
         .catch((e) => {
