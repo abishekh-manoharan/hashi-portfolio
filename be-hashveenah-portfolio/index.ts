@@ -5,6 +5,7 @@ import passport from 'passport';
 import EntryRouter from './routes/entry';
 import AuthRouter from './routes/auth';
 import UserRouter from './routes/user';
+import InboxRouter from './routes/inbox';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
@@ -81,6 +82,7 @@ app.use(passport.session());
 app.use('/entry', EntryRouter);
 app.use('/auth', AuthRouter);
 app.use('/user', UserRouter);
+app.use('/inbox', InboxRouter);
 app.get('/', (req, res) => {
     res.send('hello world!')
 })

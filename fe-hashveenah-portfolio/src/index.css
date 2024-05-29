@@ -556,7 +556,7 @@ swiper-container.thumbSwiper {
 /* Config form */
 .config {
     display: block;
-    background-color: rgba(203, 238, 202, 0.535);
+    background-color: rgb(203 238 202 / 27%);
     max-width: 500px;
     margin: auto;
     padding: 20px;
@@ -730,10 +730,10 @@ swiper-container.thumbSwiper {
 
 .contact-header-text {
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 300;
     color: rgb(32, 48, 30);
-    font-style: italic;
-    font-family: Apple Chancery, cursive;
+    /* font-style: italic; */
+    /* font-family: Apple Chancery, cursive; */
 }
 
 .contact-img-desktop {
@@ -1177,11 +1177,9 @@ swiper-container.thumbSwiper {
     .contact-header {
         /* grid-area: header; */
         width: 50%;
-        margin-bottom: 20px;
-        border-bottom: solid rgba(0, 0, 0, 0.566) 1px; 
-        border-right: solid rgba(0, 0, 0, 0.147) 1px; 
-        border-left: solid rgba(0, 0, 0, 0.147) 1px; 
-        /* background-color: rgba(0, 0, 0, 0); */
+        margin-bottom: 5px;
+        background-color: #00000000;
+        
     }
     .contact-header-text {
         font-size: 4vh;
