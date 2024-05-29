@@ -1,6 +1,7 @@
 import { parseMessage } from '../utils/parsers';
 import Inbox from '../models/inbox';
 import express from 'express';
+import mongoose from 'mongoose';
 
 const InboxRouter = express.Router();
 
@@ -28,14 +29,25 @@ InboxRouter.post('/', (req, res, next) => {
     }
 })
 
-// delete a single message
+// delete a single message based on id
 InboxRouter.delete('/:id', (req, res, next) => {
-    const id = req.params.id;
+    const id = new mongoose.Types.ObjectId(req.params.id);
 
-    Inbox.findByIdAndDelete({id: id})
+    Inbox.findByIdAndDelete({_id: id})
         .then((result) => {
             res.send(result);
         }).catch((e) => {
+            if(e instanceof Error) {
+                next(e);
+            }
+        })
+});
+
+// delete all messages
+InboxRouter.delete('/', (req, res, next) => {
+    Inbox.deleteMany({})
+        .then(result => res.send(result))
+        .catch((e) => {
             if(e instanceof Error) {
                 next(e);
             }
