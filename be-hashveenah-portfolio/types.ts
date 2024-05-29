@@ -40,3 +40,10 @@ export interface newUser {
     username: string,
     password: string
 }
+
+// type for inbox messages
+export interface Message {
+    name: string;
+    email: string;
+    message: string;
+}
