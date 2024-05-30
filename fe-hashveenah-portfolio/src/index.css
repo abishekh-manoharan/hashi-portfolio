@@ -751,7 +751,9 @@ swiper-container.thumbSwiper {
 }
 
 .inbox {
+    position: relative;
     padding: 0 10px;
+    width: 95%;
 }
 
 .message {
@@ -802,6 +804,13 @@ swiper-container.thumbSwiper {
     position: absolute;
     right: 0px;
     top: 15px;
+}
+
+.config-collections-image-delete-btn.inbox-delete-all {
+    position: absolute;
+    width: auto;
+    top: 10px;
+    right: 10px;
 }
 
 .display-block {
