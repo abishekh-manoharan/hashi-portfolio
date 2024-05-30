@@ -12,7 +12,7 @@ import NavHideOnScroll from "./components/NonUIComponents/NavHideOnScroll";
 import Configuration from "./components/Configuration";
 import { AuthContext } from "./utils/context";
 import AuthService from "./services/auth";
-import Inbox from "./components/Inbox";
+import Inbox from "./components/Inbox/Inbox";
 
 function App() {
   register();

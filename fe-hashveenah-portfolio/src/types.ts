@@ -35,7 +35,10 @@ export interface UserUpdateData {
 
 // type for inbox messages
 export interface Message {
+    _id: string,
     name: string;
     email: string;
     message: string;
 }
+
+export type newMessage = Omit<Message, '_id'>

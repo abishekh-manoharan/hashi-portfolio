@@ -732,6 +732,7 @@ swiper-container.thumbSwiper {
     font-size: 1.2rem;
     font-weight: 300;
     color: rgb(32, 48, 30);
+    text-align: center;
     /* font-style: italic; */
     /* font-family: Apple Chancery, cursive; */
 }
@@ -742,10 +743,74 @@ swiper-container.thumbSwiper {
 
 .vineArt {
     display: none;
+    z-index: 0;
 }
 
 .contact-info-entry-logo-dark {
     display: none;
+}
+
+.inbox {
+    padding: 0 10px;
+}
+
+.message {
+    /* padding: 0 20px; */
+    position: relative;
+}
+
+.message-name {
+    font-weight: 550;
+    font-size: 1.2rem;
+    line-height: 20%;
+    margin-top: 30px;
+}
+
+.message-email {
+    color:#0000007c;
+    line-height: 20%;
+    font-size: .9rem;
+}
+
+.message-message {
+    margin: 10px 0;
+    line-height: 60%;
+    font-weight: 200;
+}
+
+.success-message {
+    background-color: rgb(206, 253, 191);
+    padding: 10px;
+    z-index: 1;
+    display: block;
+    width: auto;
+    text-align: center;
+
+    display: none;
+}
+
+.error-message {
+    background-color: rgb(253, 191, 212);
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+
+    display: none;
+}
+
+.message .config-collections-image-delete-btn {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+}
+
+.display-block {
+    display: block;
+}
+
+#message-hr {
+    margin-top: 20px;
+    width: 100%;
 }
 
 @media screen and (orientation: portrait) {
