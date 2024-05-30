@@ -32,3 +32,10 @@ export interface UserUpdateData {
     about: string,
     art: string
 }
+
+// type for inbox messages
+export interface Message {
+    name: string;
+    email: string;
+    message: string;
+}
