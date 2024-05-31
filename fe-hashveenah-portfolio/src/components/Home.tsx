@@ -10,21 +10,29 @@ function Home(props: aboutProps) {
     useEffect(() => {
         props.setLocation('home');
     }, [props])
-    
+
     return (
         <div className="home">
-            <video id="home-background-video" autoPlay loop muted>
-                <source src="./videos/sunlight.mp4" type="video/mp4" />
-            </video>
-            <div className="home-content">
-                <div className="name">Hashveenah Manoharan</div>
-                <div className="title">Arborist, Artist.</div>
-                <div className="home-nav">
-                    <div className="home-nav-link"><Link to='about'>ABOUT</Link></div>
-                    <div className="home-nav-link"><Link to='projects'>SELECTED WORKS</Link></div>
-                    <div className="home-nav-link"><Link to='contact'>CONTACT</Link></div>
+            <div className="name">HASHVEENAH MANOHARAN</div>
+            <img className="profilePic" src="./images/profile.jpg" />
+            <div className="home-info">
+                <div className="home-info-sub">
+                    <p className="home-info-title">Bio</p>
+                    <p className="home-info-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+                <div className="home-info-sub">
+                    <p className="home-info-title">Expertise</p>
+                    <p className="home-info-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                 </div>
             </div>
+            <hr id="home-hr" />
+            <Link className="home-art-link" to="/projects">View Selected Works</Link>
+            <div className="home-img-gallery">
+                <img className="home-img-gallery-pic" src="./images/snail1.jpeg" />
+                <img className="home-img-gallery-pic" src="./images/drawing.jpg" />
+                <img className="home-img-gallery-pic" src="./images/woodburning.jpg" />
+            </div>
+            <hr id="home-hr" />
         </div>
     );
 }
