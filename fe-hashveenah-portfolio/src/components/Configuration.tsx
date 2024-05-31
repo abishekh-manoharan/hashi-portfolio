@@ -6,6 +6,7 @@ import Collection from './Collections/ Collection';
 import { generateUniqueKey } from '../utils/helpers';
 import { ProjectEntry, ProjectEntryWithImageKey } from '../types';
 import mongoose from 'mongoose';
+// import { useNavigate } from 'react-router-dom';
 
 interface configurationProps {
     setLocation: Dispatch<SetStateAction<string>>;
@@ -15,11 +16,15 @@ function Configuration(props: configurationProps) {
     const [aboutMe, setAboutMe] = useState('about me');
     const [art, setArt] = useState('art');
     const [entries, setEntries] = useState<ProjectEntryWithImageKey[]>([]);
-    // const idRef = useRef(0); // used to create unique key for new entry additions 
-
     const entriedToBeDeleted = useRef([]);
-
+    // const nav = useNavigate();
+    const FE_URL = import.meta.env.VITE_FE_URL;
     const auth = useContext(AuthContext); // used to determine if user is authorized for cutomization page
+
+    const notAuthenticatedHandler = () => {
+        console.log('feURL')
+        window.open(FE_URL+'login', '_blank')?.focus();
+    }
 
     useEffect(() => {
         props.setLocation('Configuration')
@@ -80,6 +85,11 @@ function Configuration(props: configurationProps) {
         }).then((res) => {
             console.log('patch user response:');
             console.log(res);
+        }).catch((res) => { // handling case where authorization has expired by opening new tab to login page
+            if (res.response.data == 'forbidden') {
+                notAuthenticatedHandler();
+                return;
+            }
         });
 
         // updating the entries
@@ -92,7 +102,13 @@ function Configuration(props: configurationProps) {
         })).then((values) => {
             console.log('patch entries response:');
             console.log(values);
-        })
+        }).catch((res) => { // handling case where authorization has expired by opening new tab to login page
+            if (res.response.data == 'forbidden') {
+                notAuthenticatedHandler();
+                return;
+            }
+        });
+
 
         // deleting entries in the entriedToBeDeleted ref
         Promise.all(
@@ -102,8 +118,14 @@ function Configuration(props: configurationProps) {
         ).then((res) => {
             console.log('delete outcome:');
             console.log(res);
-        })
+        }).catch((res) => { // handling case where authorization has expired by opening new tab to login page
+            if (res.response.data == 'forbidden') {
+                notAuthenticatedHandler();
+                return;
+            }
+        });
     }
+
 
     return (
         <>
@@ -116,7 +138,7 @@ function Configuration(props: configurationProps) {
                     <label htmlFor="config-about" className='form-label' >My Art</label>
                     <textarea id="config-about" className="form-input" required rows={7} value={art} onChange={(e) => setArt(e.target.value)} />
                     <br /><br />
-                    <hr/><br />
+                    <hr /><br />
                     <h3 className='config-headers'>Collections</h3>
 
                     {
