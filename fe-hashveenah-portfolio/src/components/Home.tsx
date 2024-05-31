@@ -1,13 +1,22 @@
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Home() {
+interface aboutProps {
+    setLocation: Dispatch<SetStateAction<string>>;
+}
+
+function Home(props: aboutProps) {
+
+    useEffect(() => {
+        props.setLocation('home');
+    }, [props])
+    
     return (
         <div className="home">
             <video id="home-background-video" autoPlay loop muted>
                 <source src="./videos/sunlight.mp4" type="video/mp4" />
             </video>
             <div className="home-content">
-
                 <div className="name">Hashveenah Manoharan</div>
                 <div className="title">Arborist, Artist.</div>
                 <div className="home-nav">

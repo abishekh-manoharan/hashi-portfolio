@@ -67,6 +67,7 @@ function HeaderMenu(props: headerMenuProps) {
             {auth.auth ? <NavLink to="inbox" className="header-menu-NavLink" onClick={() => props.setMenuOpen(!props.menuOpen)} style={({ isActive }) => isActive ? navLinkActiveStyle : {}}>Inbox</NavLink> : <NavLink className="header-menu-NavLink"  onClick={() => props.setMenuOpen(!props.menuOpen)} to='contact' style={({ isActive }) => isActive ? navLinkActiveStyle : {}}>Contact</NavLink>}
             {auth.auth ? <NavLink className="header-menu-NavLink"  onClick={() => props.setMenuOpen(!props.menuOpen)} to="/configuration" style={({ isActive }) => isActive ? navLinkActiveStyle : {}}>Configuration</NavLink> : <></>}
             {auth.auth ? <a className="header-menu-NavLink" onClick={logoutHandler}>Logout</a> : <NavLink className="header-menu-NavLink"  onClick={() => props.setMenuOpen(!props.menuOpen)} to="/login" style={({ isActive }) => isActive ? navLinkActiveStyle : {}}>Login</NavLink>}
+            <NavLink to='home'>Home</NavLink>
         </div>
     );
 }

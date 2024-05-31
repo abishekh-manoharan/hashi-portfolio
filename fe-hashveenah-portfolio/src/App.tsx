@@ -13,6 +13,7 @@ import Configuration from "./components/Configuration";
 import { AuthContext } from "./utils/context";
 import AuthService from "./services/auth";
 import Inbox from "./components/Inbox/Inbox";
+import Home from "./components/Home";
 
 function App() {
   register();
@@ -42,6 +43,7 @@ function App() {
             <Route path='/login' element=<Login setLocation={setLocation} /> />
             <Route path='/inbox' element=<Inbox setLocation={setLocation} /> />
             <Route path='/configuration' element=<Configuration setLocation={setLocation} /> />
+            <Route path='/home' element=<Home setLocation={setLocation} /> />
           </Route>
         </Routes >
       </AuthContext.Provider>
