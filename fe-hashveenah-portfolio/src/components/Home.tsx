@@ -26,12 +26,12 @@ function Home(props: aboutProps) {
                 </div>
             </div>
             <hr id="home-hr" />
-            <Link className="home-art-link" to="/projects">View Selected Works</Link>
             <div className="home-img-gallery">
-                <img className="home-img-gallery-pic" src="./images/snail1.jpeg" />
+                <img className="home-img-gallery-pic" src="./images/fox.jpg" />
                 <img className="home-img-gallery-pic" src="./images/drawing.jpg" />
                 <img className="home-img-gallery-pic" src="./images/woodburning.jpg" />
             </div>
+            <Link className="home-art-link" to="/projects">View Selected Works</Link>
             <hr id="home-hr" />
         </div>
     );

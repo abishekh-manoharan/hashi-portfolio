@@ -160,8 +160,8 @@ hr {
 }
 
 #home-hr {
-    background-color: #000000;
-    height: .1px;
+    border: solid none;
+    border-color: #f8f2b3;
     width: 80%;
 }
 
@@ -190,8 +190,14 @@ hr {
 }
 
 .home-art-link {
-    border-bottom: solid orange;
-    margin-bottom: -10px;
+    border-bottom: solid #ffc1b4;
+    margin-top: -10px;
+    padding-bottom: 2px;
+    font-weight: 100;
+}
+
+.home-art-link:hover {
+    color: rgba(0, 0, 0, 0.46);
 }
 
 
