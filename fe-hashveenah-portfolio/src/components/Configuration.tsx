@@ -3,7 +3,7 @@ import { AuthContext } from '../utils/context';
 import userService from '../services/user';
 import entryService from '../services/entry';
 import Collection from './Collections/ Collection';
-import { generateUniqueKey } from '../utils/helpers';
+import { generateUniqueKey, notAuthenticatedHandler } from '../utils/helpers';
 import { ProjectEntry, ProjectEntryWithImageKey } from '../types';
 import mongoose from 'mongoose';
 // import { useNavigate } from 'react-router-dom';
@@ -18,13 +18,8 @@ function Configuration(props: configurationProps) {
     const [entries, setEntries] = useState<ProjectEntryWithImageKey[]>([]);
     const entriedToBeDeleted = useRef([]);
     // const nav = useNavigate();
-    const FE_URL = import.meta.env.VITE_FE_URL;
-    const auth = useContext(AuthContext); // used to determine if user is authorized for cutomization page
 
-    const notAuthenticatedHandler = () => {
-        console.log('feURL')
-        window.open(FE_URL+'login', '_blank')?.focus();
-    }
+    const auth = useContext(AuthContext); // used to determine if user is authorized for cutomization page
 
     useEffect(() => {
         props.setLocation('Configuration')

@@ -58,3 +58,11 @@ export const generateUniqueKey = (): string => {
     return uuidv4();
 }
 
+export const notAuthenticatedHandler = () => {
+    const FE_URL = import.meta.env.VITE_FE_URL;
+    
+    console.log('feURL')
+    window.open(FE_URL+'login', '_blank')?.focus();
+}
+
+
