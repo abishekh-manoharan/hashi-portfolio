@@ -32,5 +32,5 @@ module.exports = {
     ],
     "rules": {
     },
-    ignores: [".outDir/", ".dist/"]
+    ignores: ["**/.outDir/*", "**/.dist/*", "**/.node_modules/*"]
 }
