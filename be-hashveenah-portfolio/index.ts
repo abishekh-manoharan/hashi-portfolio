@@ -28,6 +28,7 @@ if (typeof (process.env.MONGO_URL) === 'string') {
 }
 console.log('process.env.FE_URL');
 console.log(process.env.FE_URL);
+app.use(express.static('dist'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
