@@ -506,10 +506,6 @@ swiper-container.thumbSwiper {
     gap: 2vw;
 }
 
-.video-container-header {
-    /* margin-top: 4vw; */
-}
-
 .video-container-credit {
     line-height: 0;
     margin-bottom: 4vw;
@@ -979,8 +975,7 @@ swiper-container.thumbSwiper {
         align-items: center;
         justify-content: center;
         gap: 5px;
-        margin-top: -30px;
-
+        margin-top: 10px;
     }
 
     .project {
