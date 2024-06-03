@@ -333,7 +333,7 @@ swiper-container.thumbSwiper {
 
 .about-me-container {
     position: relative;
-    padding: 7vw;
+    /* padding: 0 20vw; */
     font-size: 1vw;
     line-height: 5vw;
 }
@@ -347,11 +347,9 @@ swiper-container.thumbSwiper {
 }
 
 .about-me-container-content {
-    font-size: 2.5em;
+    font-size: .9rem;
     font-weight: lighter;
     text-align: center;
-
-    margin-bottom: 6vw;
 }
 
 .about-me-container hr {
@@ -503,17 +501,13 @@ swiper-container.thumbSwiper {
 }
 
 .video-container {
-    padding: 20px 0;
-    background-color: #d6e8d4b0;
     display: flex;
     flex-direction: column;
     gap: 2vw;
-    border-bottom: solid 0.1vh #0000003d;
-    border-top: solid 0.1vh #0000003d;
 }
 
 .video-container-header {
-    margin-top: 4vw;
+    /* margin-top: 4vw; */
 }
 
 .video-container-credit {
@@ -1105,11 +1099,11 @@ swiper-container.thumbSwiper {
     }
 
     .about-me-container {
-        font-size: .45vw;
         display: flex;
         justify-content: center;
         line-height: 2.2vw;
         flex-direction: column;
+        gap: 15px;
         padding: 0px;
     }
 
@@ -1182,7 +1176,6 @@ swiper-container.thumbSwiper {
     .video-container {
         width: 89.3%;
         height: 80dvh;
-        padding: 5%;
     }
 
     .video-container-video {
