@@ -9,7 +9,7 @@
     "dev": "cross-env NODE_ENV=development tsx index.ts",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "lint": "eslint --ext .ts .",
-    "build": "tsc"
+    "build": "npm install && tsc"
   },
   "jest": {
     "preset": "ts-jest",
