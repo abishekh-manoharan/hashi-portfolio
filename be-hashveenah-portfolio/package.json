@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.ts",
     "dev": "cross-env NODE_ENV=development tsx index.ts",
@@ -19,7 +19,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/express-session": "^1.18.0",
     "connect-mongo": "^5.1.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
@@ -46,7 +45,6 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   }
 }
