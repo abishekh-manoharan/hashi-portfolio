@@ -1,7 +1,7 @@
 
 import User from '../models/user';
 import crypto from 'node:crypto';
-import { ExistingUser, doneType, userType } from '../types';
+import {  doneType } from '../types';
 // import { ExistingUser, newUser } from '../types';
 
 // hashes the given password and compares is to the stored hashed value. returns true if matching, false otherwise.
