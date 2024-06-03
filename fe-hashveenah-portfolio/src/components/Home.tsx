@@ -1,16 +1,24 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import userService from '../services/user';
 
 interface aboutProps {
     setLocation: Dispatch<SetStateAction<string>>;
 }
 
 function Home(props: aboutProps) {
+    const [aboutMe, setAboutMe] = useState('');
 
     useEffect(() => {
         props.setLocation('home');
     }, [props])
+    // useEffect used to set the appropriate "About Me" and "My Art" text
 
+    useEffect(() => {
+        userService.getUser().then(res => {
+            setAboutMe(res[0].about);
+        })
+    }, [])
     return (
         <div className="home">
             <div className="name">HASHVEENAH MANOHARAN</div>
@@ -18,12 +26,9 @@ function Home(props: aboutProps) {
             <div className="home-info">
                 <div className="home-info-sub">
                     <p className="home-info-title">Bio</p>
-                    <p className="home-info-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    <p className="home-info-content">{aboutMe}</p>
                 </div>
-                <div className="home-info-sub">
-                    <p className="home-info-title">Expertise</p>
-                    <p className="home-info-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                </div>
+
             </div>
             <hr id="home-hr" />
             <div className="home-img-gallery">
@@ -35,8 +40,8 @@ function Home(props: aboutProps) {
             <hr id="home-hr" />
             <div className="video-container about-me-container">
                 {/* <hr className="about-me-hr-top" /> */}
-                <div className="home-info-title" style={{"textAlign":"center"}}> An Interview with Hashveenah Manoharan </div>
-                <div className="home-info-content" style={{"textAlign":"center"}}>Directed by Matthew Viveen </div>
+                <div className="home-info-title" style={{ "textAlign": "center" }}> An Interview with Hashveenah Manoharan </div>
+                <div className="home-info-content" style={{ "textAlign": "center" }}>Directed by Matthew Viveen </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 {/* <hr className="about-me-hr-bottom" /> */}
             </div>
