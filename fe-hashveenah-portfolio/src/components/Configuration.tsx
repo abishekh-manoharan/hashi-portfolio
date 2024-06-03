@@ -126,7 +126,7 @@ function Configuration(props: configurationProps) {
         <>
             {auth.auth ?
                 <form className="config">
-                    <h3 className='config-headers'>Text</h3>
+                    <h1>Text</h1>
                     <label htmlFor="config-about" className='form-label' >About Me</label>
                     <textarea id="config-about" className="form-input" required rows={7} value={aboutMe} onChange={(e) => setAboutMe(e.target.value)} />
                     <br /><br />
@@ -134,7 +134,7 @@ function Configuration(props: configurationProps) {
                     <textarea id="config-about" className="form-input" required rows={7} value={art} onChange={(e) => setArt(e.target.value)} />
                     <br /><br />
                     <hr /><br />
-                    <h3 className='config-headers'>Collections</h3>
+                    <h1>Collections</h1>
 
                     {
                         entries.length > 0 ?

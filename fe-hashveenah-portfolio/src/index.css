@@ -125,7 +125,7 @@ hr {
 }
 
 .name {
-    display: block;
+    display: none;
     text-align: center;
     font-weight: 500;
     font-size: 1.5rem;
@@ -145,6 +145,7 @@ hr {
 .home-info {
     display: flex;
     gap: 30px;
+    width: 100%;
     /* flex-direction: column; */
 }
 
@@ -560,7 +561,7 @@ swiper-container.thumbSwiper {
 
 .form-label {
     display: block;
-    font-size: .7rem;
+    font-size: .9rem;
     margin-bottom: 5px;
 }
 
@@ -595,11 +596,11 @@ swiper-container.thumbSwiper {
 /* Config form */
 .config {
     display: block;
-    background-color: rgb(203 238 202 / 27%);
-    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.016);
+    /* max-width: 500px; */
     margin: auto;
     padding: 20px;
-    border: solid rgba(67, 95, 76, 0.364) 1px;
+    border: solid rgba(67, 95, 76, 0.198) 1px;
     border-radius: 10px;
 }
 
@@ -1324,6 +1325,10 @@ swiper-container.thumbSwiper {
     .contact-info-entry-logo-dark {
         display: block;
         width: 4vw;
+    }
+
+    .name {
+            display: block;
     }
 
 }

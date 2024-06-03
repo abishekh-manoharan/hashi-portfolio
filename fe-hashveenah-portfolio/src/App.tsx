@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import About from "./components/About";
 import ProjectList from "./components/Projects/ProjectList";
 import ProjectDetail from "./components/Projects/ProjectDetail";
 import Login from "./components/Login";
@@ -36,7 +35,7 @@ function App() {
         <Routes>
           {/* <Route path="/" element=<Home /> /> */}
           <Route element=<Header location={location} menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> >
-            <Route path="/" element=<About setLocation={setLocation} /> />
+            <Route path="/" element=<Home setLocation={setLocation} /> />
             <Route path="/projects" element=<ProjectList setLocation={setLocation} /> />
             <Route path="/project/:id/:index/:length" element=<ProjectDetail /> />
             <Route path="/contact" element=<Contact setLocation={setLocation} /> />

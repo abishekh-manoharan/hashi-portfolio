@@ -24,6 +24,8 @@ function Login(props: loginProps) {
         authService.login(username, password).then(res => {
             if (res === 'success') {
                 auth.setAuth!(true);
+            } else {
+              window.alert('incorrect login')  
             }
         });
     }

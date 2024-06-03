@@ -10,7 +10,7 @@ function Home(props: aboutProps) {
     const [aboutMe, setAboutMe] = useState('');
 
     useEffect(() => {
-        props.setLocation('home');
+        props.setLocation('Home');
     }, [props])
     // useEffect used to set the appropriate "About Me" and "My Art" text
 
