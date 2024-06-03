@@ -1,23 +1,18 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const parsers_1 = require("../utils/parsers");
-const middleware_1 = require("../utils/middleware");
-const inbox_1 = __importDefault(require("../models/inbox"));
-const express_1 = __importDefault(require("express"));
-const mongoose_1 = __importDefault(require("mongoose"));
-const InboxRouter = express_1.default.Router();
+import { parseMessage } from '../utils/parsers';
+import { isAuth } from '../utils/middleware';
+import Inbox from '../models/inbox';
+import express from 'express';
+import mongoose from 'mongoose';
+const InboxRouter = express.Router();
 // gets all messages
-InboxRouter.get('/', middleware_1.isAuth, (_req, res) => {
-    inbox_1.default.find({}).then(result => res.send(result));
+InboxRouter.get('/', isAuth, (_req, res) => {
+    Inbox.find({}).then(result => res.send(result));
 });
 // add a new message
 InboxRouter.post('/', (req, res, next) => {
     try {
-        const message = (0, parsers_1.parseMessage)(req.body);
-        const newMessage = new inbox_1.default(message);
+        const message = parseMessage(req.body);
+        const newMessage = new Inbox(message);
         newMessage
             .save()
             .then((result) => {
@@ -31,9 +26,9 @@ InboxRouter.post('/', (req, res, next) => {
     }
 });
 // delete a single message based on id
-InboxRouter.delete('/:id', middleware_1.isAuth, (req, res, next) => {
-    const id = new mongoose_1.default.Types.ObjectId(req.params.id);
-    inbox_1.default.findByIdAndDelete({ _id: id })
+InboxRouter.delete('/:id', isAuth, (req, res, next) => {
+    const id = new mongoose.Types.ObjectId(req.params.id);
+    Inbox.findByIdAndDelete({ _id: id })
         .then((result) => {
         res.send(result);
     }).catch((e) => {
@@ -43,8 +38,8 @@ InboxRouter.delete('/:id', middleware_1.isAuth, (req, res, next) => {
     });
 });
 // delete all messages
-InboxRouter.delete('/', middleware_1.isAuth, (req, res, next) => {
-    inbox_1.default.deleteMany({})
+InboxRouter.delete('/', isAuth, (req, res, next) => {
+    Inbox.deleteMany({})
         .then(result => res.send(result))
         .catch((e) => {
         if (e instanceof Error) {
@@ -52,4 +47,4 @@ InboxRouter.delete('/', middleware_1.isAuth, (req, res, next) => {
         }
     });
 });
-exports.default = InboxRouter;
+export default InboxRouter;

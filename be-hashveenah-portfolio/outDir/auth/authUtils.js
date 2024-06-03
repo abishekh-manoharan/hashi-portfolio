@@ -1,45 +1,36 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.validationFunction = exports.customFields = exports.generateUser = exports.verifyPassword = void 0;
-const user_1 = __importDefault(require("../models/user"));
-const node_crypto_1 = __importDefault(require("node:crypto"));
+import User from '../models/user';
+import crypto from 'node:crypto';
 // import { ExistingUser, newUser } from '../types';
 // hashes the given password and compares is to the stored hashed value. returns true if matching, false otherwise.
 const verifyPassword = (password, hash, salt) => {
-    const genHash = node_crypto_1.default.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
+    const genHash = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
     return genHash === hash;
 };
-exports.verifyPassword = verifyPassword;
 // generates a salt and hashed version of the password, then stores into the db
 const generateUser = (username, password) => {
     // generate salt 
-    const salt = node_crypto_1.default.randomBytes(32).toString('hex');
+    const salt = crypto.randomBytes(32).toString('hex');
     // generate hash
-    const genHash = node_crypto_1.default.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
+    const genHash = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
     // save username, hash, salt
-    const newUser = new user_1.default({
+    const newUser = new User({
         username: username,
         hash: genHash,
         salt: salt
     });
-    newUser.save().then(user => {
+    newUser.save().then((user) => {
         if (!user) {
             throw new Error('unable to save user');
         }
     });
 };
-exports.generateUser = generateUser;
 const customFields = {
     usernameField: 'username',
     passwordField: 'password'
 };
-exports.customFields = customFields;
 const validationFunction = (username, password, done) => {
     try {
-        user_1.default.findOne({ username: username }).then((user) => {
+        User.findOne({ username: username }).then((user) => {
             if (!user) {
                 return done(null, false);
             } // case when user cannot be found
@@ -53,4 +44,4 @@ const validationFunction = (username, password, done) => {
         done(err);
     }
 };
-exports.validationFunction = validationFunction;
+export { verifyPassword, generateUser, customFields, validationFunction };

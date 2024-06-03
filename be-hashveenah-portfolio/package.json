@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.ts",
+    "start": "cross-env NODE_ENV=production node outDir/index.cjs",
     "dev": "cross-env NODE_ENV=development tsx index.ts",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "lint": "eslint --ext .ts .",

@@ -1,6 +1,7 @@
+
 import User from '../models/user';
 import crypto from 'node:crypto';
-import { doneType } from '../types';
+import { ExistingUser, doneType, userType } from '../types';
 // import { ExistingUser, newUser } from '../types';
 
 // hashes the given password and compares is to the stored hashed value. returns true if matching, false otherwise.
@@ -24,7 +25,7 @@ const generateUser = (username: string, password: string) => {
         salt: salt
     });
 
-    newUser.save().then(user => {
+    newUser.save().then((user) => {
         if (!user) {
             throw new Error('unable to save user')
         }

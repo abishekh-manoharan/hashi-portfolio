@@ -1,47 +1,42 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const express_session_1 = __importDefault(require("express-session"));
-const connect_mongo_1 = __importDefault(require("connect-mongo"));
-const passport_1 = __importDefault(require("passport"));
-const entry_1 = __importDefault(require("./routes/entry"));
-const auth_1 = __importDefault(require("./routes/auth"));
-const user_1 = __importDefault(require("./routes/user"));
-const inbox_1 = __importDefault(require("./routes/inbox"));
-const cors_1 = __importDefault(require("cors"));
-const dotenv_1 = __importDefault(require("dotenv"));
-const mongoose_1 = __importDefault(require("mongoose"));
-const passport_local_1 = __importDefault(require("passport-local"));
-const authUtils_1 = require("./auth/authUtils");
-const user_2 = __importDefault(require("./models/user"));
-const middleware_1 = require("./utils/middleware");
-const app = (0, express_1.default)();
+import express from 'express';
+import sessions from 'express-session';
+import mongoStore from 'connect-mongo';
+import passport from 'passport';
+import EntryRouter from './routes/entry';
+import AuthRouter from './routes/auth';
+import UserRouter from './routes/user';
+import InboxRouter from './routes/inbox';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import passportLocal from 'passport-local';
+import { validationFunction, customFields } from './auth/authUtils';
+import User from './models/user';
+import { errorHandler } from './utils/middleware';
+const app = express();
 // initislize env variables
-dotenv_1.default.config();
+dotenv.config();
 // connecting to mongodb
 if (typeof (process.env.MONGO_URL) === 'string') {
-    mongoose_1.default.connect(process.env.MONGO_URL)
+    mongoose.connect(process.env.MONGO_URL)
         .then(() => { console.log('connected to mongodb'); });
 }
 console.log('process.env.FE_URL');
 console.log(process.env.FE_URL);
-app.use(express_1.default.static('dist'));
-app.use(express_1.default.json());
-app.use(express_1.default.urlencoded({ extended: true }));
-app.use((0, cors_1.default)({
+app.use(express.static('dist'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors({
     origin: 'http://localhost:5173',
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "PATCH", "DELETE"],
     credentials: true,
 }));
 //setting up session
-const store = connect_mongo_1.default.create({
+const store = mongoStore.create({
     mongoUrl: process.env.MONGO_URL,
     collectionName: 'session'
 });
-const session = (0, express_session_1.default)({
+const session = sessions({
     secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: false,
@@ -54,29 +49,29 @@ const session = (0, express_session_1.default)({
 });
 app.use(session);
 // setting up passport
-const LocalStrategy = passport_local_1.default.Strategy;
-const localStrategy = new LocalStrategy(authUtils_1.customFields, authUtils_1.validationFunction);
-passport_1.default.use(localStrategy);
-passport_1.default.serializeUser((user, done) => {
+const LocalStrategy = passportLocal.Strategy;
+const localStrategy = new LocalStrategy(customFields, validationFunction);
+passport.use(localStrategy);
+passport.serializeUser((user, done) => {
     done(null, user.id);
 });
-passport_1.default.deserializeUser((user_id, done) => {
-    user_2.default.findById(user_id)
+passport.deserializeUser((user_id, done) => {
+    User.findById(user_id)
         .then((user) => {
         done(null, user);
     })
         .catch((err) => done(err));
 });
-app.use(passport_1.default.initialize());
-app.use(passport_1.default.session());
+app.use(passport.initialize());
+app.use(passport.session());
 // routes
-app.use('/entry', entry_1.default);
-app.use('/auth', auth_1.default);
-app.use('/user', user_1.default);
-app.use('/inbox', inbox_1.default);
+app.use('/entry', EntryRouter);
+app.use('/auth', AuthRouter);
+app.use('/user', UserRouter);
+app.use('/inbox', InboxRouter);
 app.get('/', (req, res) => {
     res.send('hello world!');
 });
-app.use(middleware_1.errorHandler);
+app.use(errorHandler);
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

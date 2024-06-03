@@ -1,10 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = __importDefault(require("mongoose"));
-const entrySchema = new mongoose_1.default.Schema({
+import mongoose from 'mongoose';
+const entrySchema = new mongoose.Schema({
     id: String,
     imgSrc: [{ type: String }],
     name: { type: String, required: true },
@@ -19,5 +14,5 @@ entrySchema.set('toJSON', {
         delete returnedObject.__v;
     }
 });
-const Entry = mongoose_1.default.model('ProjectEntry', entrySchema);
-exports.default = Entry;
+const Entry = mongoose.model('ProjectEntry', entrySchema);
+export default Entry;
