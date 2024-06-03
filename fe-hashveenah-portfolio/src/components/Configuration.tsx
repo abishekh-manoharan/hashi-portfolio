@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../utils/context';
+import { useNavigate } from 'react-router-dom';
 import userService from '../services/user';
 import entryService from '../services/entry';
 import Collection from './Collections/ Collection';
@@ -17,7 +18,7 @@ function Configuration(props: configurationProps) {
     const [art, setArt] = useState('art');
     const [entries, setEntries] = useState<ProjectEntryWithImageKey[]>([]);
     const entriedToBeDeleted = useRef([]);
-    // const nav = useNavigate();
+    const nav = useNavigate();
 
     const auth = useContext(AuthContext); // used to determine if user is authorized for cutomization page
 
@@ -119,6 +120,10 @@ function Configuration(props: configurationProps) {
                 return;
             }
         });
+
+        setTimeout(() => {
+            nav('/home');
+        }, 500)
     }
 
 
