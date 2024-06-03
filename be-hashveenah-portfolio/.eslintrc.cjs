@@ -31,6 +31,5 @@ module.exports = {
         "react"
     ],
     "rules": {
-    },
-    "ignores": ["**/.outDir/*", "**/.dist/*", "**/.node_modules/*"]
+    }
 }
