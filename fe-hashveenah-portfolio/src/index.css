@@ -266,6 +266,10 @@ hr {
     opacity: 50%;
 }
 
+.projects-list .artist-statement {
+    padding: 10px;
+}
+
 /* projects swiper */
 .swiper-image {
     object-fit: contain;

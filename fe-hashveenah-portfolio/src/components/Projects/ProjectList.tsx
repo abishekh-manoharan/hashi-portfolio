@@ -11,14 +11,14 @@ interface projectProps {
 
 
 function ProjectList(props: projectProps) {
-    const [projects, setProjects] = useState<ProjectEntry[]>([]);    
+    const [projects, setProjects] = useState<ProjectEntry[]>([]);
     const [artistStatement, setArtistStatement] = useState('');
 
     // updating location for header
     useEffect(() => {
         props.setLocation('Selected Works')
     }, [props]);
-    
+
     // getting project entries
     useEffect(() => {
         console.log('getting projects UE firing')
@@ -26,7 +26,7 @@ function ProjectList(props: projectProps) {
             .then((res) => {
                 console.log(res)
                 setProjects(res as ProjectEntry[])
-            })        
+            })
     }, []);
     useEffect(() => {
         userService.getUser().then(res => {
@@ -37,8 +37,8 @@ function ProjectList(props: projectProps) {
     return (
         <div className="projects-list">
             <div className="artist-statement">
-            <p className="home-info-title">Artist's Statement</p>
-                    <p className="home-info-content">{artistStatement}</p>
+                <p className="home-info-title">Artist's Statement</p>
+                <p className="home-info-content">{artistStatement}</p>
             </div>
             <br />
             {
