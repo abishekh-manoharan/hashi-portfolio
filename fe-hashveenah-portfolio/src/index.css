@@ -129,8 +129,8 @@ hr {
     text-align: center;
     font-weight: 500;
     font-size: 1.5rem;
-    font-family: Palatino;
     font-family: Optima;
+    margin-bottom: -15px;
 }
 
 .profilePic {
@@ -139,6 +139,7 @@ hr {
     margin: auto;
     object-fit: cover;
     object-position: 50% 45%;
+    margin-bottom: -20px;
 }
 
 .home-info {
@@ -335,7 +336,6 @@ swiper-container.thumbSwiper {
     position: relative;
     /* padding: 0 20vw; */
     font-size: 1vw;
-    line-height: 5vw;
 }
 
 .about-me-container-title {
@@ -776,6 +776,10 @@ swiper-container.thumbSwiper {
     /* font-family: Apple Chancery, cursive; */
 }
 
+.contact-header-subtext {
+    display: none;
+}
+
 .contact-img-desktop {
     display: none;
 }
@@ -1101,9 +1105,8 @@ swiper-container.thumbSwiper {
     .about-me-container {
         display: flex;
         justify-content: center;
-        line-height: 2.2vw;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         padding: 0px;
     }
 
@@ -1238,6 +1241,7 @@ swiper-container.thumbSwiper {
         padding-left: 20px;
         grid-area: form;
         position: relative;
+        margin-top: 20vh;
         /* bottom: 12vh; */
     }
 
@@ -1289,16 +1293,29 @@ swiper-container.thumbSwiper {
     }
 
     .contact-header {
-        /* grid-area: header; */
-        width: 50%;
-        margin-bottom: 5px;
-        background-color: #00000000;
-
+        position: static;
+        transform: translateX(3%);
+        width: 100%;
+        background-color: white;
+        display: block;
     }
 
     .contact-header-text {
-        font-size: 4vh;
+        position: relative;
+        top: -70px;
+        font-size: 2rem;
+        text-align: start;
     }
+
+    .contact-header-subtext {
+        display: block;
+        position: relative;
+        top: -90px;
+        font-size: 1rem;
+        text-align: start;
+        font-weight: 200;
+    }
+    
 
     .contact-info-entry {
         justify-content: center;
@@ -1309,4 +1326,5 @@ swiper-container.thumbSwiper {
         display: block;
         width: 4vw;
     }
+
 }

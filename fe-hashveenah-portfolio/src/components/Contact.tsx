@@ -85,11 +85,13 @@ function Contact(props: contactProps) {
                 </div>
 
             </div>
-            <img src="/public/images/vine.png" className="vineArt" alt="" />
             <form className="contact-form">
                 <div className="contact-header">
                     <p className="contact-header-text">
                         Get in touch
+                    </p>
+                    <p className="contact-header-subtext">
+                        Leave me a message and i'll get back to you through the email you provide!
                     </p>
                 </div>
                 <input className="form-input" value={name} onChange={(e) => { setName(e.target.value) }} type='text' name='name' placeholder='Full Name' required /> <br />
