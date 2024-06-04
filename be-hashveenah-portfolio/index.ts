@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
     cors({
-        origin: 'http://localhost:5173',
+        origin: ['http://localhost:5173', process.env.FE_URL as string],
         methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "PATCH", "DELETE"],
         credentials: true,
     })
