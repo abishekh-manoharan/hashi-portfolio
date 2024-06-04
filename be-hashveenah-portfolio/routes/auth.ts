@@ -1,7 +1,7 @@
 import express from 'express';
 import passport from 'passport';
-import { generateUser } from '../auth/authUtils';
-import { parseNewUser } from '../utils/parsers';
+import { generateUser } from '../auth/authUtils.js';
+import { parseNewUser } from '../utils/parsers.js';
 
 const AuthRouter = express.Router();
 

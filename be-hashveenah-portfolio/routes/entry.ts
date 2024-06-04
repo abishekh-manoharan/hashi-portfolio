@@ -1,7 +1,7 @@
 import express from 'express';
-import Entry from '../models/entry';
-import { parseNewProjectEntry } from '../utils/parsers';
-import { isAuth } from '../utils/middleware';
+import Entry from '../models/entry.js';
+import { parseNewProjectEntry } from '../utils/parsers.js';
+import { isAuth } from '../utils/middleware.js';
 
 const EntryRouter = express.Router();
 

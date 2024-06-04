@@ -1,7 +1,7 @@
 import { Router } from "express";
-import User from '../models/user';
-import { ExistingUser, userType } from "../types";
-import { isAuth } from "../utils/middleware";
+import User from '../models/user.js';
+import { ExistingUser, userType } from "../types.js";
+import { isAuth } from "../utils/middleware.js";
 
 const UserRouter = Router();
 

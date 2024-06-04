@@ -2,18 +2,18 @@ import express from 'express';
 import sessions from 'express-session';
 import mongoStore from 'connect-mongo';
 import passport from 'passport';
-import EntryRouter from './routes/entry';
-import AuthRouter from './routes/auth';
-import UserRouter from './routes/user';
-import InboxRouter from './routes/inbox';
+import EntryRouter from './routes/entry.js';
+import AuthRouter from './routes/auth.js';
+import UserRouter from './routes/user.js';
+import InboxRouter from './routes/inbox.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import passportLocal from 'passport-local';
-import { validationFunction, customFields } from './auth/authUtils';
-import User from './models/user';
-import { userType } from './types';
-import { errorHandler } from './utils/middleware';
+import { validationFunction, customFields } from './auth/authUtils.js';
+import User from './models/user.js';
+import { userType } from './types.js';
+import { errorHandler } from './utils/middleware.js';
 
 
 const app = express();

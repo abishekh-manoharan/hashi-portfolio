@@ -1,6 +1,6 @@
-import { parseMessage } from '../utils/parsers';
-import { isAuth } from '../utils/middleware';
-import Inbox from '../models/inbox';
+import { parseMessage } from '../utils/parsers.js';
+import { isAuth } from '../utils/middleware.js';
+import Inbox from '../models/inbox.js';
 import express from 'express';
 import mongoose from 'mongoose';
 

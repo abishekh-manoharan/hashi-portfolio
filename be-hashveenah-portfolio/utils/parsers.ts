@@ -1,4 +1,4 @@
-import { NewProjectEntry, newUser, Message } from "../types";
+import { NewProjectEntry, newUser, Message } from "../types.js";
 
 // parse the req.body of the post request to add a new project entry
 // return body as a NewProjectEntry type if it exists and if all necessary values are present
