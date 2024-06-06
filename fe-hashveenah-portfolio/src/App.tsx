@@ -26,14 +26,6 @@ function App() {
       setAuth(res);
     })
   }, []);
-  
-  console.log('VITE_BE_URL');
-  console.log(import.meta.env.VITE_BE_URL);
-  console.log('VITE_FE_URL');
-  console.log(import.meta.env.VITE_FE_URL);
-  console.log('MONGO_URL');
-  console.log(process.env.MONGO_URL);
-
 
   return (
     <>

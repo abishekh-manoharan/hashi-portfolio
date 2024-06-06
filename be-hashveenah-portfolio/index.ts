@@ -52,7 +52,7 @@ const session = sessions({
     cookie: {
         sameSite: false,
         httpOnly: true,
-        maxAge: 1000 * 60 * 20 // 20 min
+        maxAge: 1000 * 60 * 60 * 24 * 30 // 30 days
     }
 })
 
@@ -88,7 +88,10 @@ app.use('/inbox', InboxRouter);
 app.get('/', (req, res) => {
     res.send('hello world!')
 })
-
+// handle all other requests to redirect to the home page
+app.all('*', (req,res) => {
+    if(process.env.FE_URL) res.redirect(process.env.FE_URL);
+})
 app.use(errorHandler)
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
