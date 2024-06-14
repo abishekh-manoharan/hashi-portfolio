@@ -1,4 +1,20 @@
-import { NewProjectEntry, newUser, Message } from "../types.js";
+import { NewProjectEntry, newUser, Message, Link } from "../types.js";
+
+
+export const parseLink = (body: unknown): Link => {
+    if(body && isLink(body)) {
+        return body;
+    }
+    throw new Error('invalid link entry. Ensure all properties exist.')
+}
+
+const isLink = (body: unknown): body is Link => {
+    if(!body || typeof(body) !== 'object') {
+        throw new Error('incorrect or missing data');
+    }
+
+    return '_id' in body && 'link' in body && 'name' in body && 'description' in body;
+}
 
 // parse the req.body of the post request to add a new project entry
 // return body as a NewProjectEntry type if it exists and if all necessary values are present

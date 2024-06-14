@@ -24,6 +24,17 @@ export interface ProjectEntry {
 export type NewProjectEntry = Omit<ProjectEntry, 'id'>
 
 
+// type for link
+export interface Link {
+    _id: String,
+    link: String,
+    name: String,
+    description: String
+};
+
+// type for new links
+export type NewLink = Omit<Link, '_id'>
+
 
 // type for existing user
 export interface ExistingUser {
