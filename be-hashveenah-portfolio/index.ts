@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
     cors({
-        origin: ['http://localhost:5173', process.env.FE_URL as string, 'https://hashveenah.com', 'https://www.hashveenah.com'],
+        origin: ['http://localhost:5173', process.env.FE_URL as string, 'https://hashveenah.com', 'https://www.hashveenah.com', 'https://hashi-portfolio.onrender.com'],
         methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "PATCH", "DELETE"],
         credentials: true,
     })
