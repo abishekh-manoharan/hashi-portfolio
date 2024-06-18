@@ -14,6 +14,7 @@ import { validationFunction, customFields } from './auth/authUtils.js';
 import User from './models/user.js';
 import { userType } from './types.js';
 import { errorHandler } from './utils/middleware.js';
+import LinkRouter from './routes/link.js';
 
 
 const app = express();
@@ -85,6 +86,7 @@ app.use('/entry', EntryRouter);
 app.use('/auth', AuthRouter);
 app.use('/user', UserRouter);
 app.use('/inbox', InboxRouter);
+app.use('/link', LinkRouter);
 app.get('/', (req, res) => {
     res.send('hello world!')
 })

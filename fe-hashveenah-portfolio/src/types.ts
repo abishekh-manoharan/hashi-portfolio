@@ -42,3 +42,14 @@ export interface Message {
 }
 
 export type newMessage = Omit<Message, '_id'>
+
+// type for link
+export interface Link {
+    _id: string,
+    link: string,
+    name: string,
+    description: string
+}
+
+// type for new links
+export type NewLink = Omit<Link, '_id'>
