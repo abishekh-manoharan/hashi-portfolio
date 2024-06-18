@@ -1,3 +1,15 @@
+export const parseLink = (body) => {
+    if (body && isLink(body)) {
+        return body;
+    }
+    throw new Error('invalid link entry. Ensure all properties exist.');
+};
+const isLink = (body) => {
+    if (!body || typeof (body) !== 'object') {
+        throw new Error('incorrect or missing data');
+    }
+    return '_id' in body && 'link' in body && 'name' in body && 'description' in body;
+};
 // parse the req.body of the post request to add a new project entry
 // return body as a NewProjectEntry type if it exists and if all necessary values are present
 // throws error otherwise

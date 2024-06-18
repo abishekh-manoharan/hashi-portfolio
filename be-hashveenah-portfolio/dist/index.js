@@ -13,6 +13,7 @@ import passportLocal from 'passport-local';
 import { validationFunction, customFields } from './auth/authUtils.js';
 import User from './models/user.js';
 import { errorHandler } from './utils/middleware.js';
+import LinkRouter from './routes/link.js';
 const app = express();
 // initislize env variables
 dotenv.config();
@@ -27,7 +28,7 @@ app.use(express.static('fe-dist'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', process.env.FE_URL, 'https://hashveenah.com', 'https://www.hashveenah.com'],
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "PATCH", "DELETE"],
     credentials: true,
 }));
@@ -44,7 +45,7 @@ const session = sessions({
     cookie: {
         sameSite: false,
         httpOnly: true,
-        maxAge: 1000 * 60 * 20 // 20 min
+        maxAge: 1000 * 60 * 60 * 24 * 30 // 30 days
     }
 });
 app.use(session);
@@ -69,8 +70,14 @@ app.use('/entry', EntryRouter);
 app.use('/auth', AuthRouter);
 app.use('/user', UserRouter);
 app.use('/inbox', InboxRouter);
+app.use('/link', LinkRouter);
 app.get('/', (req, res) => {
     res.send('hello world!');
+});
+// handle all other requests to redirect to the home page
+app.all('*', (req, res) => {
+    if (process.env.FE_URL)
+        res.redirect(process.env.FE_URL);
 });
 app.use(errorHandler);
 const PORT = process.env.PORT;
