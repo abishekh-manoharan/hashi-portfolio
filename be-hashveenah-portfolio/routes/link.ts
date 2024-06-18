@@ -13,7 +13,7 @@ LinkRouter.get('/', (_req, res, next) => {
 
 // adding a new link
 // LinkRouter.post('/', isAuth, (req, res, next) => {
-LinkRouter.post('/', (req, res, next) => {
+LinkRouter.post('/', isAuth, (req, res, next) => {
     try {
         const link = parseLink(req.body);
         const newLink = new Link(link);
@@ -27,7 +27,7 @@ LinkRouter.post('/', (req, res, next) => {
     }
 })
 
-LinkRouter.delete('/:id', (req, res, next) => {
+LinkRouter.delete('/:id', isAuth, (req, res, next) => {
     console.log('delete link running');
     const id = new mongoose.Types.ObjectId(req.params.id);
 
@@ -36,7 +36,7 @@ LinkRouter.delete('/:id', (req, res, next) => {
         .catch(e => next(e))
 })
 
-LinkRouter.patch('/', (req, res, next) => {
+LinkRouter.patch('/', isAuth, (req, res, next) => {
     console.log('patch link running');
     const link = parseLink(req.body);
 

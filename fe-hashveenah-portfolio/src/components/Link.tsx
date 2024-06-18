@@ -18,7 +18,7 @@ function LinkComponent(props: LinkProps) {
         props.setLinks((prev) => {
             return prev.map(prevLink => prevLink._id === props.link._id ? {_id: props.link._id, name: name, description: description, link: link} : prevLink);
         });
-    }, [name, description, link]);
+    }, [name, description, link, props]);
     
     // update master list to exclude the link with the _id associated with this component if the delete button is clicked
     const deleteLinkButtonClickHandler = (e: React.SyntheticEvent) => {
