@@ -4,7 +4,7 @@ import { Link } from '../types';
 const BE_URL = import.meta.env.VITE_BE_URL+'link/';
 const options = { withCredentials: true }; // allowing the passing of cookies for auth purposes
 
-const getAllLinks = () => axios.get(BE_URL, options).then(res => res.data);
+const getAllLinks = (): Promise<Link[]> => axios.get(BE_URL, options).then(res => res.data);
 
 const postLink = (link: Link) => axios.post(BE_URL, link, options).then(res => res.data);
 

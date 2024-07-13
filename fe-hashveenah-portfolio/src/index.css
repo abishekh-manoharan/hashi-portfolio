@@ -202,8 +202,25 @@ hr {
     color: rgba(0, 0, 0, 0.46);
 }
 
+.linksList {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    justify-content: center;
+    margin-top: 15px;
+}
 
+.linksList-Link .home-art-link{
+    font-size: .9rem;
+}   
 
+.linksList-Link-description {
+    margin: 7px 0px;
+    font-size: .8rem;
+    color: rgb(54, 63, 72);
+    font-weight: 10;
+    font-style: italic;
+}
 
 
 

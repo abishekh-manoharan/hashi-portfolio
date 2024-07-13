@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Link as LinkType } from "../types";
 import userService from '../services/user';
+import linkService from '../services/link';
 
 interface aboutProps {
     setLocation: Dispatch<SetStateAction<string>>;
@@ -8,6 +10,7 @@ interface aboutProps {
 
 function Home(props: aboutProps) {
     const [aboutMe, setAboutMe] = useState('');
+    const [links, setLinks] = useState<LinkType[]>([]);
 
     useEffect(() => {
         props.setLocation('Home');
@@ -18,7 +21,12 @@ function Home(props: aboutProps) {
         userService.getUser().then(res => {
             setAboutMe(res[0].about);
         })
+
+        linkService.getAllLinks().then(res => {
+            setLinks(res);
+        })
     }, [])
+
     return (
         <div className="home">
             <div className="name">HASHVEENAH MANOHARAN</div>
@@ -44,6 +52,24 @@ function Home(props: aboutProps) {
                 <div className="home-info-content" style={{ "textAlign": "center" }}>Directed by Matthew Viveen </div>
                 <iframe className="video-container-video" src="https://www.youtube.com/embed/UtuTZn0gPuI?si=_K6v2sk3l7LqxBZW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 {/* <hr className="about-me-hr-bottom" /> */}
+            </div>
+            <hr id="home-hr" />
+            <div className="links" style={{ "textAlign": "center" }}>
+                <div className="home-info-title" style={{ "textAlign": "center" }}> Featured Links</div>
+
+                <div className="linksList">
+                    {links.map((link) =>
+                        <>
+                            <div className="linksList-Link">
+                                <a className="home-art-link" href={link.link} target="_">{link.name}</a><br></br>
+                                <p className="linksList-Link-description">
+                                    {link.description}
+                                </p>
+                            </div>
+                        </>
+                    )}
+                </div>
+
             </div>
         </div>
     );
