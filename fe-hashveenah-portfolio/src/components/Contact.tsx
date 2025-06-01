@@ -94,7 +94,7 @@ function Contact(props: contactProps) {
                         Leave me a message and i'll get back to you through the email you provide!
                     </p>
                 </div>
-                <input className="form-input" value={name} onChange={(e) => { setName(e.target.value) }} type='text' name='name' placeholder='Full Name' required /> <br />
+                <input className="form-input" value={name} onChange={(e) => { setName(e.target.value) }} type='text' name='name' placeholder='Name' required /> <br />
                 <input className="form-input" value={email} onChange={(e) => { setEmail(e.target.value) }} type='email' name='email' placeholder='E-Mail' required /> <br />
                 <textarea className="form-input" value={message} onChange={(e) => { setMessage(e.target.value) }} name='message' rows={10} placeholder='Message.....' required /><br />
                 <button type="submit" onClick={submitContactMessageHandler} className="login-form-submit-btn config-add-new-collection-btn" >Send</button>
