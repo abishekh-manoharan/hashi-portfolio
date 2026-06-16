@@ -6,7 +6,7 @@ function Nav() {
             <div className="navbar">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
-                <NavLink to="/projects">Selected Works</NavLink>
+                <NavLink to="/projects">Selected Work</NavLink>
                 <NavLink to="/contact">Contact</NavLink>
             </div>
             <Outlet />
