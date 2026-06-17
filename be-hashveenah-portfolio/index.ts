@@ -15,7 +15,13 @@ import User from './models/user.js';
 import { userType } from './types.js';
 import { errorHandler } from './utils/middleware.js';
 import LinkRouter from './routes/link.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const feDistPath = path.join(__dirname, '../fe-dist');
 
 const app = express();
 
@@ -29,7 +35,7 @@ if (typeof (process.env.MONGO_URL) === 'string') {
 }
 console.log('process.env.FE_URL');
 console.log(process.env.FE_URL);
-app.use(express.static('fe-dist'))
+app.use(express.static(feDistPath));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -91,9 +97,13 @@ app.get('/', (req, res) => {
     res.send('hello world!')
 })
 // handle all other requests to redirect to the home page
-app.all('*', (req,res) => {
-    if(process.env.FE_URL) res.redirect(process.env.FE_URL);
-})
+// app.all('*', (req,res) => {
+//     // if(process.env.FE_URL) res.redirect(process.env.FE_URL);
+// })
+app.get('*', (req, res) => {
+    res.sendFile(path.join(feDistPath, 'index.html'));
+});
+
 app.use(errorHandler)
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
