@@ -31,7 +31,7 @@ dotenv.config();
 // connecting to mongodb
 if (typeof (process.env.MONGO_URL) === 'string') {
     mongoose.connect(process.env.MONGO_URL)
-        .then(() => { console.log('connected to mongodb') });
+        .then(() => { console.log('connected to mongodb.') });
 }
 console.log('process.env.FE_URL');
 console.log(process.env.FE_URL);
