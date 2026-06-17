@@ -39,7 +39,7 @@ function App() {
             <Route path="/" element=<Home setLocation={setLocation} /> />
             <Route path="/projects" element=<ProjectList setLocation={setLocation} /> />
             <Route path="/project/:id/:index/:length" element=<ProjectDetail /> />
-            <Route path="project/butterfruit" element=<Article setLocation={setLocation}/> />
+            <Route path="/project/butterfruit" element=<Article setLocation={setLocation}/> />
             <Route path="/contact" element=<Contact setLocation={setLocation} /> />
             <Route path='/login' element=<Login setLocation={setLocation} /> />
             <Route path='/inbox' element=<Inbox setLocation={setLocation} /> />
