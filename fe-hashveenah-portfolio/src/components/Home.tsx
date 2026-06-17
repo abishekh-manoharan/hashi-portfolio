@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Link as LinkType } from "../types";
-import userService from '../services/user';
+// import userService from '../services/user';
 import linkService from '../services/link';
 
 interface aboutProps {
@@ -9,18 +9,18 @@ interface aboutProps {
 }
 
 function Home(props: aboutProps) {
-    const [aboutMe, setAboutMe] = useState('');
+    // const [aboutMe, setAboutMe] = useState('');
     const [links, setLinks] = useState<LinkType[]>([]);
 
     useEffect(() => {
-        props.setLocation('Home');
+        props.setLocation('About');
     }, [props])
     // useEffect used to set the appropriate "About Me" and "My Art" text
 
     useEffect(() => {
-        userService.getUser().then(res => {
-            setAboutMe(res[0].about);
-        })
+        // userService.getUser().then(res => {
+        //     setAboutMe(res[0].about);
+        // })
 
         linkService.getAllLinks().then(res => {
             setLinks(res);
@@ -31,13 +31,13 @@ function Home(props: aboutProps) {
         <div className="home">
             <div className="name">HASHVEENAH MANOHARAN</div>
             <img className="profilePic" src="./images/profile.jpg" />
-            <div className="home-info">
+            {/* <div className="home-info">
                 <div className="home-info-sub">
                     <p className="home-info-title">Bio</p>
                     <p className="home-info-content">{aboutMe}</p>
                 </div>
 
-            </div>
+            </div> */}
             <hr id="home-hr" />
             <div className="home-img-gallery">
                 <img className="home-img-gallery-pic" src="./images/fox.jpg" />

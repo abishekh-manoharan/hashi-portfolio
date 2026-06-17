@@ -43,12 +43,12 @@ function Header(props: headerProps) {
             <div className="header-container">
                 <HeaderMenu menuOpen={props.menuOpen} setMenuOpen={props.setMenuOpen} />
                 <div className="header-content">
-                    <img className="header-menu-logo" src="./images/menu.svg" onClick={() => { props.setMenuOpen(!props.menuOpen) }} />
+                    <img className="header-menu-logo" src="/images/menu.svg" onClick={() => { props.setMenuOpen(!props.menuOpen) }} />
                     <div className="header-name"><NavLink to='/'>Hashveenah Manoharan</NavLink></div>
                     <div className="header-page-title">{props.location}</div>
                     <div className="header-nav">
                         {/* <NavLink className="header-NavLink" to='/'>HOME</NavLink> */}
-                        <NavLink className="header-NavLink" to='/' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Home</NavLink>
+                        <NavLink className="header-NavLink" to='/' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>About</NavLink>
                         <NavLink className="header-NavLink" to='projects' style={({isActive})=> isActive ? navLinkActiveStyle : {}}>Selected Works</NavLink>
                         { auth.auth ? <NavLink to="inbox" style={({isActive}) => isActive ?  navLinkActiveStyle : {}}>Inbox</NavLink> : <NavLink className="header-NavLink" to='contact' style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Contact</NavLink> } 
                         { auth.auth ? <NavLink className="header-NavLink" to="/configuration" style={({isActive})=>isActive ? navLinkActiveStyle : {}}>Configuration</NavLink> : <></> }

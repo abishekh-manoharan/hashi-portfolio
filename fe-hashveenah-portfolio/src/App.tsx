@@ -13,6 +13,7 @@ import { AuthContext } from "./utils/context";
 import AuthService from "./services/auth";
 import Inbox from "./components/Inbox/Inbox";
 import Home from "./components/Home";
+import Article from "./components/Projects/ButterfruitProject/Article";
 
 function App() {
   register();
@@ -38,6 +39,7 @@ function App() {
             <Route path="/" element=<Home setLocation={setLocation} /> />
             <Route path="/projects" element=<ProjectList setLocation={setLocation} /> />
             <Route path="/project/:id/:index/:length" element=<ProjectDetail /> />
+            <Route path="project/butterfruit" element=<Article setLocation={setLocation}/> />
             <Route path="/contact" element=<Contact setLocation={setLocation} /> />
             <Route path='/login' element=<Login setLocation={setLocation} /> />
             <Route path='/inbox' element=<Inbox setLocation={setLocation} /> />

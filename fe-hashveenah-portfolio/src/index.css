@@ -210,9 +210,9 @@ hr {
     margin-top: 15px;
 }
 
-.linksList-Link .home-art-link{
+.linksList-Link .home-art-link {
     font-size: .9rem;
-}   
+}
 
 .linksList-Link-description {
     margin: 7px 0px;
@@ -339,6 +339,7 @@ swiper-container.thumbSwiper {
     position: relative;
     margin-top: 18vw;
 }
+
 /* 
 .profilePic {
     position: relative;
@@ -1039,9 +1040,8 @@ swiper-container.thumbSwiper {
     .project-info-desktop {
         width: 98%;
         margin: 13px 0px;
-        padding: 7px 10px;
-        /* background: rgba(234, 236, 204, 0.32); */
-        border-bottom: solid 0.16vh rgb(186 143 56)
+        padding: 22px 10px 0;
+        border-top: solid 0.16vh rgb(186 143 56);
     }
 
     .project-name,
@@ -1332,7 +1332,7 @@ swiper-container.thumbSwiper {
         text-align: start;
         font-weight: 200;
     }
-    
+
 
     .contact-info-entry {
         justify-content: center;
@@ -1345,7 +1345,8 @@ swiper-container.thumbSwiper {
     }
 
     .name {
-            display: block;
+        display: block;
+        cursor: default;
     }
 
 }
