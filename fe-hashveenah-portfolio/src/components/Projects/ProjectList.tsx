@@ -40,7 +40,6 @@ function ProjectList(props: projectProps) {
                 <p className="home-info-title">Artist's Statement</p>
                 <p className="home-info-content">{artistStatement}</p>
             </div>
-            <br />
             {
                 projects.map((proj, i) => {
                     return <Project key={proj.id} project={proj} index={i} length={data.length} />

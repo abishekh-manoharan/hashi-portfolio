@@ -9,8 +9,8 @@ interface projectProps {
 
 function Project(props: projectProps) {
     console.log('project ffffff')
-    console.log('project '+props.project.name)
-    console.log('project '+props.project.id)
+    console.log('project ' + props.project.name)
+    console.log('project ' + props.project.id)
     return (
         <div className="project-container">
             <div className="project">
@@ -35,7 +35,16 @@ function Project(props: projectProps) {
                     }
                 </swiper-container>
                 <div className="project-info">
-                    <div className="project-name">{props.project.name}</div>
+                    {/*  link to butterfruit project article if the project is the butterfruit project  */}
+                    {
+                        props.project.id === "6617fade6bfb1479f4e5373a"
+                            ? <Link to="/project/butterfruit" className="project-name"
+                                style={{
+                                    "textDecoration": "underline",
+                                }}>{props.project.name}</Link>
+                            :
+                            <div className="project-name">{props.project.name}</div>
+                    }
                     {props.project.date ? <div className="project-date">{props.project.date}</div> : <></>}
                     <div className="project-medium">{props.project.medium}</div>
                     {props.project.about ? <div className="project-about">{props.project.about}</div> : <></>}
@@ -47,16 +56,27 @@ function Project(props: projectProps) {
             </div>
             <div className="project-desktop">
                 <div className="project-info project-info-desktop">
-                    <div className="project-name">{props.project.name}</div>
+                    {/*  link to butterfruit project article if the project is the butterfruit project  */}
+                    {
+                        props.project.id === "6617fade6bfb1479f4e5373a"
+                            ? <Link to="/project/butterfruit" className="project-name"
+                                style={{
+                                    "textDecoration": "underline",
+                                }}>{props.project.name}</Link>
+                            :
+                            <div className="project-name">{props.project.name}</div>
+                    }
                     {props.project.date ? <div className="project-date">{props.project.date}</div> : <></>}
-                    <div className="project-medium">{props.project.medium}</div>
+                    <span className="project-medium">
+                        {props.project.medium}
+                    </span>
                 </div>
                 <div className="project-desktop-images">
                     {
                         props.project.imgSrc.map((img, index) => {
                             return (
                                 <Link key={img + props.project.id} to={`/project/${props.project.id}/${index}/${props.project.imgSrc.length}`}>
-                                    <img src={img} className="project-desktop-image" key={img + props.project.id}/>
+                                    <img src={img} className="project-desktop-image" key={img + props.project.id} />
                                 </Link>
                             );
                         })

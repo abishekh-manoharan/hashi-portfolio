@@ -156,7 +156,7 @@ hr {
 }
 
 .home-info-content {
-    margin-top: -5px;
+    margin-top: -10px;
     margin-bottom: -5px;
     font-size: .9rem;
     color: #000000a7;
@@ -287,6 +287,7 @@ hr {
 
 .projects-list .artist-statement {
     padding: 10px;
+    margin-top: -24px;
 }
 
 /* projects swiper */
@@ -1124,10 +1125,14 @@ swiper-container.thumbSwiper {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        align-items: center;
+        /* align-items: center; */
         justify-content: center;
         gap: 5px;
         margin-top: 10px;
+    }
+
+    .projects-list .artist-statement {
+        margin-bottom: -20px;
     }
 
     .project {
