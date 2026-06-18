@@ -12,7 +12,8 @@ function Article({ setLocation }: articleProps) {
     return (
         <div className="content-container">
             <div className="content">
-                <p>City of Toronto Clark Centre of the Arts Artist’s Residency - 2026 </p>
+                <p className="articleTitle">City of Toronto Clark Centre of the Arts <div style={{"fontSize": "1.3rem"}}> Artist’s Residency 2025 </div></p>
+                <hr/>
                 <p></p>
                 <p className="articleParagraph">Nestled into the Guild Park and Gardens in Scarborough, atop the bluffs and through
                     the eastern white pines, the City of Toronto’s Clark Centre for the Arts welcomes two artists annually
@@ -204,7 +205,7 @@ function Article({ setLocation }: articleProps) {
                     <p><img className="portraitImage" alt="" src="/images/butterfruitArticle/image20.png" /></p>
                     <p><img className="landscapeImage" alt="" src="/images/butterfruitArticle/image6.png" /></p>
                     <p></p>
-                    <p><img className="landscapeImage" alt="" src="/images/butterfruitArticle/image5.png" style={{"marginTop": "-12px;"}}/></p>
+                    <p><img className="landscapeImage" alt="" src="/images/butterfruitArticle/image5.png" style={{"marginTop": "-12px"}}/></p>
                 </div>
                 <p className="articleParagraph">Kolam designs often have botanical or ecological motifs, and are highly mathematical
                     patterns with complex grid formations and geometric shapes. In this way, kolam-making is similar to
