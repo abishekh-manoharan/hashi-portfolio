@@ -969,16 +969,43 @@ swiper-container.thumbSwiper {
 }
 
 .articleTitle {
-    padding: 0 19px;
+    padding: 12px 0px;
+    margin: 0px 20px;
     font-size: 1.7rem;
     font-weight: 500;
     text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
 .content hr {
     width: 94%;
     margin-top: -12px;
     margin-left: 19px;
+}
+
+.articleAcknowledgement {
+    margin-top: 4rem;
+    padding: 2rem;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.articleAcknowledgementLogo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1.5rem;
+}
+
+.articleAcknowledgement p {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.articleAcknowledgement a {
+    color: inherit;
+    font-weight: 600;
 }
 
 #message-hr {

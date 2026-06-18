@@ -12,8 +12,7 @@ function Article({ setLocation }: articleProps) {
     return (
         <div className="content-container">
             <div className="content">
-                <p className="articleTitle">City of Toronto Clark Centre of the Arts <div style={{"fontSize": "1.3rem"}}> Artist’s Residency 2025 </div></p>
-                <hr/>
+                <p className="articleTitle">City of Toronto Clark Centre of the Arts <div style={{ "fontSize": "1.3rem" }}> Artist’s Residency 2025 </div></p>
                 <p></p>
                 <p className="articleParagraph">Nestled into the Guild Park and Gardens in Scarborough, atop the bluffs and through
                     the eastern white pines, the City of Toronto’s Clark Centre for the Arts welcomes two artists annually
@@ -205,7 +204,7 @@ function Article({ setLocation }: articleProps) {
                     <p><img className="portraitImage" alt="" src="/images/butterfruitArticle/image20.png" /></p>
                     <p><img className="landscapeImage" alt="" src="/images/butterfruitArticle/image6.png" /></p>
                     <p></p>
-                    <p><img className="landscapeImage" alt="" src="/images/butterfruitArticle/image5.png" style={{"marginTop": "-12px"}}/></p>
+                    <p><img className="landscapeImage" alt="" src="/images/butterfruitArticle/image5.png" style={{ "marginTop": "-12px" }} /></p>
                 </div>
                 <p className="articleParagraph">Kolam designs often have botanical or ecological motifs, and are highly mathematical
                     patterns with complex grid formations and geometric shapes. In this way, kolam-making is similar to
@@ -230,6 +229,22 @@ function Article({ setLocation }: articleProps) {
                     another way of understanding plants and seeing their value through a different utility. </p>
                 <p></p>
                 <p></p>
+                <section className="articleAcknowledgement">
+                    <img
+                        src="https://canadacouncil.ca/-/media/Images/CCA/Design_Elements/Logos/new/CAC-lockup-EN-RGB-Black.svg?h=58&w=306&hash=5672669B22FD57F941286EC334C8DE51"
+                        alt="Canada Council for the Arts"
+                        className="articleAcknowledgementLogo"
+                    />
+
+                    <p>
+                        The Butterfruit Project could not have been completed without the
+                        generous support of the Canada Council for the Arts.
+                    </p>
+
+                    <a href="https://canadacouncil.ca" target="_">
+                        CanadaCouncil.ca
+                    </a>
+                </section>
             </div>
         </div>
     );
